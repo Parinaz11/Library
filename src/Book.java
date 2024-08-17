@@ -17,7 +17,6 @@ public class Book {
         this.available = available;
         this.pages = pages;
     }
-
     public Book(String title, String author) {
         id_counter++;
         this.id = id_counter;
