@@ -3,5 +3,4 @@ public class Main {
         System.out.println("--- Library ---");
         new Library();
     }
-
 }
