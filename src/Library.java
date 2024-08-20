@@ -27,8 +27,8 @@ public class Library {
             case 2:
                 showBookList();
                 break;
-            case 3:
-                showReserveStatus();
+//            case 3:
+//                showReserveStatus();
         }
     }
 
@@ -88,14 +88,15 @@ public class Library {
         displayBooks();
     }
 
-    public static void showReserveStatus() {
-        System.out.println("--- Reserve Status ---");
-    }
-
     public static List<Book> getBooks(){ return books; }
     public static List<Reservation> getReservations(){ return reservations; }
 
-    public static Book findBookById(int id) { return books.get(id); }
+    public static Book findBookById(int id) {
+        for(Book book: books) {
+            if (book.getId() == id) return book;
+        }
+        return null;
+    }
     public static Reservation findReservationById(int id) { return reservations.get(id); }
     public static void removeReservation(Reservation r) {
         //delete from the reservation list
@@ -103,6 +104,28 @@ public class Library {
     }
     public static void addReservation(Reservation r){
         reservations.add(r);
+    }
+
+    public static int findBookIdByName(String name) {
+        for (Book book : books) {
+            if (book.getTitle().equals(name)) return book.getId();
+        }
+        return -1;
+    }
+    public static Reservation findReservationByName(String name) {
+        for (Reservation reservation: reservations) {
+            int bookID = reservation.getBookId();
+            String book_name = findBookNameFromID(bookID);
+            if (book_name != null && book_name.equals(name)) { return reservation}
+        }
+        return null;
+    }
+
+    public static String findBookNameFromID(int id) {
+        for (Book book: books) {
+            if (book.getId() == id) return book.getTitle();
+        }
+        return null;
     }
 
 }
