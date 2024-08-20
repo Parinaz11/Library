@@ -116,7 +116,7 @@ public class Library {
         for (Reservation reservation: reservations) {
             int bookID = reservation.getBookId();
             String book_name = findBookNameFromID(bookID);
-            if (book_name != null && book_name.equals(name)) { return reservation}
+            if (book_name != null && book_name.equals(name)) { return reservation;}
         }
         return null;
     }
