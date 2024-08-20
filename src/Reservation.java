@@ -28,10 +28,8 @@ public class Reservation {
         if (bookToReserve != null && bookToReserve.getAvailable()) {
             bookToReserve.setAvailable(false); // Mark the book as reserved
             Library.addReservation(new Reservation(bookId, user_id, "pending")); // Add reservation to the library's list
-            System.out.println("Reservation successful.");
             return true;
         } else if (bookToReserve != null && !bookToReserve.getAvailable()) {
-            System.out.println("Reservation failed. The book is reserved.");
             return false;
         }
         System.out.println("Book does not exist.");

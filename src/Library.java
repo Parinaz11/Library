@@ -15,21 +15,14 @@ public class Library {
         users = new ArrayList<>();
         reservations = new ArrayList<>();
         populateBooks(); // to add books to the list
+        populateUsers();
         displayBooks();
 
-        System.out.println("Enter your choice:\n1) Reserve a Book\n2) Book Lists\n3) Reserve Status");
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-        switch (choice) {
-            case 1:
-                reserveBook();
-                break;
-            case 2:
-                showBookList();
-                break;
-//            case 3:
-//                showReserveStatus();
-        }
+        boolean play_stat = true;
+        Scanner scan = new Scanner(System.in);
+        while (play_stat) play_stat = users.get(0).showMenu(scan);
+        scan.close();
+        System.out.println("Bye, come back soon. 😊");
     }
 
     // populate the ArrayList with 10 sample books

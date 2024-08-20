@@ -22,30 +22,68 @@ public class User extends Person {
         System.out.println("Role: " + getRole());
     }
 
+    public boolean showMenu(Scanner in) {
+        System.out.println("--- Menu ---\nEnter command number:" +
+                "\n1) Available Books to Reserve" +
+                "\n2) Reserve a Book" +
+                "\n3) My Pending Reservations" +
+                "\n4) Delete Reservation Request" +
+                "\n5) My Reserved Books");
+
+        int answer = in.nextInt();
+        in.nextLine();
+        runFuncForCommand(answer, in);
+        System.out.println("Do you wish to continue? (y/n)");
+        String answer2 = in.next();
+        return answer2.equalsIgnoreCase("y");
+    }
+
+    private void runFuncForCommand(int choice, Scanner in) {
+        switch (choice) {
+            case 1:
+                showAvailableBooks();
+                break;
+            case 2:
+                reservationRequest(in);
+                break;
+            case 3:
+                pendingReserveBooks();
+                break;
+            case 4:
+                deleteReserveRequest(in);
+                break;
+            case 5:
+                showReservedBooks();
+                break;
+            default:
+                System.out.println("Not a valid command.");
+        }
+    }
+
     public void showAvailableBooks() {
         System.out.println("--- Available Books ---");
         for (Book book : Library.getBooks()) {
             if (book.getAvailable()) {
-                System.out.println("ID: " + book.getId() + ", Title: " + book.getTitle() +
+                System.out.println("📘 ID: " + book.getId() + ", Title: " + book.getTitle() +
                         ", Author: " + book.getAuthor() + ", Pages: " + book.getPages());
             }
         }
     }
 
-    public void reservationRequest() {
+    public void reservationRequest(Scanner in) {
         System.out.println("--- Reservation Request ---");
-        String bookName = getBookNameFromUser();
+        String bookName = getBookNameFromUser(in);
         int bookId = Library.findBookIdByName(bookName);
         if (bookId == -1) {
-            System.out.println("Book not found.");
+            System.out.println("❌ Book not found.");
             return;
         }
         boolean reserve_status = Reservation.reserve(bookId, getId());
         if (reserve_status) {
-            System.out.println("Reservation successful.");
+            System.out.println("✅ Reservation request successful.");
             return;
         }
-        System.out.println("Reservation failed. The book might be already reserved.");
+        System.out.println("Reservation request failed. The book is reserved.");
     }
 
     public void pendingReserveBooks() {
@@ -53,9 +91,9 @@ public class User extends Person {
         showFilteredBooks("pending");
     }
 
-    public void deleteReserveRequest() {
+    public void deleteReserveRequest(Scanner in) {
         System.out.println("--- Delete Reservation Request ---");
-        String bookName = getBookNameFromUser();
+        String bookName = getBookNameFromUser(in);
         Reservation reservationToDelete = Library.findReservationByName(bookName);
         if (reservationToDelete != null && reservationToDelete.getUserId() == this.getId()) {
             Library.removeReservation(reservationToDelete); // Remove the reservation from the list
@@ -74,25 +112,27 @@ public class User extends Person {
 
     // to make the code less
     private void showFilteredBooks(String stat) {
+        boolean exists = false;
         for (Reservation reservation : Library.getReservations()) {
             if (reservation.getUserId() == this.getId() && reservation.getStatus().equals(stat)) {
                 Book reservedBook = Library.findBookById(reservation.getBookId());
                 if (reservedBook != null) {
-                    System.out.println("Reservation ID: " + reservation.getReservationId() +
+                    exists = true;
+                    System.out.println("🤝 Reservation ID: " + reservation.getReservationId() +
                             ", Book ID: " + reservedBook.getId() +
                             ", Title: " + reservedBook.getTitle());
                 }
             }
         }
+        if (!exists) {
+            System.out.println("* empty *");
+        }
     }
 
     // to get book name
-    public String getBookNameFromUser() {
+    public String getBookNameFromUser(Scanner in) {
         System.out.println("Enter book name: ");
-        Scanner scanner = new Scanner(System.in);
-        String bookName = scanner.nextLine();
-        scanner.close();
-        return bookName;
+        return in.nextLine();
     }
 }
 
