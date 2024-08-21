@@ -28,7 +28,7 @@ public class Admin extends User {
         System.out.println("Enter book author: ");
         String author = scanner.nextLine();
         Book newBook = new Book(title, author);
-        library.addBook(newBook);
+//        library.addBook(newBook);
     }
 
     // Method to remove a book by ID
@@ -36,6 +36,6 @@ public class Admin extends User {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter book ID to remove: ");
         int bookId = scanner.nextInt();
-        library.removeBook(bookId);
+//        library.removeBook(bookId);
     }
 }
