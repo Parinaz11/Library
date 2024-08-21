@@ -16,6 +16,7 @@ public class Library {
     public Library() {
         books = new ArrayList<>();
         users = new ArrayList<>();
+        reservations = new ArrayList<>();
         populateBooks(); // to add books to the list
         populateUsers();
         Scanner scanner = new Scanner(System.in);
@@ -33,7 +34,8 @@ public class Library {
                 case 2:
                     scanner.nextLine();
                     status = signUp();
-                    if (status) System.out.println("Ready to login.");;
+                    if (status) System.out.println("Ready to login.");
+                    ;
                     break;
                 case 3:
                     showBookList();
@@ -53,7 +55,7 @@ public class Library {
     private void loginUserOptions(Scanner scan) {
         boolean play_stat = true;
         int i = 0;
-        while (play_stat){
+        while (play_stat) {
             i++;
             if (i == 10) play_stat = false;
             System.out.println("Showing menu");
@@ -126,6 +128,21 @@ public class Library {
         return false;
     }
 
+    public static List<Book> getBooks() {
+        return books;
+    }
+
+    public static List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public static Book findBookById(int id) {
+        for (Book book : books) {
+            if (book.getId() == id) return book;
+        }
+        return null;
+    }
+
     private boolean signUp() {
         System.out.println("--- Sign-up ---\nEnter username: ");
         Scanner scanner = new Scanner(System.in);
@@ -171,6 +188,44 @@ public class Library {
         byte[] salt = new byte[16];
         random.nextBytes(salt);
         return salt;
+    }
+
+    public static Reservation findReservationById(int id) {
+        return reservations.get(id);
+    }
+
+    public static void removeReservation(Reservation r) {
+        //delete from the reservation list
+        reservations.remove(r);
+    }
+
+    public static void addReservation(Reservation r) {
+        reservations.add(r);
+    }
+
+    public static int findBookIdByName(String name) {
+        for (Book book : books) {
+            if (book.getTitle().equals(name)) return book.getId();
+        }
+        return -1;
+    }
+
+    public static Reservation findReservationByName(String name) {
+        for (Reservation reservation : reservations) {
+            int bookID = reservation.getBookId();
+            String book_name = findBookNameFromID(bookID);
+            if (book_name != null && book_name.equals(name)) {
+                return reservation;
+            }
+        }
+        return null;
+    }
+
+    public static String findBookNameFromID(int id) {
+        for (Book book : books) {
+            if (book.getId() == id) return book.getTitle();
+        }
+        return null;
     }
 
 }
