@@ -22,8 +22,8 @@ public class Book {
         this.id = id_counter;
         this.title = title;
         this.author = author;
-        this.available = true;
-        this.pages = rand.nextInt(2000) + 1;
+        setAvailable(true);
+        setPages(rand.nextInt(2000) + 1);
     }
 
     // getters and setters
