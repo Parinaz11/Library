@@ -4,21 +4,21 @@ public class Person {
     protected String first_name;
     protected String last_name;
     protected String email;
-    protected String password;
+    protected String username;
 
-    public Person(String first_name, String last_name, String email, String password) {
+    public Person(String username, String first_name, String last_name, String email) {
         this.id = ++id_counter;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
-        this.password = password;
+        this.username = username;
     }
     public Person() {
         this.id = ++id_counter;
         this.first_name = "Unknown";
         this.last_name = "Unknown";
         this.email = "Unknown";
-        this.password = "123";
+        this.username = "Unknown";
     }
 
     // Getters and Setters
@@ -42,8 +42,8 @@ public class Person {
     public String getEmail() {
         return email;
     }
-    public String getPassword() {
-        return password;
+    public String getUsername() {
+        return username;
     }
 }
 
