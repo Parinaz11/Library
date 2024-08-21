@@ -10,23 +10,20 @@ public class Manager extends User {
         this.role = "manager";
     }
 
-    public void approveReservation() {
+    public void approveReservation(Reservation reservation) {
+
         System.out.println("Approving reservation...");
+        reservation.setStatus("approved");
     }
 
-    public void showTheListOfAllBooks (List<Book>books) {
-        for (Book book : books ) {
-            System.out.println("ID: " + book.getId() + ", Title: " + book.getTitle() +
-                    ", Author: " + book.getAuthor() + ", Pages: " + book.getPages() +
-                    ", Available: " + (book.getAvailable() ? "Yes" : "No"));
+    public void rejectReservation(Reservation reservation) {
+        System.out.println("Rejecting reservation...");
+        reservation.setStatus("rejected");
+    }
+    public void viewBookReservation(List<Reservation>reservations) {
+        for (Reservation reservation : reservations) {
+            System.out.println(reservation);
         }
     }
 
-    public void addBookToList (List<Book>books, Book book) {
-        books.add(new Book(book.getTitle(), book.getAuthor(), book.getAvailable(), book.getPages()));
-    }
-
-    public void deleteBookFromList (List<Book>books, int idOfBookToDelete) {
-        books.remove(idOfBookToDelete);
-    }
 }
