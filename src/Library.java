@@ -84,8 +84,11 @@ public class Library {
     // populate the ArrayList with 10 sample users
     private void populateUsers() {
         // Create an Admin instance
-        Admin admin = new Admin("admin", "Jack", "Smith", "admin@example.com", "Dotin123");
+        Admin admin = new Admin("admin", "Jack", "Smith", "admin@gmail.com", "dotin123");
         users.add(admin);
+        // Create a Manager instance
+        Manager manager = new Manager("manager", "Jane", "Smith", "manager@gmail.com", "dotin123");
+        users.add(manager);
         users.add(new User("johnny", "John", "Doe", "john.doe@example.com", "password123"));
         users.add(new User("jane_smith", "Jane", "Smith", "jane.smith@example.com", "password456"));
         users.add(new User("alice_j", "Alice", "Johnson", "alice.johnson@example.com", "password789"));
