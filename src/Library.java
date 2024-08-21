@@ -75,6 +75,26 @@ public class Library {
         String bookName = scan.nextLine();
         System.out.println("Sorry, the book " + bookName + " is reserved.");
     }
+    public void addBook(Book book) {
+        books.add(book);
+        System.out.println("Book added: " + book.getTitle() + " by " + book.getAuthor());
+    }
+
+    public void removeBook(int bookId) {
+        Book bookToRemove = null;
+        for (Book book : books) {
+            if (book.getId() == bookId) {
+                bookToRemove = book;
+                break;
+            }
+        }
+        if (bookToRemove != null) {
+            books.remove(bookToRemove);
+            System.out.println("Book removed: " + bookToRemove.getTitle());
+        } else {
+            System.out.println("Book with ID " + bookId + " not found.");
+        }
+    }
 
     public static void showBookList() {
         System.out.println("--- Our Books ---");
