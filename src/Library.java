@@ -13,25 +13,19 @@ public class Library {
     public Library() {
         books = new ArrayList<>();
         users = new ArrayList<>();
+        reservations = new ArrayList<>();
         populateBooks(); // to add books to the list
+        populateUsers();
         displayBooks();
 
-        System.out.println("Enter your choice:\n1) Reserve a Book\n2) Book Lists\n3) Reserve Status");
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-        switch (choice) {
-            case 1:
-                reserveBook();
-                break;
-            case 2:
-                showBookList();
-                break;
-            case 3:
-                showReserveStatus();
-        }
+        boolean play_stat = true;
+        Scanner scan = new Scanner(System.in);
+        while (play_stat) play_stat = users.get(0).showMenu(scan);
+        scan.close();
+        System.out.println("Bye, come back soon. 😊");
     }
 
-    // Method to populate the ArrayList with 10 sample books
+    // populate the ArrayList with 10 sample books
     private void populateBooks() {
         books.add(new Book("To Kill a Mockingbird", "Harper Lee", true, 281));
         books.add(new Book("1984", "George Orwell", true, 328));
@@ -107,7 +101,44 @@ public class Library {
         displayBooks();
     }
 
-    public static void showReserveStatus() {
-        System.out.println("--- Reserve Status ---");
+    public static List<Book> getBooks(){ return books; }
+    public static List<Reservation> getReservations(){ return reservations; }
+
+    public static Book findBookById(int id) {
+        for(Book book: books) {
+            if (book.getId() == id) return book;
+        }
+        return null;
     }
+    public static Reservation findReservationById(int id) { return reservations.get(id); }
+    public static void removeReservation(Reservation r) {
+        //delete from the reservation list
+        reservations.remove(r);
+    }
+    public static void addReservation(Reservation r){
+        reservations.add(r);
+    }
+
+    public static int findBookIdByName(String name) {
+        for (Book book : books) {
+            if (book.getTitle().equals(name)) return book.getId();
+        }
+        return -1;
+    }
+    public static Reservation findReservationByName(String name) {
+        for (Reservation reservation: reservations) {
+            int bookID = reservation.getBookId();
+            String book_name = findBookNameFromID(bookID);
+            if (book_name != null && book_name.equals(name)) { return reservation;}
+        }
+        return null;
+    }
+
+    public static String findBookNameFromID(int id) {
+        for (Book book: books) {
+            if (book.getId() == id) return book.getTitle();
+        }
+        return null;
+    }
+
 }
