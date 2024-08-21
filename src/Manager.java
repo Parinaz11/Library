@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.Scanner;
 
 public class Manager extends User {
