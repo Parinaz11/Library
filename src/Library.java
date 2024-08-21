@@ -28,14 +28,13 @@ public class Library {
             switch (choice) {
                 case 1:
                     scanner.nextLine();
-                    status = login(scanner);
-                    if (status) loginUserOptions(scanner);
+                    User user = login(scanner);
+                    if (user != null) loginUserOptions(scanner, user);
                     break;
                 case 2:
                     scanner.nextLine();
                     status = signUp();
                     if (status) System.out.println("Ready to login.");
-                    ;
                     break;
                 case 3:
                     showBookList();
@@ -52,15 +51,10 @@ public class Library {
 
     }
 
-    private void loginUserOptions(Scanner scan) {
+    private void loginUserOptions(Scanner scan, User user) {
         boolean play_stat = true;
-        int i = 0;
         while (play_stat) {
-            i++;
-            if (i == 10) play_stat = false;
-            System.out.println("Showing menu");
-            // ! UNCOMMENT WHEN THE FIRST BRANCH IS MERGED
-//            play_stat = users.get(0).showMenu(scan);
+            play_stat = user.showMenu(scan);
         }
     }
 
@@ -79,6 +73,7 @@ public class Library {
     }
 
     public static void displayBooks() {
+        System.out.println("--- All Books ---");
         for (Book book : books) {
             System.out.println("▫️ID: " + book.getId() + ", Title: " + book.getTitle() +
                     ", Author: " + book.getAuthor() + ", Pages: " + book.getPages() +
@@ -88,6 +83,9 @@ public class Library {
 
     // populate the ArrayList with 10 sample users
     private void populateUsers() {
+        // Create an Admin instance
+        Admin admin = new Admin("admin", "Jack", "Smith", "admin@example.com", "Dotin123");
+        users.add(admin);
         users.add(new User("johnny", "John", "Doe", "john.doe@example.com", "password123"));
         users.add(new User("jane_smith", "Jane", "Smith", "jane.smith@example.com", "password456"));
         users.add(new User("alice_j", "Alice", "Johnson", "alice.johnson@example.com", "password789"));
@@ -107,12 +105,12 @@ public class Library {
         }
     }
 
-    public void addBook(Book book) {
+    public static void addBook(Book book) {
         books.add(book);
         System.out.println("Book added: " + book.getTitle() + " by " + book.getAuthor());
     }
 
-    public void removeBook(int bookId) {
+    public static void removeBook(int bookId) {
         Book bookToRemove = null;
         for (Book book : books) {
             if (book.getId() == bookId) {
@@ -134,7 +132,7 @@ public class Library {
     }
 
     // Authentication
-    private boolean login(Scanner scanner) {
+    private User login(Scanner scanner) {
         System.out.println("--- Login ---\nEnter username: ");
         String username = scanner.nextLine();
         System.out.println("Enter password: ");
@@ -142,11 +140,11 @@ public class Library {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.verifyPassword(password)) {
                 System.out.println(username + ", Welcome to the library! 🙂");
-                return true;
+                return user;
             }
         }
         System.out.println("❗ Authorization failed.");
-        return false;
+        return null;
     }
 
     public static List<Book> getBooks() {

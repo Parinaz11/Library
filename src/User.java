@@ -36,7 +36,7 @@ public class User extends Person {
         System.out.println("Role: " + getRole());
     }
 
-    public boolean showMenu(Scanner in) {
+    protected boolean showMenu(Scanner in) {
         System.out.println("--- Menu ---\nEnter command number:" +
                 "\n1) Available Books to Reserve" +
                 "\n2) Reserve a Book" +
@@ -52,7 +52,7 @@ public class User extends Person {
         return answer2.equalsIgnoreCase("y");
     }
 
-    private void runFuncForCommand(int choice, Scanner in) {
+    protected void runFuncForCommand(int choice, Scanner in) {
         switch (choice) {
             case 1:
                 showAvailableBooks();
@@ -176,5 +176,6 @@ public class User extends Person {
         System.out.println("Enter book name: ");
         return in.nextLine();
     }
+
 }
 
