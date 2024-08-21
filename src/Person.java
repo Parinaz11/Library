@@ -32,5 +32,18 @@ public class Person {
     public void displayInfo() {
         System.out.println("ID: " + id + ", Name: " + getName());
     }
+
+    public String getFirstName() {
+        return first_name;
+    }
+    public String getLastName() {
+        return last_name;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public String getPassword() {
+        return password;
+    }
 }
 
