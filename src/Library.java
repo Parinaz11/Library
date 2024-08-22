@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import java.security.MessageDigest;
@@ -7,20 +5,29 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+
 public class Library {
-    private static List<Book> books;
-    private static List<User> users;
-    private static List<Reservation> reservations;
 
-    // Initialize the ArrayList with sample books
-    public Library() {
-        books = new ArrayList<>();
-        users = new ArrayList<>();
-        reservations = new ArrayList<>();
-        populateBooks(); // to add books to the list
-        populateUsers();
+    private static MongoCollection<Document> booksCollection;
+    private static MongoCollection<Document> usersCollection;
+    private static MongoCollection<Document> reservationsCollection;
+
+    public Library(MongoCollection<Document> b, MongoCollection<Document> u, MongoCollection<Document> r) {
+        // Initialize collections
+        booksCollection = b;
+        usersCollection = u;
+        reservationsCollection = r;
+
+        // ------------------ Run once to populate ------------------
+//        populateBooks();
+//        populateUsers();
+        // ----------------------------------------------------------
+
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             System.out.println("Enter the number of your choice:\n1) Login\n2) Sign-up\n3) All Books\n4) Exit");
             int choice = scanner.nextInt();
@@ -35,6 +42,7 @@ public class Library {
                     scanner.nextLine();
                     status = signUp();
                     if (status) System.out.println("Ready to login.");
+                    ;
                     break;
                 case 3:
                     showBookList();
@@ -58,75 +66,166 @@ public class Library {
         }
     }
 
-    // Method to populate the ArrayList with 10 sample books
     private void populateBooks() {
-        books.add(new Book("To Kill a Mockingbird", "Harper Lee", true, 281));
-        books.add(new Book("1984", "George Orwell", true, 328));
-        books.add(new Book("The Great Gatsby", "F. Scott Fitzgerald", true, 180));
-        books.add(new Book("The Catcher in the Rye", "J.D. Salinger", true, 214));
-        books.add(new Book("Moby-Dick", "Herman Melville", true, 635));
-        books.add(new Book("Pride and Prejudice", "Jane Austen", true, 432));
-        books.add(new Book("War and Peace", "Leo Tolstoy", true, 1225));
-        books.add(new Book("The Lord of the Rings", "J.R.R. Tolkien", true, 1178));
-        books.add(new Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", true, 309));
-        books.add(new Book("The Hobbit", "J.R.R. Tolkien", true, 310));
+        Book book;
+
+        // Add "To Kill a Mockingbird" with bookId
+        book = new Book("To Kill a Mockingbird", "Harper Lee", true, 281);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
+
+        // Add "1984" with bookId
+        book = new Book("1984", "George Orwell", true, 328);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
+
+        // Add "The Great Gatsby" with bookId
+        book = new Book("The Great Gatsby", "F. Scott Fitzgerald", true, 180);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
+
+        // Add "The Catcher in the Rye" with bookId
+        book = new Book("The Catcher in the Rye", "J.D. Salinger", true, 214);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
+
+        // Add "Moby-Dick" with bookId
+        book = new Book("Moby-Dick", "Herman Melville", true, 635);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
+
+        // Add "Pride and Prejudice" with bookId
+        book = new Book("Pride and Prejudice", "Jane Austen", true, 432);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
+
+        // Add "War and Peace" with bookId
+        book = new Book("War and Peace", "Leo Tolstoy", true, 1225);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
+
+        // Add "The Lord of the Rings" with bookId
+        book = new Book("The Lord of the Rings", "J.R.R. Tolkien", true, 1178);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
+
+        // Add "Harry Potter and the Sorcerer's Stone" with bookId
+        book = new Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", true, 309);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
+
+        // Add "The Hobbit" with bookId
+        book = new Book("The Hobbit", "J.R.R. Tolkien", true, 310);
+        booksCollection.insertOne(new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages()));
     }
 
+
     public static void displayBooks() {
-        System.out.println("--- All Books ---");
-        for (Book book : books) {
-            System.out.println("▫️ID: " + book.getId() + ", Title: " + book.getTitle() +
-                    ", Author: " + book.getAuthor() + ", Pages: " + book.getPages() +
-                    ", Available: " + (book.getAvailable() ? "Yes" : "No"));
+        for (Document doc : booksCollection.find()) {
+            System.out.println("▫️ID: " + doc.getObjectId("_id") +
+                    ", Title: " + doc.getString("title") +
+                    ", Author: " + doc.getString("author") +
+                    ", Pages: " + doc.getInteger("pages") +
+                    ", Available: " + (doc.getBoolean("available") ? "Yes" : "No"));
         }
     }
 
-    // populate the ArrayList with 10 sample users
     private void populateUsers() {
-        // Create an Admin instance
-        Admin admin = new Admin("admin", "Jack", "Smith", "admin@gmail.com", "dotin123");
-        users.add(admin);
-        // Create a Manager instance
-        Manager manager = new Manager("manager", "Jane", "Smith", "manager@gmail.com", "dotin123");
-        users.add(manager);
-        users.add(new User("johnny", "John", "Doe", "john.doe@example.com", "password123"));
-        users.add(new User("jane_smith", "Jane", "Smith", "jane.smith@example.com", "password456"));
-        users.add(new User("alice_j", "Alice", "Johnson", "alice.johnson@example.com", "password789"));
-        users.add(new User("bob_b", "Bob", "Brown", "bob.brown@example.com", "password101"));
-        users.add(new User("charlie_d", "Charlie", "Davis", "charlie.davis@example.com", "password102"));
-        users.add(new User("diana_m", "Diana", "Miller", "diana.miller@example.com", "password103"));
-        users.add(new User("eve_w", "Eve", "Wilson", "eve.wilson@example.com", "password104"));
-        users.add(new User("frank_m", "Frank", "Moore", "frank.moore@example.com", "password105"));
-        users.add(new User("grace_t", "Grace", "Taylor", "grace.taylor@example.com", "password106"));
-        users.add(new User("henry_a", "Henry", "Anderson", "henry.anderson@example.com", "password107"));
+        User user;
+
+        // Add "admin" user with userId
+        user = new Admin("admin", "Jack", "Smith", "admin@gmail.com", "dotin123");
+        usersCollection.insertOne(new Document("userId", user.getId())
+                .append("username", user.getUsername())
+                .append("firstName", user.getFirstName())
+                .append("lastName", user.getLastName())
+                .append("email", user.getEmail())
+                .append("password", user.getHashedPassword())
+                .append("salt", user.getSalt())
+                .append("role", user.getRole()));
+
+        // Add other users with userId
+        addUser("johnny", "John", "Doe", "john.doe@example.com", "password123");
+        addUser("jane_smith", "Jane", "Smith", "jane.smith@example.com", "password456");
+        addUser("alice_j", "Alice", "Johnson", "alice.johnson@example.com", "password789");
+        addUser("bob_b", "Bob", "Brown", "bob.brown@example.com", "password101");
+        addUser("charlie_d", "Charlie", "Davis", "charlie.davis@example.com", "password102");
+        addUser("diana_m", "Diana", "Miller", "diana.miller@example.com", "password103");
+        addUser("eve_w", "Eve", "Wilson", "eve.wilson@example.com", "password104");
+        addUser("frank_m", "Frank", "Moore", "frank.moore@example.com", "password105");
+        addUser("grace_t", "Grace", "Taylor", "grace.taylor@example.com", "password106");
+        addUser("henry_a", "Henry", "Anderson", "henry.anderson@example.com", "password107");
     }
 
+    private void addUser(String username, String firstName, String lastName, String email, String password) {
+        User user = new User(username, firstName, lastName, email, password);
+        usersCollection.insertOne(new Document("userId", user.getId())
+                .append("username", user.getUsername())
+                .append("firstName", user.getFirstName())
+                .append("lastName", user.getLastName())
+                .append("email", user.getEmail())
+                .append("password", user.getHashedPassword())
+                .append("salt", user.getSalt())
+                .append("role", user.getRole()));
+    }
+
+
+
     public static void displayUsers() {
-        for (User user : users) {
-            System.out.println("👤 Name: " + user.getFirstName() + " " + user.getLastName() +
-                    ", Email: " + user.getEmail() + ", Role: " + user.getRole());
+        for (Document doc : usersCollection.find()) {
+            System.out.println("👤 Name: " + doc.getString("firstName") + " " +
+                    doc.getString("lastName") +
+                    ", Email: " + doc.getString("email") +
+                    ", Role: " + doc.getString("role"));
         }
     }
 
     public static void addBook(Book book) {
-        books.add(book);
+        Document newBook = new Document("bookId", book.getId())
+                .append("title", book.getTitle())
+                .append("author", book.getAuthor())
+                .append("available", book.getAvailable())
+                .append("pages", book.getPages());
+        booksCollection.insertOne(newBook);
         System.out.println("Book added: " + book.getTitle() + " by " + book.getAuthor());
     }
 
+
     public static void removeBook(int bookId) {
-        Book bookToRemove = null;
-        for (Book book : books) {
-            if (book.getId() == bookId) {
-                bookToRemove = book;
-                break;
-            }
-        }
-        if (bookToRemove != null) {
-            books.remove(bookToRemove);
-            System.out.println("Book removed: " + bookToRemove.getTitle());
-        } else {
-            System.out.println("Book with ID " + bookId + " not found.");
-        }
+        Document bookToRemove = booksCollection.findOneAndDelete(Filters.eq("bookId", bookId));
+        if (bookToRemove != null) System.out.println("☑️ Book removed: " + bookToRemove.getString("title"));
+         else System.out.println("❌ Book with ID " + bookId + " not found.");
     }
 
     public static void showBookList() {
@@ -140,34 +239,82 @@ public class Library {
         String username = scanner.nextLine();
         System.out.println("Enter password: ");
         String password = scanner.nextLine();
-        for (User user : users) {
-            if (user.getUsername().equals(username) && user.verifyPassword(password)) {
+
+        Document userDoc = usersCollection.find(Filters.eq("username", username)).first();
+
+        if (userDoc != null) {
+            String storedHashedPassword = userDoc.getString("password");
+            String saltBase64 = userDoc.getString("salt");
+
+            // Create a User object with the retrieved salt and hashed password
+            User user = new User();
+            if (userDoc.getString("role").equalsIgnoreCase("user")){
+                user = new User(
+                        userDoc.getInteger("userId"),
+                        userDoc.getString("username"),
+                        userDoc.getString("firstName"),
+                        userDoc.getString("lastName"),
+                        userDoc.getString("email"),
+                        storedHashedPassword,
+                        saltBase64
+                );
+            } else if (userDoc.getString("role").equalsIgnoreCase("admin")) {
+                user = new Admin(
+                        userDoc.getInteger("userId"),
+                        userDoc.getString("username"),
+                        userDoc.getString("firstName"),
+                        userDoc.getString("lastName"),
+                        userDoc.getString("email"),
+                        storedHashedPassword,
+                        saltBase64
+                );
+            } else if (userDoc.getString("role").equalsIgnoreCase("manager")) {
+                user = new Manager(
+                        userDoc.getInteger("userId"),
+                        userDoc.getString("username"),
+                        userDoc.getString("firstName"),
+                        userDoc.getString("lastName"),
+                        userDoc.getString("email"),
+                        storedHashedPassword,
+                        saltBase64
+                );
+            }
+
+
+            if (user.verifyPassword(password)) {
                 System.out.println(username + ", Welcome to the library! 🙂");
                 return user;
             }
         }
+
         System.out.println("❗ Authorization failed.");
         return null;
     }
 
-    public static List<Book> getBooks() {
-        return books;
+    public static MongoCollection<Document> getBooks() {
+        return booksCollection;
     }
 
-    public static List<Reservation> getReservations() {
-        return reservations;
+    public static MongoCollection<Document> getReservations() {
+        return reservationsCollection;
     }
 
     public static Book findBookById(int id) {
-        for (Book book : books) {
-            if (book.getId() == id) return book;
+        Document doc = booksCollection.find(Filters.eq("bookId", id)).first();
+        if (doc != null) {
+            return new Book(
+                    doc.getInteger("bookId"),
+                    doc.getString("title"),
+                    doc.getString("author")
+            );
         }
         return null;
     }
 
+
     private boolean signUp() {
-        System.out.println("--- Sign-up ---\nEnter username: ");
         Scanner scanner = new Scanner(System.in);
+        System.out.println("--- Sign-up ---\nEnter username: ");
         String username = scanner.nextLine();
         System.out.println("Enter first name: ");
         String firstName = scanner.nextLine();
@@ -179,17 +326,25 @@ public class Library {
         String password = scanner.nextLine();
         System.out.println("Confirm password: ");
         String confirmPassword = scanner.nextLine();
+
         if (!confirmPassword.equals(password)) {
             System.out.println("❗ Passwords didn't match. Sign-up failed.");
             return false;
         }
 
-        // hashing the password with salt
+        // Hashing the password with salt
         byte[] salt = generateSalt();
         String hashedPassword = hashPassword(password, salt);
 
-        User user = new User(username, firstName, lastName, email, hashedPassword, Base64.getEncoder().encodeToString(salt));
-        users.add(user);
+        Document newUser = new Document("username", username)
+                .append("firstName", firstName)
+                .append("lastName", lastName)
+                .append("email", email)
+                .append("password", hashedPassword)
+                .append("salt", Base64.getEncoder().encodeToString(salt))
+                .append("role", "user");
+
+        usersCollection.insertOne(newUser);
         System.out.println("✔️ Sign-up successful.");
         return true;
     }
@@ -212,42 +367,42 @@ public class Library {
         return salt;
     }
 
-    public static Reservation findReservationById(int id) {
-        return reservations.get(id);
+    public Document findReservationById(ObjectId id) {
+        return reservationsCollection.find(Filters.eq("_id", id)).first();
     }
 
-    public static void removeReservation(Reservation r) {
-        //delete from the reservation list
-        reservations.remove(r);
+    public static void removeReservation(int reservationId) {
+        reservationsCollection.deleteOne(Filters.eq("reservationId", reservationId));
     }
 
-    public static void addReservation(Reservation r) {
-        reservations.add(r);
+    public void addReservation(Reservation reservation) {
+        Document newReservation = new Document("reservationId", reservation.getReservationId())
+                .append("bookId", reservation.getBookId())
+                .append("userId", reservation.getUserId())
+                .append("status", reservation.getStatus());
+
+        reservationsCollection.insertOne(newReservation);
     }
 
     public static int findBookIdByName(String name) {
-        for (Book book : books) {
-            if (book.getTitle().equals(name)) return book.getId();
-        }
-        return -1;
+        Document doc = booksCollection.find(Filters.eq("title", name)).first();
+        return doc != null ? doc.getInteger("bookId") : -1;
     }
 
     public static Reservation findReservationByName(String name) {
-        for (Reservation reservation : reservations) {
-            int bookID = reservation.getBookId();
-            String book_name = findBookNameFromID(bookID);
-            if (book_name != null && book_name.equals(name)) {
-                return reservation;
+        int bookId = findBookIdByName(name);
+        if (bookId != -1) {
+            Document reservationDoc = reservationsCollection.find(Filters.eq("bookId", bookId)).first();
+            if (reservationDoc != null) {
+                int reservationId = reservationDoc.getInteger("reservationId");
+                int userId = reservationDoc.getInteger("userId");
+                String status = reservationDoc.getString("status");
+
+                return new Reservation(reservationId, bookId, userId, status);
             }
         }
         return null;
     }
 
-    public static String findBookNameFromID(int id) {
-        for (Book book : books) {
-            if (book.getId() == id) return book.getTitle();
-        }
-        return null;
-    }
 
 }

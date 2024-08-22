@@ -25,6 +25,13 @@ public class Book {
         setAvailable(true);
         setPages(rand.nextInt(2000) + 1);
     }
+    public Book(int bId, String title, String author) {
+        this.id = bId;
+        this.title = title;
+        this.author = author;
+        setAvailable(true);
+        setPages(rand.nextInt(2000) + 1);
+    }
 
     // getters and setters
     public boolean getAvailable(){ return available; }

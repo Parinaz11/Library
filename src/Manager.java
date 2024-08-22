@@ -1,4 +1,9 @@
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+
 import java.util.Scanner;
+
 
 public class Manager extends User {
 
@@ -14,6 +19,11 @@ public class Manager extends User {
 
     public Manager() {
         super();
+        this.role = "manager";
+    }
+
+    public Manager(int managerId, String username, String firstName, String lastName, String email, String hashedPassword, String salt) {
+        super(managerId, username, firstName, lastName, email, hashedPassword, salt);
         this.role = "manager";
     }
 
@@ -47,40 +57,52 @@ public class Manager extends User {
 
     public void showPendingRequests() {
         System.out.println("--- Pending Reservations ---");
-        for (Reservation reservation : Library.getReservations()) {
-            if ("pending".equalsIgnoreCase(reservation.getStatus())) {
-                System.out.println("🟡 Reservation ID: " + reservation.getReservationId() +
-                        ", Book ID: " + reservation.getBookId() +
-                        ", User ID: " + reservation.getUserId() +
-                        ", Status: " + reservation.getStatus());
-            }
+        // Query the database for reservations with a status of "pending"
+        FindIterable<Document> reservations = Library.getReservations().find(Filters.eq("status", "pending"));
+
+        for (Document reservationDoc : reservations) {
+            String reservationId = reservationDoc.getString("reservationId");
+            String bookId = reservationDoc.getString("bookId");
+            String userId = reservationDoc.getString("userId");
+            String status = reservationDoc.getString("status");
+
+            System.out.println("🟡 Reservation ID: " + reservationId +
+                    ", Book ID: " + bookId +
+                    ", User ID: " + userId +
+                    ", Status: " + status);
         }
     }
+
 
     public void handleReservationRequest() {
         System.out.println("--- Reservation Request ---\nEnter the reservation ID: ");
         Scanner scanner = new Scanner(System.in);
-        int reservationId = scanner.nextInt();
-        scanner.nextLine();
-        for (Reservation reservation : Library.getReservations()) {
-            if (!reservation.getStatus().equalsIgnoreCase("Pending")) {
+        String reservationId = scanner.nextLine();
+
+        // Find the reservation in the database
+        Document reservationDoc = Library.getReservations().find(Filters.eq("reservationId", reservationId)).first();
+
+        if (reservationDoc != null) {
+            String status = reservationDoc.getString("status");
+
+            if (!"pending".equalsIgnoreCase(status)) {
                 System.out.println("The book request is not pending!");
                 return;
             }
-            else if (reservation.getReservationId() == reservationId) {
-                System.out.println("Do you wish to approve the reservation?(y/n)");
-                boolean approve = scanner.next().equalsIgnoreCase("y");
-                if (approve) {
-                    reservation.setStatus("Approved");
-                    System.out.println("Reservation ID " + reservationId + " has been approved.");
-                } else {
-                    reservation.setStatus("Declined");
-                    System.out.println("Reservation ID " + reservationId + " has been declined.");
-                }
-                return;
-            }
+
+            System.out.println("Do you wish to approve the reservation? (y/n)");
+            boolean approve = scanner.nextLine().equalsIgnoreCase("y");
+
+            // Update the reservation status in the database
+            String newStatus = approve ? "Approved" : "Declined";
+            Library.getReservations().updateOne(Filters.eq("reservationId", reservationId),
+                    new Document("$set", new Document("status", newStatus)));
+
+            System.out.println("Reservation ID " + reservationId + " has been " + newStatus.toLowerCase() + ".");
+        } else {
+            System.out.println("Reservation ID " + reservationId + " not found.");
         }
-        System.out.println("Reservation ID " + reservationId + " not found.");
     }
+
 
 }

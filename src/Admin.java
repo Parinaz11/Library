@@ -8,6 +8,10 @@ public class Admin extends User {
         super(user_name, first_name, last_name, email, password);
         super.setRole("admin");
     }
+    public Admin(int admin_id, String user_name, String first_name, String last_name, String email, String hashedPassword, String salt) {
+        super(admin_id, user_name, first_name, last_name, email, hashedPassword, salt);
+        super.setRole("admin");
+    }
 
     public Admin() {
         super();

@@ -20,6 +20,13 @@ public class Person {
         this.email = "Unknown";
         this.username = "Unknown";
     }
+    public Person(int personId, String username, String first_name, String last_name, String email) {
+        this.id = personId;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.username = username;
+    }
 
     // Getters and Setters
     public int getId() { return id; }

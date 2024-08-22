@@ -1,9 +1,12 @@
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+
 public class Reservation {
     private static int id_counter = 0;
     private final int reservationId;
     private final int bookId;
     private final int userId;
-    private String status; // pending, approved, rejected
+    private String status; // pending, approved, declined
 
     public int getUserId() { return userId; }
     public String getStatus() { return status; }
@@ -19,21 +22,45 @@ public class Reservation {
         this.status = status;
     }
 
-    public static boolean reserve(int bookId, int user_id){
-        // checks bookID in order to see if the book is reserved or not
-        // If it was reserved, returns false
-        // else, changes the status of book to reserved and updates the reserve array
+    public Reservation(int resId, int bookId, int userId, String status) {
+        this.reservationId = resId;
+        this.bookId = bookId;
+        this.userId = userId;
+        this.status = status;
+    }
 
-        Book bookToReserve = Library.findBookById(bookId);
-        if (bookToReserve != null && bookToReserve.getAvailable()) {
-            bookToReserve.setAvailable(false); // Mark the book as reserved
-            Library.addReservation(new Reservation(bookId, user_id, "pending")); // Add reservation to the library's list
-            return true;
-        } else if (bookToReserve != null && !bookToReserve.getAvailable()) {
+    public static boolean reserve(int bookId, int userId) {
+        // Find the book by bookId
+        Document bookDoc = Library.getBooks().find(Filters.eq("bookId", bookId)).first();
+
+        if (bookDoc != null) {
+            boolean isAvailable = bookDoc.getBoolean("available");
+
+            if (isAvailable) {
+                // Update the book's availability to false
+                Library.getBooks().updateOne(
+                        Filters.eq("bookId", bookId),
+                        new Document("$set", new Document("available", false))
+                );
+
+                // Add a reservation
+                Document reservation = new Document("bookId", bookId)
+                        .append("userId", userId)
+                        .append("status", "pending");
+
+                Library.getReservations().insertOne(reservation);
+
+                System.out.println("Book reserved successfully.");
+                return true;
+            } else {
+                System.out.println("Book is already reserved.");
+                return false;
+            }
+        } else {
+            System.out.println("Book does not exist.");
             return false;
         }
-        System.out.println("Book does not exist.");
-        return false;
     }
+
 
 }
