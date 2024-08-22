@@ -1,0 +1,110 @@
+[{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d0"
+  },
+  "bookId": 1,
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "available": true,
+  "pages": 281
+},
+{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d1"
+  },
+  "bookId": 2,
+  "title": "1984",
+  "author": "George Orwell",
+  "available": true,
+  "pages": 328
+},
+{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d2"
+  },
+  "bookId": 3,
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "available": true,
+  "pages": 180
+},
+{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d3"
+  },
+  "bookId": 4,
+  "title": "The Catcher in the Rye",
+  "author": "J.D. Salinger",
+  "available": true,
+  "pages": 214
+},
+{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d4"
+  },
+  "bookId": 5,
+  "title": "Moby-Dick",
+  "author": "Herman Melville",
+  "available": true,
+  "pages": 635
+},
+{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d5"
+  },
+  "bookId": 6,
+  "title": "Pride and Prejudice",
+  "author": "Jane Austen",
+  "available": true,
+  "pages": 432
+},
+{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d6"
+  },
+  "bookId": 7,
+  "title": "War and Peace",
+  "author": "Leo Tolstoy",
+  "available": true,
+  "pages": 1225
+},
+{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d7"
+  },
+  "bookId": 8,
+  "title": "The Lord of the Rings",
+  "author": "J.R.R. Tolkien",
+  "available": true,
+  "pages": 1178
+},
+{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d8"
+  },
+  "bookId": 9,
+  "title": "Harry Potter and the Sorcerer's Stone",
+  "author": "J.K. Rowling",
+  "available": true,
+  "pages": 309
+},
+{
+  "_id": {
+    "$oid": "66c68bbf6147157becfa69d9"
+  },
+  "bookId": 10,
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "available": true,
+  "pages": 310
+},
+{
+  "_id": {
+    "$oid": "66c692e535496c236b490c24"
+  },
+  "bookId": 1,
+  "title": "tesetingAdd",
+  "author": "Parinaz",
+  "available": true,
+  "pages": 1031
+}]
