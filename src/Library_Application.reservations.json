@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c6951"
+  },
+  "reservationId": 1,
+  "bookId": 1,
+  "userId": 1001,
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c6952"
+  },
+  "reservationId": 2,
+  "bookId": 2,
+  "userId": 1002,
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c6953"
+  },
+  "reservationId": 3,
+  "bookId": 3,
+  "userId": 1003,
+  "status": "declined"
+},
+{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c6954"
+  },
+  "reservationId": 4,
+  "bookId": 4,
+  "userId": 1004,
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c6955"
+  },
+  "reservationId": 5,
+  "bookId": 5,
+  "userId": 1005,
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c6956"
+  },
+  "reservationId": 6,
+  "bookId": 6,
+  "userId": 1006,
+  "status": "declined"
+},
+{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c6957"
+  },
+  "reservationId": 7,
+  "bookId": 7,
+  "userId": 1007,
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c6958"
+  },
+  "reservationId": 8,
+  "bookId": 8,
+  "userId": 1008,
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c6959"
+  },
+  "reservationId": 9,
+  "bookId": 9,
+  "userId": 1009,
+  "status": "declined"
+},
+{
+  "_id": {
+    "$oid": "66c6db9ac8d8bf22066c695a"
+  },
+  "reservationId": 10,
+  "bookId": 10,
+  "userId": 1010,
+  "status": "pending"
+}]

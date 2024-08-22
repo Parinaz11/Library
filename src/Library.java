@@ -25,6 +25,7 @@ public class Library {
         // ------------------ Run once to populate ------------------
 //        populateBooks();
 //        populateUsers();
+//        populateReservations();
         // ----------------------------------------------------------
 
         Scanner scanner = new Scanner(System.in);
@@ -42,7 +43,6 @@ public class Library {
                     scanner.nextLine();
                     status = signUp();
                     if (status) System.out.println("Ready to login.");
-                    ;
                     break;
                 case 3:
                     showBookList();
@@ -209,6 +209,57 @@ public class Library {
                     ", Email: " + doc.getString("email") +
                     ", Role: " + doc.getString("role"));
         }
+    }
+
+    private void populateReservations() {
+        Reservation reservation;
+
+        // Sample reservation 1
+        reservation = new Reservation(1, 1001, "pending");
+        addReservationToCollection(reservation);
+
+        // Sample reservation 2
+        reservation = new Reservation(2, 1002, "approved");
+        addReservationToCollection(reservation);
+
+        // Sample reservation 3
+        reservation = new Reservation(3, 1003, "declined");
+        addReservationToCollection(reservation);
+
+        // Sample reservation 4
+        reservation = new Reservation(4, 1004, "pending");
+        addReservationToCollection(reservation);
+
+        // Sample reservation 5
+        reservation = new Reservation(5, 1005, "approved");
+        addReservationToCollection(reservation);
+
+        // Sample reservation 6
+        reservation = new Reservation(6, 1006, "declined");
+        addReservationToCollection(reservation);
+
+        // Sample reservation 7
+        reservation = new Reservation(7, 1007, "pending");
+        addReservationToCollection(reservation);
+
+        // Sample reservation 8
+        reservation = new Reservation(8, 1008, "approved");
+        addReservationToCollection(reservation);
+
+        // Sample reservation 9
+        reservation = new Reservation(9, 1009, "declined");
+        addReservationToCollection(reservation);
+
+        // Sample reservation 10
+        reservation = new Reservation(10, 1010, "pending");
+        addReservationToCollection(reservation);
+    }
+
+    private void addReservationToCollection(Reservation reservation) {
+        reservationsCollection.insertOne(new Document("reservationId", reservation.getReservationId())
+                .append("bookId", reservation.getBookId())
+                .append("userId", reservation.getUserId())
+                .append("status", reservation.getStatus()));
     }
 
     public static void addBook(Book book) {
