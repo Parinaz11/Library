@@ -43,7 +43,6 @@ public class Reservation {
                         new Document("$set", new Document("available", false))
                 );
 
-                // Add a reservation
                 Document reservation = new Document("bookId", bookId)
                         .append("userId", userId)
                         .append("status", "pending");

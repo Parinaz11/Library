@@ -87,17 +87,14 @@ public class User extends Person {
         }
     }
 
-    // Assuming Library has a method to get the MongoCollection<Book>
     public void showAvailableBooks() {
         System.out.println("--- Available Books ---");
 
-        // Get the MongoCollection for books
         MongoCollection<Document> booksCollection = Library.getBooks();
-        // Retrieve all documents from the collection
         try (MongoCursor<Document> cursor = booksCollection.find().iterator()) {
             while (cursor.hasNext()) {
                 Document doc = cursor.next();
-                // Create a Book object from the document
+
                 Book book = new Book(
                         doc.getString("title"),
                         doc.getString("author"),
