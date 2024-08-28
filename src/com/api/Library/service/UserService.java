@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -38,5 +39,9 @@ public class UserService {
     public List<User> getUsers() {
 
         return populateUsers();
+    }
+
+    public Optional<User> getUserById(int id) {
+        return Library.getAllUsers().stream().filter(user -> user.getId() == id).findFirst();
     }
 }

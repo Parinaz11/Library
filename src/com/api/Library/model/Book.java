@@ -5,8 +5,8 @@ import java.util.Random;
 public class Book {
     private static int id_counter = 0;
     private final int id;
-    private final String title;
-    private final String author;
+    private String title;
+    private String author;
     private boolean available; // false means reserved
     private int pages;
     Random rand  = new Random();
@@ -36,4 +36,6 @@ public class Book {
     public void setPages(int pages) { this.pages = pages; }
     public String getAuthor() { return author; }
     public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+    public void setAuthor(String author) { this.author = author; }
 }

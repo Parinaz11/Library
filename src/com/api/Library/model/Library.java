@@ -9,17 +9,25 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-
 public class Library {
     private static List<Book> books;
     private static List<User> users;
     private static List<Reservation> reservations;
 
-    // Initialize the ArrayList with sample books
-    public Library() {
+    public static void populate_BooksUsersReserves(){
         books = new ArrayList<>();
         users = new ArrayList<>();
         reservations = new ArrayList<>();
+        populateBooks();
+        populateUsers();
+        populateReservations();
+    }
+
+    // Initialize the ArrayList with sample books
+    public Library() {
+        books = new ArrayList<Book>();
+        users = new ArrayList<User>();
+        reservations = new ArrayList<Reservation>();
         populateBooks(); // to add books to the list
         populateUsers();
         Scanner scanner = new Scanner(System.in);
@@ -62,7 +70,7 @@ public class Library {
     }
 
     // Method to populate the ArrayList with 10 sample books
-    private void populateBooks() {
+    private static void populateBooks() {
         books.add(new Book("To Kill a Mockingbird", "Harper Lee", true, 281));
         books.add(new Book("1984", "George Orwell", true, 328));
         books.add(new Book("The Great Gatsby", "F. Scott Fitzgerald", true, 180));
@@ -85,7 +93,7 @@ public class Library {
     }
 
     // populate the ArrayList with 10 sample users
-    private void populateUsers() {
+    private static void populateUsers() {
         // Create an com.api.Library.model.Admin instance
         Admin admin = new Admin("admin", "Jack", "Smith", "admin@gmail.com", "dotin123");
         users.add(admin);
@@ -103,6 +111,51 @@ public class Library {
         users.add(new User("grace_t", "Grace", "Taylor", "grace.taylor@example.com", "password106"));
         users.add(new User("henry_a", "Henry", "Anderson", "henry.anderson@example.com", "password107"));
     }
+
+    private static void populateReservations() {
+        Reservation reservation;
+
+        // Sample reservation 1
+        reservation = new Reservation(1, 1001, "pending");
+        addReservation(reservation);
+
+        // Sample reservation 2
+        reservation = new Reservation(2, 1002, "approved");
+        addReservation(reservation);
+
+        // Sample reservation 3
+        reservation = new Reservation(3, 1003, "declined");
+        addReservation(reservation);
+
+        // Sample reservation 4
+        reservation = new Reservation(4, 1004, "pending");
+        addReservation(reservation);
+
+        // Sample reservation 5
+        reservation = new Reservation(5, 1005, "approved");
+        addReservation(reservation);
+
+        // Sample reservation 6
+        reservation = new Reservation(6, 1006, "declined");
+        addReservation(reservation);
+
+        // Sample reservation 7
+        reservation = new Reservation(7, 1007, "pending");
+        addReservation(reservation);
+
+        // Sample reservation 8
+        reservation = new Reservation(8, 1008, "approved");
+        addReservation(reservation);
+
+        // Sample reservation 9
+        reservation = new Reservation(9, 1009, "declined");
+        addReservation(reservation);
+
+        // Sample reservation 10
+        reservation = new Reservation(10, 1010, "pending");
+        addReservation(reservation);
+    }
+
 
     public static void displayUsers() {
         for (User user : users) {
@@ -137,7 +190,6 @@ public class Library {
     }
 
     public static void showBookList() {
-        System.out.println("--- Our Books ---");
         displayBooks();
     }
 

@@ -41,9 +41,9 @@ public class User extends Person {
     protected boolean showMenu(Scanner in) {
         System.out.println("--- Menu ---\nEnter command number:" +
                 "\n1) Available Books to Reserve" +
-                "\n2) Reserve a com.api.Library.model.Book" +
+                "\n2) Reserve a Book" +
                 "\n3) My Pending Reservations" +
-                "\n4) Delete com.api.Library.model.Reservation Request" +
+                "\n4) Delete Reservation Request" +
                 "\n5) My Reserved Books");
 
         int answer = in.nextInt();
