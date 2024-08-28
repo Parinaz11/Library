@@ -173,7 +173,7 @@ public class Library {
         System.out.println("com.api.Library.model.Book added: " + book.getTitle() + " by " + book.getAuthor());
     }
 
-    public static void removeBook(int bookId) {
+    public static boolean removeBook(int bookId) {
         Book bookToRemove = null;
         for (Book book : books) {
             if (book.getId() == bookId) {
@@ -184,9 +184,10 @@ public class Library {
         if (bookToRemove != null) {
             books.remove(bookToRemove);
             System.out.println("com.api.Library.model.Book removed: " + bookToRemove.getTitle());
-        } else {
-            System.out.println("com.api.Library.model.Book with ID " + bookId + " not found.");
+            return true;
         }
+        System.out.println("com.api.Library.model.Book with ID " + bookId + " not found.");
+        return false;
     }
 
     public static void showBookList() {

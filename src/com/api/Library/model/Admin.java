@@ -17,7 +17,7 @@ public class Admin extends User {
     }
 
     public void addBook() {
-        System.out.println("--- Add com.api.Library.model.Book ---");
+        System.out.println("--- Add Book ---");
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter book title: ");
         String title = scanner.nextLine();
@@ -28,7 +28,7 @@ public class Admin extends User {
     }
 
     public void removeBook() {
-        System.out.println("--- Remove com.api.Library.model.Book ---");
+        System.out.println("--- Remove Book ---");
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter book ID to remove: ");
         int bookId = scanner.nextInt();
@@ -39,8 +39,8 @@ public class Admin extends User {
     public boolean showMenu(Scanner in) {
         System.out.println("--- Menu ---\nEnter command number:" +
                 "\n1) All Books" +
-                "\n2) Add a com.api.Library.model.Book" +
-                "\n3) Remove a com.api.Library.model.Book" +
+                "\n2) Add a Book" +
+                "\n3) Remove a Book" +
                 "\n4) All Users");
 
         int answer = in.nextInt();
