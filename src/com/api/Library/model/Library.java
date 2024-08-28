@@ -1,3 +1,5 @@
+package com.api.Library.model;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -6,6 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
+
 
 public class Library {
     private static List<Book> books;
@@ -83,10 +86,10 @@ public class Library {
 
     // populate the ArrayList with 10 sample users
     private void populateUsers() {
-        // Create an Admin instance
+        // Create an com.api.Library.model.Admin instance
         Admin admin = new Admin("admin", "Jack", "Smith", "admin@gmail.com", "dotin123");
         users.add(admin);
-        // Create a Manager instance
+        // Create a com.api.Library.model.Manager instance
         Manager manager = new Manager("manager", "Jane", "Smith", "manager@gmail.com", "dotin123");
         users.add(manager);
         users.add(new User("johnny", "John", "Doe", "john.doe@example.com", "password123"));
@@ -108,9 +111,13 @@ public class Library {
         }
     }
 
+    public static List<User> getAllUsers() {
+        return users;
+    }
+
     public static void addBook(Book book) {
         books.add(book);
-        System.out.println("Book added: " + book.getTitle() + " by " + book.getAuthor());
+        System.out.println("com.api.Library.model.Book added: " + book.getTitle() + " by " + book.getAuthor());
     }
 
     public static void removeBook(int bookId) {
@@ -123,9 +130,9 @@ public class Library {
         }
         if (bookToRemove != null) {
             books.remove(bookToRemove);
-            System.out.println("Book removed: " + bookToRemove.getTitle());
+            System.out.println("com.api.Library.model.Book removed: " + bookToRemove.getTitle());
         } else {
-            System.out.println("Book with ID " + bookId + " not found.");
+            System.out.println("com.api.Library.model.Book with ID " + bookId + " not found.");
         }
     }
 

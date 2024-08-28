@@ -1,3 +1,5 @@
+package com.api.Library.model;
+
 public class Reservation {
     private static int id_counter = 0;
     private final int reservationId;
@@ -32,7 +34,7 @@ public class Reservation {
         } else if (bookToReserve != null && !bookToReserve.getAvailable()) {
             return false;
         }
-        System.out.println("Book does not exist.");
+        System.out.println("com.api.Library.model.Book does not exist.");
         return false;
     }
 

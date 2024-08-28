@@ -1,3 +1,5 @@
+package com.api.Library.model;
+
 import java.util.Scanner;
 
 public class Manager extends User {
@@ -20,7 +22,7 @@ public class Manager extends User {
     @Override
     public boolean showMenu(Scanner in) {
         System.out.println("--- Menu ---\nEnter command number:" +
-                "\n1) Book Reserve Requests" +
+                "\n1) com.api.Library.model.Book Reserve Requests" +
                 "\n2) Approve/Decline a Request");
 
         int answer = in.nextInt();
@@ -49,16 +51,16 @@ public class Manager extends User {
         System.out.println("--- Pending Reservations ---");
         for (Reservation reservation : Library.getReservations()) {
             if ("pending".equalsIgnoreCase(reservation.getStatus())) {
-                System.out.println("🟡 Reservation ID: " + reservation.getReservationId() +
-                        ", Book ID: " + reservation.getBookId() +
-                        ", User ID: " + reservation.getUserId() +
+                System.out.println("🟡 com.api.Library.model.Reservation ID: " + reservation.getReservationId() +
+                        ", com.api.Library.model.Book ID: " + reservation.getBookId() +
+                        ", com.api.Library.model.User ID: " + reservation.getUserId() +
                         ", Status: " + reservation.getStatus());
             }
         }
     }
 
     public void handleReservationRequest() {
-        System.out.println("--- Reservation Request ---\nEnter the reservation ID: ");
+        System.out.println("--- com.api.Library.model.Reservation Request ---\nEnter the reservation ID: ");
         Scanner scanner = new Scanner(System.in);
         int reservationId = scanner.nextInt();
         scanner.nextLine();
@@ -72,15 +74,15 @@ public class Manager extends User {
                 boolean approve = scanner.next().equalsIgnoreCase("y");
                 if (approve) {
                     reservation.setStatus("Approved");
-                    System.out.println("Reservation ID " + reservationId + " has been approved.");
+                    System.out.println("com.api.Library.model.Reservation ID " + reservationId + " has been approved.");
                 } else {
                     reservation.setStatus("Declined");
-                    System.out.println("Reservation ID " + reservationId + " has been declined.");
+                    System.out.println("com.api.Library.model.Reservation ID " + reservationId + " has been declined.");
                 }
                 return;
             }
         }
-        System.out.println("Reservation ID " + reservationId + " not found.");
+        System.out.println("com.api.Library.model.Reservation ID " + reservationId + " not found.");
     }
 
 }

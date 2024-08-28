@@ -1,3 +1,5 @@
+package com.api.Library.model;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -39,9 +41,9 @@ public class User extends Person {
     protected boolean showMenu(Scanner in) {
         System.out.println("--- Menu ---\nEnter command number:" +
                 "\n1) Available Books to Reserve" +
-                "\n2) Reserve a Book" +
+                "\n2) Reserve a com.api.Library.model.Book" +
                 "\n3) My Pending Reservations" +
-                "\n4) Delete Reservation Request" +
+                "\n4) Delete com.api.Library.model.Reservation Request" +
                 "\n5) My Reserved Books");
 
         int answer = in.nextInt();
@@ -113,36 +115,36 @@ public class User extends Person {
     }
 
     public void reservationRequest(Scanner in) {
-        System.out.println("--- Reservation Request ---");
+        System.out.println("--- com.api.Library.model.Reservation Request ---");
         String bookName = getBookNameFromUser(in);
         int bookId = Library.findBookIdByName(bookName);
         if (bookId == -1) {
-            System.out.println("❌ Book not found.");
+            System.out.println("❌ com.api.Library.model.Book not found.");
             return;
         }
         boolean reserve_status = Reservation.reserve(bookId, getId());
         if (reserve_status) {
-            System.out.println("✅ Reservation request successful.");
+            System.out.println("✅ com.api.Library.model.Reservation request successful.");
             return;
         }
-        System.out.println("Reservation request failed. The book is reserved.");
+        System.out.println("com.api.Library.model.Reservation request failed. The book is reserved.");
     }
 
     public void pendingReserveBooks() {
-        System.out.println("--- Pending Reservation Books ---");
+        System.out.println("--- Pending com.api.Library.model.Reservation Books ---");
         showFilteredBooks("pending");
     }
 
     public void deleteReserveRequest(Scanner in) {
-        System.out.println("--- Delete Reservation Request ---");
+        System.out.println("--- Delete com.api.Library.model.Reservation Request ---");
         String bookName = getBookNameFromUser(in);
         Reservation reservationToDelete = Library.findReservationByName(bookName);
         if (reservationToDelete != null && reservationToDelete.getUserId() == this.getId()) {
             Library.removeReservation(reservationToDelete); // Remove the reservation from the list
-            System.out.println("Reservation deleted successfully.");
+            System.out.println("com.api.Library.model.Reservation deleted successfully.");
             return;
         }
-        System.out.println("Reservation not found or you don't have permission to delete it.");
+        System.out.println("com.api.Library.model.Reservation not found or you don't have permission to delete it.");
     }
 
     public void showReservedBooks() {
@@ -160,8 +162,8 @@ public class User extends Person {
                 Book reservedBook = Library.findBookById(reservation.getBookId());
                 if (reservedBook != null) {
                     exists = true;
-                    System.out.println("🤝 Reservation ID: " + reservation.getReservationId() +
-                            ", Book ID: " + reservedBook.getId() +
+                    System.out.println("🤝 com.api.Library.model.Reservation ID: " + reservation.getReservationId() +
+                            ", com.api.Library.model.Book ID: " + reservedBook.getId() +
                             ", Title: " + reservedBook.getTitle());
                 }
             }

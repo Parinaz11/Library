@@ -1,3 +1,5 @@
+package com.api.Library.model;
+
 import java.util.Random;
 
 public class Book {
