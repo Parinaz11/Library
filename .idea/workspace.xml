@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="reservation and book controller and changes in Library">
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/controller/ManagerController.java" afterDir="false" />
+    <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="more changes">
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/HTTPclient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,27 +52,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Library.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.LibraryApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;8-implement-rest-api-for-user&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/parin/IdeaProjects/Library&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Library.executor": "Run",
+    "Application.client.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.LibraryApplication.executor": "Run",
+    "git-widget-placeholder": "8-implement-rest-api-for-user",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/parin/IdeaProjects/Library",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="Application.client">
     <configuration name="Library" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.api.Library.LibraryApplication" />
       <module name="Library" />
@@ -80,6 +81,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="client" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.api.Library.HTTPclient" />
+      <module name="Library" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Library" />
+      <item itemvalue="Application.client" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -99,7 +111,7 @@
       <updated>1724849212193</updated>
       <workItem from="1724849213261" duration="90000" />
       <workItem from="1724849310877" duration="3306000" />
-      <workItem from="1724868343859" duration="5481000" />
+      <workItem from="1724868343859" duration="7820000" />
     </task>
     <task id="LOCAL-00001" summary="reservation and book controller and changes in Library">
       <option name="closed" value="true" />
@@ -117,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724870847769</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="more changes">
+      <option name="closed" value="true" />
+      <created>1724874410250</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724874410250</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="reservation and book controller and changes in Library" />
-    <option name="LAST_COMMIT_MESSAGE" value="reservation and book controller and changes in Library" />
+    <MESSAGE value="more changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="more changes" />
   </component>
 </project>
