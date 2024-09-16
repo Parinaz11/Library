@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="added  httpClient for terminal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -31,14 +37,14 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Parinaz11/Library.git&quot;,
-    &quot;accountId&quot;: &quot;f79d387f-7464-4ef4-9ee7-2ac4e22b6aea&quot;
+    &quot;accountId&quot;: &quot;5afc5682-44cb-44da-82f1-40ef5f6521d7&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2lHuEif1EaGAv1XoOJCL1jnv44o" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -55,7 +61,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.LibraryApplication.executor": "Run",
-    "git-widget-placeholder": "8-implement-rest-api-for-user",
+    "git-widget-placeholder": "15-spring-log-with-slf4j",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/parin/IdeaProjects/Library",
     "node.js.detected.package.eslint": "true",
@@ -81,16 +87,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LibraryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="Library" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.api.Library.LibraryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Library" />
       <item itemvalue="Application.client" />
+      <item itemvalue="Spring Boot.LibraryApplication" />
     </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
       </set>
     </attachedChunks>
   </component>
@@ -105,6 +120,9 @@
       <workItem from="1724849213261" duration="90000" />
       <workItem from="1724849310877" duration="3306000" />
       <workItem from="1724868343859" duration="9096000" />
+      <workItem from="1725976454112" duration="221000" />
+      <workItem from="1726415967200" duration="359000" />
+      <workItem from="1726497926608" duration="1458000" />
     </task>
     <task id="LOCAL-00001" summary="reservation and book controller and changes in Library">
       <option name="closed" value="true" />

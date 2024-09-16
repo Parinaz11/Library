@@ -1,5 +1,8 @@
 package com.api.Library.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,6 +16,7 @@ public class Library {
     private static List<Book> books;
     private static List<User> users;
     private static List<Reservation> reservations;
+    private static final Logger logInfo = LoggerFactory.getLogger(Library.class);
 
     public static void populate_BooksUsersReserves(){
         books = new ArrayList<>();
@@ -32,6 +36,7 @@ public class Library {
         populateUsers();
         Scanner scanner = new Scanner(System.in);
 
+        logInfo.info("Library Info Logging is enable");
         while (true) {
             System.out.println("Enter the number of your choice:\n1) Login\n2) Sign-up\n3) All Books\n4) Exit");
             int choice = scanner.nextInt();
