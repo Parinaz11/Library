@@ -1,9 +1,8 @@
-package com.api.Library.controller;
+package com.api.Library.Presentation.controller;
 
-import com.api.Library.model.Book;
-import com.api.Library.model.Library;
-import com.api.Library.service.LibraryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.api.Library.Business.model.Book;
+import com.api.Library.Business.model.Library;
+import com.api.Library.Business.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,23 +13,23 @@ import java.util.List;
 @RequestMapping("/books")
 public class BookController {
 
-    private final LibraryService libraryService;
+    private final BookService bookService = new BookService();
 
-    @Autowired
-    public BookController(LibraryService libraryService) {
-        this.libraryService = libraryService;
-    }
+//    @Autowired
+//    public BookController(LibraryService libraryService) {
+//        this.libraryService = libraryService;
+//    }
 
     @GetMapping
     public ResponseEntity<List<Book>> getAllBooks() {
         System.out.println("getAllBooks called");
-        return new ResponseEntity<>(libraryService.getBooks(), HttpStatus.OK);
+        return new ResponseEntity<>(bookService.getBooks(), HttpStatus.OK);
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable int id) {
-        Book book = Library.findBookById(id);
+        Book book = bookService.findBookById(id);
         if (book != null) {
             return new ResponseEntity<>(book, HttpStatus.OK);
         } else {
@@ -46,7 +45,7 @@ public class BookController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
-        Book existingBook = Library.findBookById(id);
+        Book existingBook = bookService.findBookById(id);
         if (existingBook != null) {
             existingBook.setTitle(updatedBook.getTitle());
             existingBook.setAuthor(updatedBook.getAuthor());

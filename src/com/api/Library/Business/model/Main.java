@@ -1,4 +1,4 @@
-package com.api.Library.model;
+package com.api.Library.Business.model;
 
 public class Main {
 //    public static void main(String[] args) {

@@ -1,10 +1,11 @@
-package com.api.Library.controller;
+package com.api.Library.Presentation.controller;
 
-import com.api.Library.model.Book;
-import com.api.Library.model.Reservation;
-import com.api.Library.model.User;
-import com.api.Library.model.Library;
-import com.api.Library.service.UserService;
+import com.api.Library.Business.model.Book;
+import com.api.Library.Business.model.Reservation;
+import com.api.Library.Business.model.User;
+import com.api.Library.Business.service.BookService;
+import com.api.Library.Business.service.ReservationService;
+import com.api.Library.Business.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,17 +17,18 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private UserService userService = new UserService();
+    private BookService bookService = new BookService();
+    private ReservationService reservationService = new ReservationService();
 
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
-        return new ResponseEntity<>(Library.getAllUsers(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<User> addUser(@RequestBody User user) {
-        Library.getAllUsers().add(user);
+        userService.addUser(user);
         System.out.println("User " + user.getName() + " added.");
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
@@ -34,10 +36,7 @@ public class UserController {
     // Updated path for getting user by username
     @GetMapping("/username/{username}")
     public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
-        User user = Library.getAllUsers().stream()
-                .filter(u -> u.getUsername().equals(username))
-                .findFirst()
-                .orElse(null);
+        User user = userService.getUserByUsername(username);
         if (user != null) {
             return new ResponseEntity<>(user, HttpStatus.OK);
         } else {
@@ -60,10 +59,7 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        List<Book> availableBooks = Library.getBooks().stream()
-                .filter(Book::getAvailable)
-                .toList();
-        return new ResponseEntity<>(availableBooks, HttpStatus.OK);
+        return new ResponseEntity<>(bookService.getAvailableBooks(), HttpStatus.OK);
     }
 
     // New endpoint to request a book reservation
@@ -73,11 +69,11 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
-        int bookId = Library.findBookIdByName(bookName);
+        int bookId = bookService.findBookIdByName(bookName);
         if (bookId == -1) {
             return new ResponseEntity<>("Book not found", HttpStatus.NOT_FOUND);
         }
-        boolean reserveStatus = Reservation.reserve(bookId, id);
+        boolean reserveStatus = reservationService.reserve(bookId, id);
         if (reserveStatus) {
             return new ResponseEntity<>("Reservation request successful", HttpStatus.OK);
         } else {
@@ -92,10 +88,7 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        List<Book> pendingBooks = Library.getReservations().stream()
-                .filter(reservation -> reservation.getUserId() == id && reservation.getStatus().equals("pending"))
-                .map(reservation -> Library.findBookById(reservation.getBookId()))
-                .toList();
+        List<Book> pendingBooks = bookService.getPendingBooks(id);
         return new ResponseEntity<>(pendingBooks, HttpStatus.OK);
     }
 
@@ -106,9 +99,9 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
-        Reservation reservationToDelete = Library.findReservationByName(bookName);
+        Reservation reservationToDelete = reservationService.findReservationByName(bookName);
         if (reservationToDelete != null && reservationToDelete.getUserId() == id) {
-            Library.removeReservation(reservationToDelete);
+            reservationService.removeReservation(reservationToDelete);
             return new ResponseEntity<>("Reservation deleted successfully", HttpStatus.OK);
         }
         return new ResponseEntity<>("Reservation not found or you don't have permission to delete it.", HttpStatus.NOT_FOUND);
@@ -121,10 +114,6 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        List<Book> reservedBooks = Library.getReservations().stream()
-                .filter(reservation -> reservation.getUserId() == id && reservation.getStatus().equals("approved"))
-                .map(reservation -> Library.findBookById(reservation.getBookId()))
-                .toList();
-        return new ResponseEntity<>(reservedBooks, HttpStatus.OK);
+        return new ResponseEntity<>(bookService.getUserReservedBooks(id), HttpStatus.OK);
     }
 }

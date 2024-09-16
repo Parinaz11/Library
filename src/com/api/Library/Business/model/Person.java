@@ -1,11 +1,17 @@
-package com.api.Library.model;
+package com.api.Library.Business.model;
+
+import lombok.Getter;
 
 public class Person {
     protected static int id_counter = 0;
+    // Getters and Setters
+    @Getter
     protected final int id;
     protected String first_name;
     protected String last_name;
+    @Getter
     protected String email;
+    @Getter
     protected String username;
 
     public Person(String username, String first_name, String last_name, String email) {
@@ -23,8 +29,6 @@ public class Person {
         this.username = "Unknown";
     }
 
-    // Getters and Setters
-    public int getId() { return id; }
     public String getName() { return this.first_name.concat(" ").concat(this.last_name); }
     public void setName(String first_name, String last_name) {
         this.first_name = first_name;
@@ -34,18 +38,11 @@ public class Person {
     public void displayInfo() {
         System.out.println("ID: " + id + ", Name: " + getName());
     }
-
     public String getFirstName() {
         return first_name;
     }
     public String getLastName() {
         return last_name;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public String getUsername() {
-        return username;
     }
 }
 

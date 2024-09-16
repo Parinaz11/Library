@@ -1,4 +1,7 @@
-package com.api.Library.model;
+package com.api.Library.Business.model;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,10 +11,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
-import java.util.List;
 import java.util.Scanner;
 
 public class User extends Person {
+    @Setter
+    @Getter
     protected String role; // "user", "admin", "manager"
     protected String hashedPassword;
     protected String salt;
@@ -33,14 +37,6 @@ public class User extends Person {
     public User() {
         super();
         setRole("user");
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     @Override
@@ -103,7 +99,7 @@ public class User extends Person {
                 while ((inputLine = in.readLine()) != null) {
                     content.append(inputLine);
                 }
-                System.out.println(content.toString());
+                System.out.println(content);
                 in.close();
             } else {
                 System.out.println("Failed to retrieve books. HTTP status: " + status);

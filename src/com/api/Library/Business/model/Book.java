@@ -1,13 +1,24 @@
-package com.api.Library.model;
+package com.api.Library.Business.model;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Random;
 
 public class Book {
     private static int id_counter = 0;
+    @Getter
     private final int id;
+    @Setter
+    @Getter
     private String title;
+    @Setter
+    @Getter
     private String author;
+    @Setter
     private boolean available; // false means reserved
+    @Setter
+    @Getter
     private int pages;
     Random rand  = new Random();
 
@@ -27,15 +38,5 @@ public class Book {
         setAvailable(true);
         setPages(rand.nextInt(2000) + 1);
     }
-
-    // getters and setters
-    public boolean getAvailable(){ return available; }
-    public void setAvailable(boolean available){ this.available = available; }
-    public int getId() { return id; }
-    public int getPages() { return pages; }
-    public void setPages(int pages) { this.pages = pages; }
-    public String getAuthor() { return author; }
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-    public void setAuthor(String author) { this.author = author; }
+    public boolean getAvailable() { return available; }
 }

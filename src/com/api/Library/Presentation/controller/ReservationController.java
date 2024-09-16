@@ -1,7 +1,8 @@
-package com.api.Library.controller;
+package com.api.Library.Presentation.controller;
 
-import com.api.Library.model.Reservation;
-import com.api.Library.model.Library;
+import com.api.Library.Business.model.Reservation;
+import com.api.Library.Business.service.ReservationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,14 +13,16 @@ import java.util.List;
 @RequestMapping("/reservations")
 public class ReservationController {
 
+    private ReservationService reservationService = new ReservationService();
+
     @GetMapping
     public ResponseEntity<List<Reservation>> getAllReservations() {
-        return new ResponseEntity<>(Library.getReservations(), HttpStatus.OK);
+        return new ResponseEntity<>(reservationService.getReservations(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Reservation> getReservationById(@PathVariable int id) {
-        Reservation reservation = Library.findReservationById(id);
+        Reservation reservation = reservationService.findReservationById(id);
         if (reservation != null) {
             return new ResponseEntity<>(reservation, HttpStatus.OK);
         } else {
@@ -29,15 +32,15 @@ public class ReservationController {
 
     @PostMapping
     public ResponseEntity<Reservation> addReservation(@RequestBody Reservation reservation) {
-        Library.addReservation(reservation);
+        reservationService.addReservation(reservation);
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteReservation(@PathVariable int id) {
-        Reservation reservation = Library.findReservationById(id);
+        Reservation reservation = reservationService.findReservationById(id);
         if (reservation != null) {
-            Library.removeReservation(reservation);
+            reservationService.removeReservation(reservation);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

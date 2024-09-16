@@ -1,9 +1,10 @@
-package com.api.Library.controller;
+package com.api.Library.Presentation.controller;
 
-import com.api.Library.model.Manager;
-import com.api.Library.model.Reservation;
-import com.api.Library.model.Library;
-import com.api.Library.service.UserService;
+import com.api.Library.Business.model.Manager;
+import com.api.Library.Business.model.Reservation;
+import com.api.Library.Business.model.Library;
+import com.api.Library.Business.service.ReservationService;
+import com.api.Library.Business.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +16,8 @@ import java.util.List;
 @RequestMapping("/managers")
 public class ManagerController {
 
-    @Autowired
-    private UserService userService;
+    private final ReservationService reservationService = new ReservationService();
+    private final UserService userService = new UserService();
 
     @GetMapping("/{id}/pending-requests")
     public ResponseEntity<List<Reservation>> showPendingRequests(@PathVariable int id) {
@@ -24,7 +25,7 @@ public class ManagerController {
         if (manager == null || !manager.getRole().equalsIgnoreCase("manager")) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        List<Reservation> pendingRequests = Library.getReservations().stream()
+        List<Reservation> pendingRequests = reservationService.getReservations().stream()
                 .filter(reservation -> "pending".equalsIgnoreCase(reservation.getStatus()))
                 .toList();
         return new ResponseEntity<>(pendingRequests, HttpStatus.OK);
@@ -36,7 +37,7 @@ public class ManagerController {
         if (manager == null || !manager.getRole().equalsIgnoreCase("manager")) {
             return new ResponseEntity<>("Only managers can handle reservation requests", HttpStatus.FORBIDDEN);
         }
-        for (Reservation reservation : Library.getReservations()) {
+        for (Reservation reservation : reservationService.getReservations()) {
             if (reservation.getReservationId() == reservationId && "pending".equalsIgnoreCase(reservation.getStatus())) {
                 if (approve) {
                     reservation.setStatus("Approved");

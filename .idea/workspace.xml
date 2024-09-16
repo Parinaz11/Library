@@ -4,8 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="added  httpClient for terminal">
+    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/ArraylistDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/HTTPclient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/HTTPclient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/LibraryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/LibraryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/HTTPclient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/HTTPclient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/AdminController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/BookController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ManagerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ReservationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Book.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Library.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Reservation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/LibraryService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/UserService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +76,14 @@
     &quot;accountId&quot;: &quot;f79d387f-7464-4ef4-9ee7-2ac4e22b6aea&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2lHuEif1EaGAv1XoOJCL1jnv44o" />
+  <component name="ProjectId" id="2lK3dXGDFgiyz90wFp3yrIf0N5W" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -45,29 +91,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Library.executor": "Run",
-    "Application.client.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.LibraryApplication.executor": "Run",
-    "git-widget-placeholder": "8-implement-rest-api-for-user",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/parin/IdeaProjects/Library",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.APIapp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;14-3tier-architecture&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/parin/IdeaProjects/Library&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.client">
-    <configuration name="Library" type="Application" factoryName="Application">
+}</component>
+  <component name="RunManager" selected="Application.APIapp">
+    <configuration name="APIapp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.api.Library.LibraryApplication" />
       <module name="Library" />
       <method v="2">
@@ -82,7 +127,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Library" />
+      <item itemvalue="Application.APIapp" />
       <item itemvalue="Application.client" />
     </list>
   </component>
@@ -97,57 +142,33 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="" />
-      <created>1724849212193</created>
+      <changelist id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="" />
+      <created>1724915030055</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1724849212193</updated>
-      <workItem from="1724849213261" duration="90000" />
-      <workItem from="1724849310877" duration="3306000" />
-      <workItem from="1724868343859" duration="9096000" />
+      <updated>1724915030055</updated>
+      <workItem from="1724915032136" duration="1504000" />
+      <workItem from="1725967151471" duration="5172000" />
+      <workItem from="1726050431799" duration="4236000" />
+      <workItem from="1726295479692" duration="373000" />
+      <workItem from="1726306619678" duration="749000" />
+      <workItem from="1726389997092" duration="6265000" />
+      <workItem from="1726470016102" duration="1204000" />
     </task>
-    <task id="LOCAL-00001" summary="reservation and book controller and changes in Library">
-      <option name="closed" value="true" />
-      <created>1724870712244</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1724870712244</updated>
-    </task>
-    <task id="LOCAL-00002" summary="reservation and book controller and changes in Library">
-      <option name="closed" value="true" />
-      <created>1724870847769</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1724870847769</updated>
-    </task>
-    <task id="LOCAL-00003" summary="more changes">
-      <option name="closed" value="true" />
-      <created>1724874410250</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1724874410250</updated>
-    </task>
-    <task id="LOCAL-00004" summary="added  httpClient for terminal">
-      <option name="closed" value="true" />
-      <created>1724876596797</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1724876596797</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="reservation and book controller and changes in Library" />
-    <MESSAGE value="more changes" />
-    <MESSAGE value="added  httpClient for terminal" />
-    <option name="LAST_COMMIT_MESSAGE" value="added  httpClient for terminal" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

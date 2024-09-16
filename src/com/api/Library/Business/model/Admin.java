@@ -1,4 +1,4 @@
-package com.api.Library.model;
+package com.api.Library.Business.model;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

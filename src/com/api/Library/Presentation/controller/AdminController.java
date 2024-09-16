@@ -1,10 +1,11 @@
-package com.api.Library.controller;
+package com.api.Library.Presentation.controller;
 
-import com.api.Library.model.Admin;
-import com.api.Library.model.Book;
-import com.api.Library.model.Library;
-import com.api.Library.model.User;
-import com.api.Library.service.UserService;
+import com.api.Library.Business.model.Admin;
+import com.api.Library.Business.model.Book;
+import com.api.Library.Business.model.Library;
+import com.api.Library.Business.model.User;
+import com.api.Library.Business.service.BookService;
+import com.api.Library.Business.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,9 @@ import java.util.List;
 @RequestMapping("/admins")
 public class AdminController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService = new UserService();
+    private final BookService bookService = new BookService();
+
 
     @GetMapping("/{id}/books")
     public ResponseEntity<List<Book>> getAllBooks(@PathVariable int id) {
@@ -25,7 +27,7 @@ public class AdminController {
         if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        return new ResponseEntity<>(Library.getBooks(), HttpStatus.OK);
+        return new ResponseEntity<>(bookService.getBooks(), HttpStatus.OK);
     }
 
     @PostMapping("/{id}/add-book")
@@ -58,6 +60,6 @@ public class AdminController {
         if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        return new ResponseEntity<>(Library.getAllUsers(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
 }
