@@ -3,14 +3,23 @@ package com.api.Library.Business.service;
 import com.api.Library.Business.model.Book;
 import com.api.Library.Business.model.Library;
 import com.api.Library.Business.model.Reservation;
+import com.api.Library.Data.DatabaseRepository;
 import com.api.Library.LibraryApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class ReservationService {
 
-    private final static BookService bookService = new BookService();
-    private final static ReservationService reservationService = new ReservationService();
+    private final DatabaseRepository database;
+
+    @Autowired
+    public ReservationService(DatabaseRepository database) {
+        this.database = database;
+    }
+
+    private final static BookService bookService = new BookService(LibraryApplication.db);
+    private final static ReservationService reservationService = new ReservationService(LibraryApplication.db);
 
     public Reservation findReservationByName(String res_name) {
         return LibraryApplication.db.findReservationByName(res_name);

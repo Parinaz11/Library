@@ -4,50 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/ArraylistDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="Added three-tier architecture and Service classes">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/DatabaseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/HTTPclient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/HTTPclient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Data/ArraylistDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Data/ArraylistDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Data/Database.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/api/Library/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/LibraryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/LibraryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/HTTPclient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/HTTPclient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/BookController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ManagerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ReservationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Book.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Library.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Manager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Reservation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/LibraryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/UserService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,26 +65,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.APIapp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;14-3tier-architecture&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/parin/IdeaProjects/Library&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.APIapp.executor": "Run",
+    "Application.client.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "14-3tier-architecture",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/parin/IdeaProjects/Library",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.APIapp">
     <configuration name="APIapp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.api.Library.LibraryApplication" />
@@ -155,6 +130,14 @@
       <workItem from="1726389997092" duration="6265000" />
       <workItem from="1726470016102" duration="1204000" />
     </task>
+    <task id="LOCAL-00001" summary="Added three-tier architecture and Service classes">
+      <created>1726476227006</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726476227006</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,5 +153,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added three-tier architecture and Service classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added three-tier architecture and Service classes" />
   </component>
 </project>

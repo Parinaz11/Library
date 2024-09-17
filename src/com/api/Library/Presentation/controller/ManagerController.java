@@ -5,6 +5,7 @@ import com.api.Library.Business.model.Reservation;
 import com.api.Library.Business.model.Library;
 import com.api.Library.Business.service.ReservationService;
 import com.api.Library.Business.service.UserService;
+import com.api.Library.LibraryApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,8 @@ import java.util.List;
 @RequestMapping("/managers")
 public class ManagerController {
 
-    private final ReservationService reservationService = new ReservationService();
-    private final UserService userService = new UserService();
+    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
+    private final UserService userService = new UserService(LibraryApplication.db);
 
     @GetMapping("/{id}/pending-requests")
     public ResponseEntity<List<Reservation>> showPendingRequests(@PathVariable int id) {

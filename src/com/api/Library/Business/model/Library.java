@@ -1,9 +1,8 @@
 package com.api.Library.Business.model;
 
 import com.api.Library.Data.ArraylistDatabase;
-import com.api.Library.Data.Database;
+import com.api.Library.Data.DatabaseRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,7 +13,7 @@ import java.util.Base64;
 
 public class Library {
 
-    private static Database<String> db;
+    private static DatabaseRepository db;
 
     // Initialize the ArrayList with sample books
     public Library() {

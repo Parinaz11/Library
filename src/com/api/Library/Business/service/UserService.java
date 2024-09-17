@@ -5,7 +5,9 @@ import com.api.Library.Business.model.Library;
 
 import com.api.Library.Business.model.Manager;
 import com.api.Library.Business.model.User;
+import com.api.Library.Data.DatabaseRepository;
 import com.api.Library.LibraryApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,24 +17,27 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-//    public List<User> getUsers() {
-//        return populateUsers();
-//    }
-//
+    private final DatabaseRepository database;
+
+    @Autowired
+    public UserService(DatabaseRepository database) {
+        this.database = database;
+    }
+
     public Optional<User> getUserById(int id) {
-        return LibraryApplication.db.getUserById(id);
+        return database.getUserById(id);
     }
 
     public User getUserByUsername(String user_name) {
-        return LibraryApplication.db.findUserByUsername(user_name);
+        return database.findUserByUsername(user_name);
     }
 
     public List<User> getUsers() {
-        return LibraryApplication.db.getUsers();
+        return database.getUsers();
     }
 
     public void addUser(User u) {
-        LibraryApplication.db.addUser(u);
+        database.addUser(u);
     }
 
 

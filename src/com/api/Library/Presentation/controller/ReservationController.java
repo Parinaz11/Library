@@ -2,6 +2,7 @@ package com.api.Library.Presentation.controller;
 
 import com.api.Library.Business.model.Reservation;
 import com.api.Library.Business.service.ReservationService;
+import com.api.Library.LibraryApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import java.util.List;
 @RequestMapping("/reservations")
 public class ReservationController {
 
-    private ReservationService reservationService = new ReservationService();
+    private ReservationService reservationService = new ReservationService(LibraryApplication.db);
 
     @GetMapping
     public ResponseEntity<List<Reservation>> getAllReservations() {

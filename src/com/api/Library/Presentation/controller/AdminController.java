@@ -6,6 +6,7 @@ import com.api.Library.Business.model.Library;
 import com.api.Library.Business.model.User;
 import com.api.Library.Business.service.BookService;
 import com.api.Library.Business.service.UserService;
+import com.api.Library.LibraryApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,8 @@ import java.util.List;
 @RequestMapping("/admins")
 public class AdminController {
 
-    private final UserService userService = new UserService();
-    private final BookService bookService = new BookService();
-
+    private final UserService userService = new UserService(LibraryApplication.db);
+    private final BookService bookService = new BookService(LibraryApplication.db);
 
     @GetMapping("/{id}/books")
     public ResponseEntity<List<Book>> getAllBooks(@PathVariable int id) {

@@ -2,12 +2,19 @@ package com.api.Library.Data;
 
 import com.api.Library.Business.model.*;
 import com.api.Library.Business.model.Book;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ArraylistDatabase<T> extends Database<T> {
+
+@Repository
+public class ArraylistDatabase<T> implements DatabaseRepository {
+
+    private static List<Book> books = new ArrayList<>();
+    private static List<User> users = new ArrayList<>();
+    private static List<Reservation> reservations = new ArrayList<>();
 
     public List<Book> getBooks() {
         return books;

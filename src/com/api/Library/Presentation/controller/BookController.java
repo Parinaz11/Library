@@ -3,6 +3,7 @@ package com.api.Library.Presentation.controller;
 import com.api.Library.Business.model.Book;
 import com.api.Library.Business.model.Library;
 import com.api.Library.Business.service.BookService;
+import com.api.Library.LibraryApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.util.List;
 @RequestMapping("/books")
 public class BookController {
 
-    private final BookService bookService = new BookService();
+    private final BookService bookService = new BookService(LibraryApplication.db);
 
 //    @Autowired
 //    public BookController(LibraryService libraryService) {

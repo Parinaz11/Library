@@ -1,17 +1,14 @@
 package com.api.Library;
 
-import com.api.Library.Business.model.Library;
 import com.api.Library.Data.ArraylistDatabase;
-import com.api.Library.Data.Database;
-import org.springframework.boot.CommandLineRunner;
+import com.api.Library.Data.DatabaseRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class LibraryApplication {
 
-    public static Database<String> db;
+    public static DatabaseRepository db = new ArraylistDatabase<>();
 
     public static void main(String[] args) {
         SpringApplication.run(LibraryApplication.class, args);
@@ -19,10 +16,10 @@ public class LibraryApplication {
 //        new Library();
     }
 
-    @Bean
-    public CommandLineRunner loadData() {
-        return (args) -> {
-            db = new ArraylistDatabase<>();
-        };
-    }
+//    @Bean
+//    public CommandLineRunner loadData() {
+//        return (args) -> {
+//            db = ;
+//        };
+//    }
 }
