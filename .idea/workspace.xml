@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="Add Logger Info for Library class">
-      <change afterPath="$PROJECT_DIR$/src/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" afterDir="false" />
+    <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="Add Logger Debug for Library class">
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/Library.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +128,7 @@
       <workItem from="1726497926608" duration="1458000" />
       <workItem from="1726501766939" duration="2067000" />
       <workItem from="1726508433981" duration="1165000" />
-      <workItem from="1726564712624" duration="2965000" />
+      <workItem from="1726564712624" duration="4006000" />
     </task>
     <task id="LOCAL-00001" summary="reservation and book controller and changes in Library">
       <option name="closed" value="true" />
@@ -165,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724876596797</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add Logger Debug for Library class">
+      <option name="closed" value="true" />
+      <created>1726649409417</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726649409417</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +180,8 @@
     <MESSAGE value="reservation and book controller and changes in Library" />
     <MESSAGE value="more changes" />
     <MESSAGE value="added  httpClient for terminal" />
-    <option name="LAST_COMMIT_MESSAGE" value="added  httpClient for terminal" />
+    <MESSAGE value="Add Logger Debug for Library class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Logger Debug for Library class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
