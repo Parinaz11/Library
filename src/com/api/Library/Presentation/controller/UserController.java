@@ -17,9 +17,15 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserService userService = new UserService(LibraryApplication.db);
-    private final BookService bookService = new BookService(LibraryApplication.db);
-    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
+    private final UserService userService;
+    private final BookService bookService;
+    private final ReservationService reservationService;
+
+    public UserController(UserService us, BookService bs, ReservationService rs) {
+        this.userService = us;
+        this.bookService = bs;
+        this.reservationService = rs;
+    }
 
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {

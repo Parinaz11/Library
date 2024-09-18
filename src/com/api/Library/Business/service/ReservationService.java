@@ -5,20 +5,21 @@ import com.api.Library.Business.model.Reservation;
 import com.api.Library.Data.DatabaseRepository;
 import com.api.Library.LibraryApplication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ReservationService {
 
     private final DatabaseRepository database;
+    private final BookService bookService;
 
     @Autowired
-    public ReservationService(DatabaseRepository db) {
-        database = db;
+    public ReservationService(DatabaseRepository db, BookService bookService) {
+        this.database = db;
+        this.bookService = bookService;
     }
-
-    private final static BookService bookService = new BookService(LibraryApplication.db);
-    private final static ReservationService reservationService = new ReservationService(LibraryApplication.db);
 
     public Reservation findReservationByName(String res_name) {
         return database.findReservationByName(res_name);
@@ -48,7 +49,7 @@ public class ReservationService {
         Book bookToReserve = bookService.findBookById(bookId);
         if (bookToReserve != null && bookToReserve.getAvailable()) {
             bookToReserve.setAvailable(false); // Mark the book as reserved
-            reservationService.addReservation(new Reservation(bookId, user_id, "pending")); // Add reservation to the library's list
+            addReservation(new Reservation(bookId, user_id, "pending")); // Add reservation to the library's list
             return true;
         } else if (bookToReserve != null && !bookToReserve.getAvailable()) {
             return false;

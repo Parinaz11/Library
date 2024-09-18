@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-@Repository
+//@Repository
 public class ArraylistDatabase<T> implements DatabaseRepository {
 
     private static List<Book> books = new ArrayList<>();

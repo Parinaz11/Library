@@ -3,9 +3,11 @@ package com.api.Library.Business.service;
 import com.api.Library.Business.model.Book;
 import com.api.Library.Data.DatabaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class BookService {
 
     private final DatabaseRepository database;

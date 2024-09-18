@@ -4,18 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="added DatabaseRepository interface instead of Database for DI">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
+    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="added  httpClient for terminal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/LibraryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Library.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ManagerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ReservationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/UserController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,27 +64,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.APIapp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;14-3tier-architecture&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/parin/IdeaProjects/Library&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.APIapp.executor": "Run",
+    "Application.client.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/parin/IdeaProjects/Library",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.APIapp">
     <configuration name="APIapp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.api.Library.LibraryApplication" />
@@ -150,6 +155,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added three-tier architecture and Service classes" />
     <MESSAGE value="added DatabaseRepository interface instead of Database for DI" />
-    <option name="LAST_COMMIT_MESSAGE" value="added DatabaseRepository interface instead of Database for DI" />
+    <MESSAGE value="added  httpClient for terminal" />
+    <option name="LAST_COMMIT_MESSAGE" value="added  httpClient for terminal" />
   </component>
 </project>
