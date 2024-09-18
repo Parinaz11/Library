@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="Fixed DI bug">
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/LoadDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/LibraryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" afterDir="false" />
-    </list>
+    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="added LoadDatabase class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726663700509</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added LoadDatabase class">
+      <option name="closed" value="true" />
+      <created>1726669812705</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726669812705</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +156,7 @@
     <MESSAGE value="added DatabaseRepository interface instead of Database for DI" />
     <MESSAGE value="added  httpClient for terminal" />
     <MESSAGE value="Fixed DI bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed DI bug" />
+    <MESSAGE value="added LoadDatabase class" />
+    <option name="LAST_COMMIT_MESSAGE" value="added LoadDatabase class" />
   </component>
 </project>
