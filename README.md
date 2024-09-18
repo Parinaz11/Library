@@ -6,7 +6,7 @@ After logging in and authorization, users are presented with a menu based on the
 
 ## User Authentication and Password Hashing
 
-### Password Hashing in the `com.api.Library.model.User` Class
+### Password Hashing in the `User` Class
 
 In this library system, user authentication is handled securely by hashing passwords with the SHA-256 algorithm before storing them. This ensures that raw (plain-text) passwords are never stored in the database, reducing the risk of password exposure.
 
