@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="added  httpClient for terminal">
+    <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="Add Logger Info for Library class">
+      <change afterPath="$PROJECT_DIR$/src/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,10 +71,14 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Spring Boot.LibraryApplication">
     <configuration name="Library" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.api.Library.LibraryApplication" />
       <module name="Library" />
@@ -123,6 +129,9 @@
       <workItem from="1725976454112" duration="221000" />
       <workItem from="1726415967200" duration="359000" />
       <workItem from="1726497926608" duration="1458000" />
+      <workItem from="1726501766939" duration="2067000" />
+      <workItem from="1726508433981" duration="1165000" />
+      <workItem from="1726564712624" duration="2965000" />
     </task>
     <task id="LOCAL-00001" summary="reservation and book controller and changes in Library">
       <option name="closed" value="true" />
@@ -167,5 +176,9 @@
     <MESSAGE value="more changes" />
     <MESSAGE value="added  httpClient for terminal" />
     <option name="LAST_COMMIT_MESSAGE" value="added  httpClient for terminal" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

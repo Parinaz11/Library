@@ -37,6 +37,7 @@ public class Library {
         Scanner scanner = new Scanner(System.in);
 
         logInfo.info("Library Info Logging is enable");
+        logInfo.debug("Library Debug Logging is enable");
         while (true) {
             System.out.println("Enter the number of your choice:\n1) Login\n2) Sign-up\n3) All Books\n4) Exit");
             int choice = scanner.nextInt();
