@@ -1,7 +1,6 @@
 package com.api.Library.Business.service;
 
 import com.api.Library.Business.model.Book;
-import com.api.Library.Business.model.Library;
 import com.api.Library.Business.model.Reservation;
 import com.api.Library.Data.DatabaseRepository;
 import com.api.Library.LibraryApplication;
@@ -14,34 +13,34 @@ public class ReservationService {
     private final DatabaseRepository database;
 
     @Autowired
-    public ReservationService(DatabaseRepository database) {
-        this.database = database;
+    public ReservationService(DatabaseRepository db) {
+        database = db;
     }
 
     private final static BookService bookService = new BookService(LibraryApplication.db);
     private final static ReservationService reservationService = new ReservationService(LibraryApplication.db);
 
     public Reservation findReservationByName(String res_name) {
-        return LibraryApplication.db.findReservationByName(res_name);
+        return database.findReservationByName(res_name);
     }
     public void removeReservation(Reservation res) {
-        LibraryApplication.db.removeReservation(res);
+        database.removeReservation(res);
     }
     public List<Reservation> getReservations() {
-        return LibraryApplication.db.getReservations();
+        return database.getReservations();
     }
     public void addReservation(Reservation res) {
-        LibraryApplication.db.addReservation(res);
+        database.addReservation(res);
     }
     public void removeReservations(Reservation res) {
-        LibraryApplication.db.removeReservation(res);
+        database.removeReservation(res);
     }
 
     public Reservation findReservationById(int res_id) {
-        return LibraryApplication.db.findReservationById(res_id);
+        return database.findReservationById(res_id);
     }
 
-    public static boolean reserve(int bookId, int user_id){
+    public boolean reserve(int bookId, int user_id){
         // checks bookID in order to see if the book is reserved or not
         // If it was reserved, returns false
         // else, changes the status of book to reserved and updates the reserve array
@@ -54,7 +53,7 @@ public class ReservationService {
         } else if (bookToReserve != null && !bookToReserve.getAvailable()) {
             return false;
         }
-        System.out.println("com.api.Library.model.Book does not exist.");
+        System.out.println("Book does not exist.");
         return false;
     }
 }

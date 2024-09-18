@@ -1,8 +1,5 @@
 package com.api.Library.Business.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -14,8 +11,6 @@ import java.util.Base64;
 import java.util.Scanner;
 
 public class User extends Person {
-    @Setter
-    @Getter
     protected String role; // "user", "admin", "manager"
     protected String hashedPassword;
     protected String salt;
@@ -36,7 +31,11 @@ public class User extends Person {
 
     public User() {
         super();
-        setRole("user");
+        this.role = "user";
+    }
+
+    public String getRole() {
+        return role;
     }
 
     @Override
@@ -82,6 +81,13 @@ public class User extends Person {
                 System.out.println("Not a valid command.");
         }
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getEmail() { return email; }
+    public String getUsername() { return username; }
 
     // Method to show available books by making a GET request to the API
     public void showAvailableBooks() {

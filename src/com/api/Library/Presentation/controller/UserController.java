@@ -7,7 +7,6 @@ import com.api.Library.Business.service.BookService;
 import com.api.Library.Business.service.ReservationService;
 import com.api.Library.Business.service.UserService;
 import com.api.Library.LibraryApplication;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +17,9 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private UserService userService = new UserService(LibraryApplication.db);
-    private BookService bookService = new BookService(LibraryApplication.db);
-    private ReservationService reservationService = new ReservationService(LibraryApplication.db);
+    private final UserService userService = new UserService(LibraryApplication.db);
+    private final BookService bookService = new BookService(LibraryApplication.db);
+    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
 
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {

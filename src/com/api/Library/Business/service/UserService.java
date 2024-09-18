@@ -1,16 +1,10 @@
 package com.api.Library.Business.service;
 
-import com.api.Library.Business.model.Admin;
-import com.api.Library.Business.model.Library;
-
-import com.api.Library.Business.model.Manager;
 import com.api.Library.Business.model.User;
 import com.api.Library.Data.DatabaseRepository;
-import com.api.Library.LibraryApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

@@ -82,7 +82,7 @@ public class Library {
 
     public static void addBook(Book book) {
         db.addBook(book);
-        System.out.println("com.api.Library.model.Book added: " + book.getTitle() + " by " + book.getAuthor());
+        System.out.println("Book added: " + book.getTitle() + " by " + book.getAuthor());
     }
 
     public static boolean removeBook(int bookId) {
@@ -96,10 +96,10 @@ public class Library {
         }
         if (bookToRemove != null) {
             db.removeBook(bookToRemove);
-            System.out.println("com.api.Library.model.Book removed: " + bookToRemove.getTitle());
+            System.out.println("Book removed: " + bookToRemove.getTitle());
             return true;
         }
-        System.out.println("com.api.Library.model.Book with ID " + bookId + " not found.");
+        System.out.println("Book with ID " + bookId + " not found.");
         return false;
     }
 
