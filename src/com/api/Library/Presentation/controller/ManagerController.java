@@ -17,8 +17,14 @@ import java.util.List;
 @RequestMapping("/managers")
 public class ManagerController {
 
-    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
-    private final UserService userService = new UserService(LibraryApplication.db);
+//    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
+//    private final UserService userService = new UserService(LibraryApplication.db);
+
+    @Autowired
+    private ReservationService reservationService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/{id}/pending-requests")
     public ResponseEntity<List<Reservation>> showPendingRequests(@PathVariable int id) {

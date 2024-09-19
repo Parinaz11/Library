@@ -7,31 +7,38 @@ import com.api.Library.Business.service.BookService;
 import com.api.Library.Business.service.ReservationService;
 import com.api.Library.Business.service.UserService;
 import com.api.Library.LibraryApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserService userService = new UserService(LibraryApplication.db);
-    private final BookService bookService = new BookService(LibraryApplication.db);
-    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
+//    private final UserService userService = new UserService(LibraryApplication.db);
 
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
-    }
+    @Autowired
+    private UserService userService;
+    private BookService bookService;
+    private ReservationService reservationService;
+//    private final BookService bookService = new BookService(LibraryApplication.db);
+//    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
 
-    @PostMapping
-    public ResponseEntity<User> addUser(@RequestBody User user) {
-        userService.addUser(user);
-        System.out.println("User " + user.getName() + " added.");
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
-    }
+//    @GetMapping
+//    public ResponseEntity<List<User>> getAllUsers() {
+//        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
+//    }
+
+//    @PostMapping
+//    public ResponseEntity<User> addUser(@RequestBody User user) {
+//        userService.addUser(user);
+//        System.out.println("User " + user.getName() + " added.");
+//        return new ResponseEntity<>(user, HttpStatus.CREATED);
+//    }
 
     // Updated path for getting user by username
     @GetMapping("/username/{username}")
@@ -45,12 +52,12 @@ public class UserController {
     }
 
     // Path for getting user by ID
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable int id) {
-        return userService.getUserById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
+//    @GetMapping("/{id}")
+//    public ResponseEntity<User> getUserById(@PathVariable int id) {
+//        return userService.getUserById(id)
+//                .map(ResponseEntity::ok)
+//                .orElseGet(() -> ResponseEntity.notFound().build());
+//    }
 
     // New endpoint to show available books
     @GetMapping("/{id}/available-books")
@@ -99,7 +106,7 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
-        Reservation reservationToDelete = reservationService.findReservationByName(bookName);
+        Reservation reservationToDelete = reservationService.findReservationByName(bookService.findBookIdByName(bookName));
         if (reservationToDelete != null && reservationToDelete.getUserId() == id) {
             reservationService.removeReservation(reservationToDelete);
             return new ResponseEntity<>("Reservation deleted successfully", HttpStatus.OK);
@@ -115,5 +122,48 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(bookService.getUserReservedBooks(id), HttpStatus.OK);
+    }
+
+
+
+
+
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable int id) {
+        Optional<User> user = userService.getUserById(id);
+        return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
+    @PostMapping
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User newUser = userService.saveUser(user);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable int id, @RequestBody User userDetails) {
+        Optional<User> user = userService.getUserById(id);
+        if (user.isPresent()) {
+            User updatedUser = user.get();
+            updatedUser.setUsername(userDetails.getUsername());
+            updatedUser.setFirstName(userDetails.getFirstName());
+            updatedUser.setLastName(userDetails.getLastName());
+            updatedUser.setEmail(userDetails.getEmail());
+            userService.saveUser(updatedUser);
+            return ResponseEntity.ok(updatedUser);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable int id) {
+        userService.deleteUserById(id);
+        return ResponseEntity.noContent().build();
     }
 }
