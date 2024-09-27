@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="added LoadDatabase class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
