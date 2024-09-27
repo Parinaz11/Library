@@ -7,7 +7,9 @@ public class Person {
     // Getters and Setters
     @Getter
     protected final int id;
+    @Getter
     protected String first_name;
+    @Getter
     protected String last_name;
     @Getter
     protected String email;
@@ -15,6 +17,7 @@ public class Person {
     protected String username;
 
     public Person(String username, String first_name, String last_name, String email) {
+
         this.id = ++id_counter;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -27,6 +30,7 @@ public class Person {
         this.last_name = "Unknown";
         this.email = "Unknown";
         this.username = "Unknown";
+
     }
 
     public String getName() { return this.first_name.concat(" ").concat(this.last_name); }
@@ -39,10 +43,10 @@ public class Person {
         System.out.println("ID: " + id + ", Name: " + getName());
     }
     public String getFirstName() {
-        return first_name;
+        return this.first_name;
     }
     public String getLastName() {
-        return last_name;
+        return this.last_name;
     }
 }
 
