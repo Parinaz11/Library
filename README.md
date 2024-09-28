@@ -1,12 +1,12 @@
-# com.api.Library.model.Library Application
+# Library Application
 
-After logging in and authorization, users are presented with a menu based on their role (com.api.Library.model.User, com.api.Library.model.Admin, or com.api.Library.model.Manager). Each role has access to specific options in their menu, allowing them to perform actions appropriate to their role. Once their tasks are completed, they can exit the program by selecting the exit option
+After logging in and authorization, users are presented with a menu based on their role (User, Admin, or Manager). Each role has access to specific options in their menu, allowing them to perform actions appropriate to their role. Once their tasks are completed, they can exit the program by selecting the exit option
 
 ---
 
-## com.api.Library.model.User Authentication and Password Hashing
+## User Authentication and Password Hashing
 
-### Password Hashing in the `com.api.Library.model.User` Class
+### Password Hashing in the `User` Class
 
 In this library system, user authentication is handled securely by hashing passwords with the SHA-256 algorithm before storing them. This ensures that raw (plain-text) passwords are never stored in the database, reducing the risk of password exposure.
 
@@ -21,7 +21,7 @@ In this library system, user authentication is handled securely by hashing passw
     - The `MessageDigest` class is used to perform the hashing. The hashed password is then encoded into a Base64 string, which is stored alongside the salt.
 
 3. **Storing and Verifying Passwords**:
-    - During user registration, the system generates a salt and hashes the user's password. The hashed password and salt are stored in the `com.api.Library.model.User` object (and by extension, in the database).
+    - During user registration, the system generates a salt and hashes the user's password. The hashed password and salt are stored in the `User` object (and by extension, in the database).
     - When a user attempts to log in, the system hashes the provided password using the same salt stored for that user. It then compares the resulting hash with the stored hash to verify the password.
 
 ### Login Process
@@ -34,9 +34,9 @@ Upon login, the system prompts the user to enter their username and password. Th
 This method of password storage and verification ensures that even if the database is compromised, the attackers would not have access to the user's plain-text passwords.
 ___
 
-## com.api.Library.model.User Class Methods
+## User Class Methods
 
-The `com.api.Library.model.User` class in the library system allows users to interact with the library's book reservation system. Below is a description of the key methods:
+The `User` class in the library system allows users to interact with the library's book reservation system. Below is a description of the key methods:
 
 ### `showAvailableBooks()`
 This method displays a list of all books that are currently available for reservation. It checks the availability status of each book in the library and prints out the book's ID, title, author, and number of pages.
@@ -63,9 +63,9 @@ This is a helper method that prompts the user to enter a book name. The entered 
 - `showMenu(Scanner in)`: This method displays the main menu to the user, allowing them to choose from the available actions (e.g., viewing available books, making a reservation). After the user selects an option, the corresponding method is called. The user is then asked if they wish to continue using the system.
 
 ___
-### com.api.Library.model.Admin Class
+### Admin Class
 
-The `com.api.Library.model.Admin` class extends the `com.api.Library.model.User` class, providing additional capabilities for managing the library system:
+The `Admin` class extends the `User` class, providing additional capabilities for managing the library system:
 
 - `addBook()`: Allows the admin to add new books to the library by entering the book's title and author.
 - `removeBook()`: Enables the admin to remove books from the library by specifying the book's ID.
