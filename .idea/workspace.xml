@@ -4,38 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="Add Logger Debug for Library class">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/ReservationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/schema.sql" afterDir="false" />
+    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="Implement h2 database for user, book and reservation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Library.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Reservation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ReservationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/UserController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +133,10 @@
       <workItem from="1726306619678" duration="749000" />
       <workItem from="1726389997092" duration="6265000" />
       <workItem from="1726470016102" duration="1204000" />
-      <workItem from="1726715134140" duration="1741000" />
+      <workItem from="1726715134140" duration="1840000" />
+      <workItem from="1727021690612" duration="38000" />
+      <workItem from="1727078995108" duration="182000" />
+      <workItem from="1727171068205" duration="294000" />
     </task>
     <task id="LOCAL-00001" summary="Added three-tier architecture and Service classes">
       <created>1726476227006</created>
@@ -179,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726580150248</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implement h2 database for user, book and reservation">
+      <option name="closed" value="true" />
+      <created>1726716923838</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726716923838</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +180,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added three-tier architecture and Service classes" />
     <MESSAGE value="added DatabaseRepository interface instead of Database for DI" />
-    <option name="LAST_COMMIT_MESSAGE" value="added DatabaseRepository interface instead of Database for DI" />
+    <MESSAGE value="Implement h2 database for user, book and reservation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement h2 database for user, book and reservation" />
   </component>
 </project>
