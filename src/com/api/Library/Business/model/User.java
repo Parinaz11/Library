@@ -1,5 +1,7 @@
 package com.api.Library.Business.model;
 
+import jakarta.persistence.*;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -9,11 +11,90 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.Scanner;
-
+@Entity
+@Table(name = "USERS")
 public class User extends Person {
-    protected String role; // "user", "admin", "manager"
-    protected String hashedPassword;
-    protected String salt;
+//    protected String role; // "user", "admin", "manager"
+//    protected String hashedPassword;
+//    protected String salt;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(name = "hashed_password", nullable = false)
+    private String hashedPassword;
+
+    @Column(nullable = false)
+    private String salt;
+
+    @Column(nullable = false)
+    protected String role;
+
+    // Getters and Setters
+
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+
 
     public User(String username, String firstName, String lastName, String email, String password) {
         super(username, firstName, lastName, email);

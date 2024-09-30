@@ -17,14 +17,14 @@ import java.util.List;
 @RequestMapping("/managers")
 public class ManagerController {
 
-    private final ReservationService reservationService;
-    private final UserService userService;
+//    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
+//    private final UserService userService = new UserService(LibraryApplication.db);
 
     @Autowired
-    public ManagerController(ReservationService rs, UserService us){
-        this.reservationService = rs;
-        this.userService = us;
-    }
+    private ReservationService reservationService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/{id}/pending-requests")
     public ResponseEntity<List<Reservation>> showPendingRequests(@PathVariable int id) {

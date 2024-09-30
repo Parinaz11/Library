@@ -14,12 +14,16 @@ import java.util.List;
 @RequestMapping("/reservations")
 public class ReservationController {
 
-    private final ReservationService reservationService;
+//    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
 
     @Autowired
-    public ReservationController(ReservationService rs) {
-        this.reservationService = rs;
-    }
+    private ReservationService reservationService;
+//    private final ReservationService reservationService;
+
+//    @Autowired
+//    public ReservationController(ReservationService rs) {
+//        this.reservationService = rs;
+//    }
 
     @GetMapping
     public ResponseEntity<List<Reservation>> getAllReservations() {
