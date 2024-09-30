@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="added  httpClient for terminal">
+    <list default="true" id="464024d3-b534-4fe5-89ab-1a82be373c45" name="Changes" comment="fix swagger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +136,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724876596797</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix swagger">
+      <option name="closed" value="true" />
+      <created>1727723954894</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727723954894</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix swagger">
+      <option name="closed" value="true" />
+      <created>1727724051175</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727724051175</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +162,7 @@
     <MESSAGE value="reservation and book controller and changes in Library" />
     <MESSAGE value="more changes" />
     <MESSAGE value="added  httpClient for terminal" />
-    <option name="LAST_COMMIT_MESSAGE" value="added  httpClient for terminal" />
+    <MESSAGE value="fix swagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix swagger" />
   </component>
 </project>
