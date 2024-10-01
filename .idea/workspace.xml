@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="fixed the architecture packages">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ReservationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/UserController.class" afterDir="false" />
-    </list>
+    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="merge branch 17-implement-h2-database with main" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -222,10 +212,9 @@
     <MESSAGE value="Fixed DI bug" />
     <MESSAGE value="added LoadDatabase class" />
     <MESSAGE value="merge branch 17-implement-h2-database" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge branch 17-implement-h2-database" />
     <MESSAGE value="fix swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix swagger" />
     <MESSAGE value="fixed the architecture packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the architecture packages" />
+    <MESSAGE value="merge branch 17-implement-h2-database with main" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge branch 17-implement-h2-database with main" />
   </component>
 </project>
