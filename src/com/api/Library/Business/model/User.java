@@ -98,6 +98,7 @@ public class User extends Person {
 
     public User(String username, String firstName, String lastName, String email, String password) {
         super(username, firstName, lastName, email);
+        System.out.println();
         this.salt = generateSaltString();
         this.hashedPassword = hashPassword(password, Base64.getDecoder().decode(this.salt));
         this.role = "user";
