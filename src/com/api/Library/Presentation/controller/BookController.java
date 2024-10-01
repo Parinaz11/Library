@@ -15,12 +15,15 @@ import java.util.List;
 @RequestMapping("/books")
 public class BookController {
 
-    private final BookService bookService;
+//    private final BookService bookService = new BookService(LibraryApplication.db);
 
     @Autowired
-    public BookController(BookService bs) {
-        this.bookService = bs;
-    }
+    private BookService bookService;
+
+//    @Autowired
+//    public BookController(LibraryService libraryService) {
+//        this.libraryService = libraryService;
+//    }
 
     @GetMapping
     public ResponseEntity<List<Book>> getAllBooks() {
@@ -39,11 +42,11 @@ public class BookController {
         }
     }
 
-    @PostMapping
-    public ResponseEntity<Book> addBook(@RequestBody Book book) {
-        Library.addBook(book);
-        return new ResponseEntity<>(book, HttpStatus.CREATED);
-    }
+//    @PostMapping
+//    public ResponseEntity<Book> addBook(@RequestBody Book book) {
+//        Library.addBook(book);
+//        return new ResponseEntity<>(book, HttpStatus.CREATED);
+//    }
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
@@ -63,5 +66,27 @@ public class BookController {
     public ResponseEntity<Void> deleteBook(@PathVariable int id) {
         Library.removeBook(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+
+
+
+
+    // Fetch all pending books for a user
+    @GetMapping("/pending/{userId}")
+    public List<Book> getPendingBooks(@PathVariable int userId) {
+        return bookService.getPendingBooks(userId);
+    }
+
+    // Fetch all reserved books for a user
+    @GetMapping("/reserved/{userId}")
+    public List<Book> getReservedBooks(@PathVariable int userId) {
+        return bookService.getUserReservedBooks(userId);
+    }
+
+    // Add a new book to the system
+    @PostMapping
+    public void addBook(@RequestBody Book book) {
+        bookService.addBook(book);
     }
 }

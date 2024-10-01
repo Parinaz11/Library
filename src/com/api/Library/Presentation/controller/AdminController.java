@@ -18,13 +18,12 @@ import java.util.List;
 @RequestMapping("/admins")
 public class AdminController {
 
-    private final UserService userService;
-    private final BookService bookService;
+//    private final UserService userService = new UserService(LibraryApplication.db);
 
-    public AdminController(UserService us, BookService bs) {
-        this.userService = us;
-        this.bookService = bs;
-    }
+    @Autowired
+    private UserService userService;
+    private BookService bookService;
+//    private final BookService bookService = new BookService(LibraryApplication.db);
 
     @GetMapping("/{id}/books")
     public ResponseEntity<List<Book>> getAllBooks(@PathVariable int id) {

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="added LoadDatabase class">
+    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="merge branch 17-implement-h2-database with main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,15 +16,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="17-implement-h2-database" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -36,7 +32,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Parinaz11/Library.git&quot;,
-    &quot;accountId&quot;: &quot;bffe38dc-a798-46e1-a084-4e6bceb51514&quot;
+    &quot;accountId&quot;: &quot;5afc5682-44cb-44da-82f1-40ef5f6521d7&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -47,7 +43,7 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2lK3dXGDFgiyz90wFp3yrIf0N5W" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -58,9 +54,14 @@
   &quot;keyToString&quot;: {
     &quot;Application.APIapp.executor&quot;: &quot;Run&quot;,
     &quot;Application.client.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.LibraryApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/parin/IdeaProjects/Library&quot;,
@@ -73,6 +74,11 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;h2&quot;
+    ]
   }
 }</component>
   <component name="RunManager" selected="Application.APIapp">
@@ -90,10 +96,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LibraryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="Library" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.api.Library.LibraryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.APIapp" />
       <item itemvalue="Application.client" />
     </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -110,6 +132,11 @@
       <workItem from="1726306619678" duration="749000" />
       <workItem from="1726389997092" duration="6265000" />
       <workItem from="1726470016102" duration="1204000" />
+      <workItem from="1726715134140" duration="1840000" />
+      <workItem from="1727021690612" duration="38000" />
+      <workItem from="1727078995108" duration="182000" />
+      <workItem from="1727171068205" duration="294000" />
+      <workItem from="1727621197908" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="Added three-tier architecture and Service classes">
       <created>1726476227006</created>
@@ -141,7 +168,7 @@
       <option name="project" value="LOCAL" />
       <updated>1726669812705</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,9 +188,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added three-tier architecture and Service classes" />
     <MESSAGE value="added DatabaseRepository interface instead of Database for DI" />
+    <MESSAGE value="Implement h2 database for user, book and reservation" />
     <MESSAGE value="added  httpClient for terminal" />
     <MESSAGE value="Fixed DI bug" />
     <MESSAGE value="added LoadDatabase class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added LoadDatabase class" />
+    <MESSAGE value="merge branch 17-implement-h2-database" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge branch 17-implement-h2-database" />
   </component>
 </project>
