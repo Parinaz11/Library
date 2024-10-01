@@ -1,8 +1,6 @@
 package com.api.Library.service;
 
-import com.api.Library.Business.model.User;
-import com.api.Library.Data.DatabaseRepository;
-import com.api.Library.Data.UserRepository;
+import com.api.Library.repository.UserRepository;
 import com.api.Library.model.User;
 import com.api.Library.repository.DatabaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;

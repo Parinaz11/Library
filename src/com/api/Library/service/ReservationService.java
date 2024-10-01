@@ -1,14 +1,8 @@
 package com.api.Library.service;
 
-import com.api.Library.Business.model.Book;
-import com.api.Library.Business.model.Reservation;
-import com.api.Library.Data.BookRepository;
-import com.api.Library.Data.DatabaseRepository;
-import com.api.Library.Data.ReservationRepository;
-import com.api.Library.LibraryApplication;
+import com.api.Library.repository.ReservationRepository;
 import com.api.Library.model.Book;
 import com.api.Library.model.Reservation;
-import com.api.Library.repository.DatabaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.api.Library.Data;
+package com.api.Library.repository;
 
-import com.api.Library.Business.model.Reservation;
+import com.api.Library.model.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,5 +19,5 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
     List<Reservation> findByStatus(String status);
 
     Reservation findReservationById(int res_id);
-    Reservation findReservationByBookId(int book_id);
+    com.api.Library.model.Reservation findReservationByBookId(int book_id);
 }

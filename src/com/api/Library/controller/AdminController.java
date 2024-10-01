@@ -6,6 +6,7 @@ import com.api.Library.model.Library;
 import com.api.Library.model.User;
 import com.api.Library.service.BookService;
 import com.api.Library.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
