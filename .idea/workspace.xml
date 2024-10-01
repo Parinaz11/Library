@@ -4,49 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="added LoadDatabase class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Data/ArraylistDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/repository/ArraylistDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Data/DatabaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/repository/DatabaseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/HTTPclient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/HTTPclient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/LoadDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/LoadDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Book.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Library.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Manager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Reservation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/BookService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/ArraylistDatabase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/DatabaseRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/HTTPclient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/HTTPclient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ManagerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ReservationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/UserController.class" beforeDir="false" />
-    </list>
+    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="fixed the architecture packages" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726669812705</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed the architecture packages">
+      <option name="closed" value="true" />
+      <created>1727457944233</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727457944233</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +165,7 @@
     <MESSAGE value="added  httpClient for terminal" />
     <MESSAGE value="Fixed DI bug" />
     <MESSAGE value="added LoadDatabase class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added LoadDatabase class" />
+    <MESSAGE value="fixed the architecture packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the architecture packages" />
   </component>
 </project>
