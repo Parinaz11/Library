@@ -5,10 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="merge branch 17-implement-h2-database with main">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a320b099-3bbf-4773-8c32-dea7fc823302.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a320b099-3bbf-4773-8c32-dea7fc823302/storage_v2/_src_/database/LIBRARY_DATABASE.nwCeaQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a320b099-3bbf-4773-8c32-dea7fc823302/storage_v2/_src_/database/LIBRARY_DATABASE.nwCeaQ/schema/PUBLIC.aaZQjQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/ReservationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/Data/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Data/BookRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Data/ReservationRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Data/UserRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Data/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/ReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Business/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/Presentation/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Reservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/BookService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ManagerController.class" afterDir="false" />
@@ -29,6 +61,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -58,6 +95,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.APIapp.executor": "Run",
+    "Application.client.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "19-fixing-architecture",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/parin/IdeaProjects/Library",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.APIapp.executor&quot;: &quot;Run&quot;,
@@ -89,7 +145,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Spring Boot.LibraryApplication">
+  <component name="RunManager" selected="Application.APIapp">
     <configuration name="APIapp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.api.Library.LibraryApplication" />
       <module name="Library" />
@@ -121,8 +177,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
       </set>
     </attachedChunks>
   </component>
@@ -171,15 +227,40 @@
       <option name="project" value="LOCAL" />
       <updated>1726663700509</updated>
     </task>
-    <task id="LOCAL-00004" summary="merge branch 17-implement-h2-database with main">
+    <task id="LOCAL-00004" summary="added LoadDatabase class">
       <option name="closed" value="true" />
-      <created>1727680541817</created>
+      <created>1726669812705</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1727680541817</updated>
+      <updated>1726669812705</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix swagger">
+      <option name="closed" value="true" />
+      <created>1727723954894</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727723954894</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix swagger">
+      <option name="closed" value="true" />
+      <created>1727724051175</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727724051175</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00005" summary="fixed the architecture packages">
+      <option name="closed" value="true" />
+      <created>1727457944233</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727457944233</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +285,12 @@
     <MESSAGE value="Fixed DI bug" />
     <MESSAGE value="added LoadDatabase class" />
     <MESSAGE value="merge branch 17-implement-h2-database" />
+    <MESSAGE value="fix swagger" />
+    <MESSAGE value="fixed the architecture packages" />
+    <MESSAGE value="merge branch 17-implement-h2-database with main" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge branch 17-implement-h2-database with main" />
+    <MESSAGE value="fixed the architecture packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the architecture packages" />
     <MESSAGE value="merge branch 17-implement-h2-database with main" />
     <option name="LAST_COMMIT_MESSAGE" value="merge branch 17-implement-h2-database with main" />
   </component>
