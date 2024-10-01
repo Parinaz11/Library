@@ -1,7 +1,7 @@
 package com.api.Library;
 
-import com.api.Library.Data.ArraylistDatabase;
-import com.api.Library.Data.DatabaseRepository;
+import com.api.Library.repository.ArraylistDatabase;
+import com.api.Library.repository.DatabaseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="merge branch 17-implement-h2-database with main" />
+    <list default="true" id="ac9d8f25-5629-4caf-b314-cf0eabe1b6da" name="Changes" comment="fixed the architecture packages" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +54,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.APIapp.executor": "Run",
+    "Application.client.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "19-fixing-architecture",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/parin/IdeaProjects/Library",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.APIapp.executor&quot;: &quot;Run&quot;,
@@ -188,6 +208,15 @@
       <updated>1727724051175</updated>
     </task>
     <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00005" summary="fixed the architecture packages">
+      <option name="closed" value="true" />
+      <created>1727457944233</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727457944233</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,5 +245,7 @@
     <MESSAGE value="fixed the architecture packages" />
     <MESSAGE value="merge branch 17-implement-h2-database with main" />
     <option name="LAST_COMMIT_MESSAGE" value="merge branch 17-implement-h2-database with main" />
+    <MESSAGE value="fixed the architecture packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the architecture packages" />
   </component>
 </project>
