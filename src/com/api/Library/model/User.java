@@ -331,6 +331,9 @@ public class User extends Person {
         String hashedAttempt = hashPassword(password, Base64.getDecoder().decode(this.salt));
         return hashedAttempt.equals(this.hashedPassword);
     }
+
+    public void setId(int i) {
+    }
 }
 
 

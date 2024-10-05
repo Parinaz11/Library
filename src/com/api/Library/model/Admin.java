@@ -173,6 +173,9 @@ public class Admin extends User {
             e.printStackTrace();
         }
     }
+
+    public void setId(int i) {
+    }
 }
 
 

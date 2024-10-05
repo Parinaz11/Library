@@ -5,44 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdd57e83-7763-4d27-b745-27923abf5542" name="Changes" comment="fixed the architecture packages">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/api/Library/controller/AdminControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/repository/ReservationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/BookService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/BookRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/ReservationRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LoadDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/LoadDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ReservationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ReservationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/Reservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/service/ReservationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/HTTPclient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LibraryApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LoadDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/config/OpenApiConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/AdminController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/BookController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ManagerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ReservationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Book.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Library.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Reservation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/repository/ArraylistDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/repository/DatabaseRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/BookService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/ReservationService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/UserService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,16 +43,48 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;zeynabT&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Parinaz11/Library.git&quot;,
+    &quot;accountId&quot;: &quot;a1d98cf0-653c-4c9a-b2eb-d19e1f8a83c4&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2myNXJ4THoguSp0pJ7IS8GVl3Su" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.APIapp.executor": "Run",
-    "git-widget-placeholder": "main"
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.APIapp.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.AdminControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminControllerTest.testAddBook_AdminDoesNotExist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdminControllerTest.testGetAllBooks_AdminDoesNotExist.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;18-testing-controller&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="JUnit.AdminControllerTest">
     <configuration name="APIapp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.api.Library.LibraryApplication" />
       <module name="Library" />
@@ -69,8 +92,70 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AdminControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.api.Library.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.api.Library.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.api.Library.controller.AdminControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminControllerTest.testAddBook_AdminDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.api.Library.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.api.Library.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.api.Library.controller.AdminControllerTest" />
+      <option name="METHOD_NAME" value="testAddBook_AdminDoesNotExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminControllerTest.testGetAllBooks_AdminDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.api.Library.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.api.Library.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.api.Library.controller.AdminControllerTest" />
+      <option name="METHOD_NAME" value="testGetAllBooks_AdminDoesNotExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AdminControllerTest" />
+        <item itemvalue="JUnit.AdminControllerTest.testAddBook_AdminDoesNotExist" />
+        <item itemvalue="JUnit.AdminControllerTest.testGetAllBooks_AdminDoesNotExist" />
+      </list>
+    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fdd57e83-7763-4d27-b745-27923abf5542" name="Changes" comment="fixed the architecture packages" />
+      <created>1728044894152</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728044894152</updated>
+    </task>
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
