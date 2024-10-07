@@ -1,8 +1,10 @@
 package com.api.Library.service;
 
+import com.api.Library.repository.ReservationRepository;
 import com.api.Library.repository.UserRepository;
 import com.api.Library.model.User;
 import com.api.Library.repository.DatabaseRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,9 @@ public class UserService {
 //    public UserService(DatabaseRepository database) {
 //        this.database = database;
 //    }
+
+    @Autowired
+    private UserRepository userRepository;
 
     public Optional<User> getUserById(int id) {
 
@@ -46,12 +51,13 @@ public class UserService {
         userRepository.save(u);
     }
 
-    @Autowired
-    private UserRepository userRepository;
+
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    @Transactional
     public User saveUser(User user) {
         user.setSalt(generateSaltString());
         user.setHashedPassword(hashPassword(user.getHashedPassword(), Base64.getDecoder().decode(user.getSalt())));

@@ -44,7 +44,8 @@ public class UserController {
 
 //    @PostMapping
 //    public ResponseEntity<User> addUser(@RequestBody User user) {
-//        userService.addUser(user);
+////        userService.addUser(user);
+//        userService.saveUser(user);
 //        System.out.println("User " + user.getName() + " added.");
 //        return new ResponseEntity<>(user, HttpStatus.CREATED);
 //    }
