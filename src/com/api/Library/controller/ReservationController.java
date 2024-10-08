@@ -8,20 +8,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/reservations")
 public class ReservationController {
 
-//    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
+    private final ReservationService reservationService;
 
     @Autowired
-    private ReservationService reservationService;
-//    private final ReservationService reservationService;
-
-    @Autowired
-    public ReservationController(ReservationService rs) {
-        this.reservationService = rs;
+    public ReservationController(ReservationService reservationService) {
+        this.reservationService = reservationService;
     }
 
     @GetMapping
@@ -31,12 +28,13 @@ public class ReservationController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Reservation> getReservationById(@PathVariable int id) {
-        Reservation reservation = reservationService.findReservationById(id);
-        if (reservation != null) {
-            return new ResponseEntity<>(reservation, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        Optional<Reservation> reservation = reservationService.findReservationById(id);
+        return reservation.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+//        if (reservation != null) {
+//            return new ResponseEntity<>(reservation, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
     }
 
     @PostMapping
@@ -47,12 +45,15 @@ public class ReservationController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteReservation(@PathVariable int id) {
-        Reservation reservation = reservationService.findReservationById(id);
-        if (reservation != null) {
-            reservationService.removeReservation(reservation);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        reservationService.removeReservation(reservation);
+        reservationService.removeReservation(id);
+        return ResponseEntity.noContent().build();
+
+//        if (reservation != null) {
+//            reservationService.removeReservation(reservation);
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
     }
 }

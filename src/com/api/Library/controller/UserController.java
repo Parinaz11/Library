@@ -92,7 +92,7 @@ public class UserController {
         }
         Reservation reservationToDelete = reservationService.findReservationByName(bookService.findBookIdByName(bookName));
         if (reservationToDelete != null && reservationToDelete.getUserId() == id) {
-            reservationService.removeReservation(reservationToDelete);
+            reservationService.removeReservation(reservationToDelete.getReservationId());
             return new ResponseEntity<>("Reservation deleted successfully", HttpStatus.OK);
         }
         return new ResponseEntity<>("Reservation not found or you don't have permission to delete it.", HttpStatus.NOT_FOUND);

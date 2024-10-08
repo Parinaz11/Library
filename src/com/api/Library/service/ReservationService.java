@@ -7,58 +7,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReservationService {
 
-//    private final DatabaseRepository database;
+    private final ReservationRepository reservationRepository;
+    private final BookService bookService;
 
     @Autowired
-    private ReservationRepository reservationRepository;
+    public ReservationService(ReservationRepository reservationRepository, BookService bookService) {
+        this.reservationRepository = reservationRepository;
+        this.bookService = bookService;
+    }
 
-//    @Autowired
-//    public ReservationService(DatabaseRepositorydb) {
-//        database = db;
-//    }
-    private BookService bookService;
-
-//    public ReservationService(DatabaseRepository db, BookService bookService) {
-//        this.database = db;
-//        this.bookService = bookService;
-//    }
-
-//    private final static BookService bookService = new BookService(LibraryApplication.db);
-
-//    private final static ReservationService reservationService = new ReservationService(LibraryApplication.db);
 
     public Reservation findReservationByName(int book_id) {
 //        return database.findReservationByName(res_name);
         return reservationRepository.findReservationByBookId(book_id);
     }
-    public void removeReservation(Reservation res) {
-
-//        database.removeReservation(res);
-        reservationRepository.delete(res);
+    public void removeReservation(int res_id) {
+//        reservationRepository.delete(res);
+        reservationRepository.deleteById(res_id);
     }
     public List<Reservation> getReservations() {
 
-//        return database.getReservations();
         return reservationRepository.findAll();
     }
     public void addReservation(Reservation res) {
 
-//        database.addReservation(res);
         reservationRepository.save(res);
     }
     public void removeReservations(Reservation res) {
 
-//        database.removeReservation(res);
         reservationRepository.delete(res);
     }
 
-    public Reservation findReservationById(int res_id) {
-//        return database.findReservationById(res_id);
-        return reservationRepository.findReservationById(res_id);
+    public Optional<Reservation> findReservationById(int res_id) {
+        return reservationRepository.findById(res_id);
     }
 
     public boolean reserve(int bookId, int user_id){
