@@ -14,15 +14,12 @@ import java.util.List;
 @RequestMapping("/books")
 public class BookController {
 
-//    private final BookService bookService = new BookService(LibraryApplication.db);
+    private final BookService bookService;
 
     @Autowired
-    private BookService bookService;
-
-//    @Autowired
-//    public BookController(LibraryService libraryService) {
-//        this.libraryService = libraryService;
-//    }
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Book>> getAllBooks() {
@@ -41,11 +38,7 @@ public class BookController {
         }
     }
 
-//    @PostMapping
-//    public ResponseEntity<Book> addBook(@RequestBody Book book) {
-//        Library.addBook(book);
-//        return new ResponseEntity<>(book, HttpStatus.CREATED);
-//    }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
@@ -63,13 +56,9 @@ public class BookController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable int id) {
-//        Library.removeBook(id);
         bookService.deleteBook(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-
-
 
 
     // Fetch all pending books for a user
@@ -86,7 +75,10 @@ public class BookController {
 
     // Add a new book to the system
     @PostMapping
-    public void addBook(@RequestBody Book book) {
+    public ResponseEntity<Book> addBook(@RequestBody Book book) {
+
         bookService.addBook(book);
+        return new ResponseEntity<>(book, HttpStatus.CREATED);
     }
+
 }
