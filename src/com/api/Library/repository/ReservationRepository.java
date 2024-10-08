@@ -1,7 +1,9 @@
-package com.api.Library.Data;
+package com.api.Library.repository;
 
-import com.api.Library.Business.model.Reservation;
+import com.api.Library.model.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,14 +12,24 @@ import java.util.List;
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
 
     // Find all reservations for a specific user
+    @Query("SELECT r FROM Reservation r WHERE r.userId = :userId")
     List<Reservation> findByUserId(int userId);
 
     // Find all reservations for a specific book
+    @Query("SELECT r FROM Reservation r WHERE r.bookId = :bookId")
     List<Reservation> findByBookId(int bookId);
 
     // Find all reservations with a specific status
+    @Query("SELECT r from Reservation r where r.status = :status")
     List<Reservation> findByStatus(String status);
 
-    Reservation findReservationById(int res_id);
-    Reservation findReservationByBookId(int book_id);
+//    @Query("SELECT r from Reservation r where r.bookId = :bookId")
+//    Reservation findReservationByBookId(int book_id);
+
+    @Query("SELECT r FROM Reservation r WHERE r.bookId = :bookId")
+    Reservation findReservationByBookId(@Param("bookId") int bookId);
+
+    @Query("SELECT r FROM Reservation r WHERE r.userId = :userId AND r.status = 'pending'")
+    List<Reservation> findPendingReservationByUserId(@Param("userId") int userId);
+
 }

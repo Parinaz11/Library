@@ -1,7 +1,6 @@
-package com.api.Library.Data;
+package com.api.Library.repository;
 
-import com.api.Library.Business.model.Book;
-import com.api.Library.Business.model.User;
+import com.api.Library.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -21,6 +20,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query("SELECT b FROM Book b WHERE b.user.id = :userId AND b.available = false")
     List<Book> findReservedBooksByUserId(int userId);
 
+    @Query("SELECT b FROM Book b WHERE b.available = true")
     List<Book> findByAvailable(boolean available);
 
 }
