@@ -17,15 +17,13 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-//    private final DatabaseRepository database;
-
-//    @Autowired
-//    public UserService(DatabaseRepository database) {
-//        this.database = database;
-//    }
+    private final UserRepository userRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
 
     public Optional<User> getUserById(int id) {
 
@@ -48,6 +46,10 @@ public class UserService {
     public void addUser(User u) {
 
 //        database.addUser(u);
+        userRepository.save(u);
+    }
+
+    public void updateUser(User u) {
         userRepository.save(u);
     }
 

@@ -19,36 +19,17 @@ import java.util.Optional;
 @RequestMapping("/users")
 public class UserController {
 
-//    private final UserService userService = new UserService(LibraryApplication.db);
-//    private final UserService userService;
-//    private final BookService bookService;
-//    private final ReservationService reservationService;
-//
-//    public UserController(UserService us, BookService bs, ReservationService rs) {
-//        this.userService = us;
-//        this.bookService = bs;
-//        this.reservationService = rs;
-//    }
+    private final UserService userService;
+    private final BookService bookService;
+    private final ReservationService reservationService;
 
     @Autowired
-    private UserService userService;
-    private BookService bookService;
-    private ReservationService reservationService;
-//    private final BookService bookService = new BookService(LibraryApplication.db);
-//    private final ReservationService reservationService = new ReservationService(LibraryApplication.db);
+    public UserController(UserService us, BookService bs, ReservationService rs) {
+        this.userService = us;
+        this.bookService = bs;
+        this.reservationService = rs;
+    }
 
-//    @GetMapping
-//    public ResponseEntity<List<User>> getAllUsers() {
-//        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
-//    }
-
-//    @PostMapping
-//    public ResponseEntity<User> addUser(@RequestBody User user) {
-////        userService.addUser(user);
-//        userService.saveUser(user);
-//        System.out.println("User " + user.getName() + " added.");
-//        return new ResponseEntity<>(user, HttpStatus.CREATED);
-//    }
 
     // Updated path for getting user by username
     @GetMapping("/username/{username}")
@@ -61,13 +42,6 @@ public class UserController {
         }
     }
 
-    // Path for getting user by ID
-//    @GetMapping("/{id}")
-//    public ResponseEntity<User> getUserById(@PathVariable int id) {
-//        return userService.getUserById(id)
-//                .map(ResponseEntity::ok)
-//                .orElseGet(() -> ResponseEntity.notFound().build());
-//    }
 
     // New endpoint to show available books
     @GetMapping("/{id}/available-books")
@@ -136,22 +110,25 @@ public class UserController {
 
 
 
-
-
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<User>> getAllUsers() {
+        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable int id) {
         Optional<User> user = userService.getUserById(id);
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+//        ResponseEntity.notFound().build());
     }
+
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User newUser = userService.saveUser(user);
+//        System.out.println("User " + user.getName() + " added.");
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
@@ -164,7 +141,8 @@ public class UserController {
             updatedUser.setFirstName(userDetails.getFirstName());
             updatedUser.setLastName(userDetails.getLastName());
             updatedUser.setEmail(userDetails.getEmail());
-            userService.saveUser(updatedUser);
+            updatedUser.setRole(userDetails.getRole());
+            userService.updateUser(updatedUser);
             return ResponseEntity.ok(updatedUser);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

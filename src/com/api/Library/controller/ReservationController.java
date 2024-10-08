@@ -19,10 +19,10 @@ public class ReservationController {
     private ReservationService reservationService;
 //    private final ReservationService reservationService;
 
-//    @Autowired
-//    public ReservationController(ReservationService rs) {
-//        this.reservationService = rs;
-//    }
+    @Autowired
+    public ReservationController(ReservationService rs) {
+        this.reservationService = rs;
+    }
 
     @GetMapping
     public ResponseEntity<List<Reservation>> getAllReservations() {
