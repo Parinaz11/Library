@@ -27,35 +27,20 @@ public class UserService {
 
     public Optional<User> getUserById(int id) {
 
-//        return database.getUserById(id);
         return userRepository.findById(id);
     }
 
     public User getUserByUsername(String user_name) {
 
-//        return database.findUserByUsername(user_name);
         return userRepository.findByUsername(user_name);
-    }
-
-    public List<User> getUsers() {
-
-//        return database.getUsers();
-        return userRepository.findAll();
-    }
-
-    public void addUser(User u) {
-
-//        database.addUser(u);
-        userRepository.save(u);
     }
 
     public void updateUser(User u) {
         userRepository.save(u);
     }
 
-
-
     public List<User> getAllUsers() {
+
         return userRepository.findAll();
     }
 

@@ -63,6 +63,6 @@ public class AdminController {
         if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 }

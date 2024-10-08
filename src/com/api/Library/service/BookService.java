@@ -12,15 +12,13 @@ import java.util.List;
 @Service
 public class BookService {
 
-//    private final DatabaseRepository database;
-
-//    @Autowired
-//    public BookService(DatabaseRepository database) {
-//        this.database = database;
-//    }
+    private final BookRepository bookRepository;
 
     @Autowired
-    private BookRepository bookRepository;
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
 
     public List<Book> getBooks() {
 //        return database.getBooks();
