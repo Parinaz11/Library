@@ -42,6 +42,9 @@ public class ReservationService {
 
         reservationRepository.delete(res);
     }
+    public void updateReservation(Reservation res) {
+        reservationRepository.save(res);
+    }
 
     public Optional<Reservation> findReservationById(int res_id) {
         return reservationRepository.findById(res_id);

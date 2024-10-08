@@ -5,6 +5,7 @@ import com.api.Library.model.Book;
 import com.api.Library.model.Library;
 import com.api.Library.model.User;
 import com.api.Library.service.BookService;
+import com.api.Library.service.ReservationService;
 import com.api.Library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,16 +18,18 @@ import java.util.List;
 @RequestMapping("/admins")
 public class AdminController {
 
-//    private final UserService userService = new UserService(LibraryApplication.db);
+    private final UserService userService;
+    private final BookService bookService;
 
     @Autowired
-    private UserService userService;
-    private BookService bookService;
-//    private final BookService bookService = new BookService(LibraryApplication.db);
+    public AdminController(UserService us, BookService bs) {
+        this.userService = us;
+        this.bookService = bs;}
 
     @GetMapping("/{id}/books")
     public ResponseEntity<List<Book>> getAllBooks(@PathVariable int id) {
-        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+//        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+        User admin = userService.getUserById(id).orElse(null);
         if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
@@ -35,7 +38,8 @@ public class AdminController {
 
     @PostMapping("/{id}/add-book")
     public ResponseEntity<String> addBook(@PathVariable int id, @RequestBody Book book) {
-        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+//        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+        User admin = userService.getUserById(id).orElse(null);
         if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
             return new ResponseEntity<>("Only admins can add books.", HttpStatus.FORBIDDEN);
         }
@@ -45,7 +49,8 @@ public class AdminController {
 
     @DeleteMapping("/{id}/remove-book/{bookId}")
     public ResponseEntity<String> removeBook(@PathVariable int id, @PathVariable int bookId) {
-        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+//        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+        User admin = userService.getUserById(id).orElse(null);
         if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
             return new ResponseEntity<>("Only admins can remove books.", HttpStatus.FORBIDDEN);
         }
@@ -59,7 +64,8 @@ public class AdminController {
 
     @GetMapping("/{id}/users")
     public ResponseEntity<List<User>> getAllUsers(@PathVariable int id) {
-        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+//        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+        User admin = userService.getUserById(id).orElse(null);
         if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
