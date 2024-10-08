@@ -66,4 +66,8 @@ public class ReservationService {
         System.out.println("Book does not exist.");
         return false;
     }
+
+    public List<Reservation> findPendingReservationsByUserId(int user_id) {
+        return reservationRepository.findPendingReservationByUserId(user_id);
+    }
 }
