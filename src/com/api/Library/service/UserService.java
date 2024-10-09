@@ -1,5 +1,6 @@
 package com.api.Library.service;
 
+import com.api.Library.exception.UserNotFoundException;
 import com.api.Library.repository.ReservationRepository;
 import com.api.Library.repository.UserRepository;
 import com.api.Library.model.User;
@@ -25,9 +26,11 @@ public class UserService {
     }
 
 
-    public Optional<User> getUserById(int id) {
-
-        return userRepository.findById(id);
+    public User getUserById(int id) {
+        if (userRepository.findById(id).isEmpty())
+            throw new UserNotFoundException("Requested User does not exist");
+//        return userRepository.findById(id);
+        return userRepository.findById(id).get();
     }
 
     public User getUserByUsername(String user_name) {

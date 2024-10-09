@@ -26,49 +26,49 @@ public class AdminController {
         this.userService = us;
         this.bookService = bs;}
 
-    @GetMapping("/{id}/books")
-    public ResponseEntity<List<Book>> getAllBooks(@PathVariable int id) {
-//        Admin admin = (Admin) userService.getUserById(id).orElse(null);
-        User admin = userService.getUserById(id).orElse(null);
-        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
-        return new ResponseEntity<>(bookService.getBooks(), HttpStatus.OK);
-    }
+//    @GetMapping("/{id}/books")
+//    public ResponseEntity<List<Book>> getAllBooks(@PathVariable int id) {
+////        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+//        User admin = userService.getUserById(id).orElse(null);
+//        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
+//            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+//        }
+//        return new ResponseEntity<>(bookService.getBooks(), HttpStatus.OK);
+//    }
 
-    @PostMapping("/{id}/add-book")
-    public ResponseEntity<String> addBook(@PathVariable int id, @RequestBody Book book) {
-//        Admin admin = (Admin) userService.getUserById(id).orElse(null);
-        User admin = userService.getUserById(id).orElse(null);
-        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
-            return new ResponseEntity<>("Only admins can add books.", HttpStatus.FORBIDDEN);
-        }
-        Library.addBook(book);
-        return new ResponseEntity<>("Book added successfully.", HttpStatus.CREATED);
-    }
+//    @PostMapping("/{id}/add-book")
+//    public ResponseEntity<String> addBook(@PathVariable int id, @RequestBody Book book) {
+////        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+//        User admin = userService.getUserById(id).orElse(null);
+//        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
+//            return new ResponseEntity<>("Only admins can add books.", HttpStatus.FORBIDDEN);
+//        }
+//        Library.addBook(book);
+//        return new ResponseEntity<>("Book added successfully.", HttpStatus.CREATED);
+//    }
 
-    @DeleteMapping("/{id}/remove-book/{bookId}")
-    public ResponseEntity<String> removeBook(@PathVariable int id, @PathVariable int bookId) {
-//        Admin admin = (Admin) userService.getUserById(id).orElse(null);
-        User admin = userService.getUserById(id).orElse(null);
-        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
-            return new ResponseEntity<>("Only admins can remove books.", HttpStatus.FORBIDDEN);
-        }
-        boolean removed = Library.removeBook(bookId);
-        if (removed) {
-            return new ResponseEntity<>("Book removed successfully.", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Book not found.", HttpStatus.NOT_FOUND);
-        }
-    }
+//    @DeleteMapping("/{id}/remove-book/{bookId}")
+//    public ResponseEntity<String> removeBook(@PathVariable int id, @PathVariable int bookId) {
+////        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+//        User admin = userService.getUserById(id).orElse(null);
+//        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
+//            return new ResponseEntity<>("Only admins can remove books.", HttpStatus.FORBIDDEN);
+//        }
+//        boolean removed = Library.removeBook(bookId);
+//        if (removed) {
+//            return new ResponseEntity<>("Book removed successfully.", HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>("Book not found.", HttpStatus.NOT_FOUND);
+//        }
+//    }
 
-    @GetMapping("/{id}/users")
-    public ResponseEntity<List<User>> getAllUsers(@PathVariable int id) {
-//        Admin admin = (Admin) userService.getUserById(id).orElse(null);
-        User admin = userService.getUserById(id).orElse(null);
-        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
-        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
-    }
+//    @GetMapping("/{id}/users")
+//    public ResponseEntity<List<User>> getAllUsers(@PathVariable int id) {
+////        Admin admin = (Admin) userService.getUserById(id).orElse(null);
+//        User admin = userService.getUserById(id).orElse(null);
+//        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
+//            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+//        }
+//        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
+//    }
 }

@@ -26,46 +26,46 @@ public class ManagerController {
         this.reservationService = rs;
     }
 
-    @GetMapping("/{id}/pending-requests")
-    public ResponseEntity<List<Reservation>> showPendingRequests(@PathVariable int id) {
-//        Manager manager = (Manager) userService.getUserById(id).orElse(null);
-        User user = userService.getUserById(id).orElse(null);
-//        if (manager == null || !manager.getRole().equalsIgnoreCase("manager")) {
+//    @GetMapping("/{id}/pending-requests")
+//    public ResponseEntity<List<Reservation>> showPendingRequests(@PathVariable int id) {
+////        Manager manager = (Manager) userService.getUserById(id).orElse(null);
+//        User user = userService.getUserById(id).orElse(null);
+////        if (manager == null || !manager.getRole().equalsIgnoreCase("manager")) {
+////            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+////        }
+//        if (user == null || !user.getRole().equalsIgnoreCase("manager")) {
 //            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 //        }
-        if (user == null || !user.getRole().equalsIgnoreCase("manager")) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
+//
+//        List<Reservation> pendingRequests = reservationService.getReservations().stream()
+//                .filter(reservation -> "pending".equalsIgnoreCase(reservation.getStatus()))
+//                .toList();
+//        return new ResponseEntity<>(pendingRequests, HttpStatus.OK);
+//    }
 
-        List<Reservation> pendingRequests = reservationService.getReservations().stream()
-                .filter(reservation -> "pending".equalsIgnoreCase(reservation.getStatus()))
-                .toList();
-        return new ResponseEntity<>(pendingRequests, HttpStatus.OK);
-    }
-
-    @PostMapping("/{id}/handle-request")
-    public ResponseEntity<String> handleReservationRequest(@PathVariable int id, @RequestParam int reservationId, @RequestParam boolean approve) {
-//        Manager manager = (Manager) userService.getUserById(id).orElse(null);
-        User user = userService.getUserById(id).orElse(null);
-//        if (manager == null || !manager.getRole().equalsIgnoreCase("manager")) {
+//    @PostMapping("/{id}/handle-request")
+//    public ResponseEntity<String> handleReservationRequest(@PathVariable int id, @RequestParam int reservationId, @RequestParam boolean approve) {
+////        Manager manager = (Manager) userService.getUserById(id).orElse(null);
+//        User user = userService.getUserById(id).orElse(null);
+////        if (manager == null || !manager.getRole().equalsIgnoreCase("manager")) {
+////            return new ResponseEntity<>("Only managers can handle reservation requests", HttpStatus.FORBIDDEN);
+////        }
+//        if (user == null || !user.getRole().equalsIgnoreCase("manager")) {
 //            return new ResponseEntity<>("Only managers can handle reservation requests", HttpStatus.FORBIDDEN);
 //        }
-        if (user == null || !user.getRole().equalsIgnoreCase("manager")) {
-            return new ResponseEntity<>("Only managers can handle reservation requests", HttpStatus.FORBIDDEN);
-        }
-        for (Reservation reservation : reservationService.getReservations()) {
-            if (reservation.getReservationId() == reservationId && "pending".equalsIgnoreCase(reservation.getStatus())) {
-                if (approve) {
-                    reservation.setStatus("approved");
-                    reservationService.updateReservation(reservation);
-                    return new ResponseEntity<>("Reservation ID " + reservationId + " has been approved.", HttpStatus.OK);
-                } else {
-                    reservation.setStatus("Declined");
-                    return new ResponseEntity<>("Reservation ID " + reservationId + " has been declined.", HttpStatus.OK);
-                }
-            }
-        }
-        return new ResponseEntity<>("Reservation ID " + reservationId + " not found or is not pending.", HttpStatus.NOT_FOUND);
-    }
+//        for (Reservation reservation : reservationService.getReservations()) {
+//            if (reservation.getReservationId() == reservationId && "pending".equalsIgnoreCase(reservation.getStatus())) {
+//                if (approve) {
+//                    reservation.setStatus("approved");
+//                    reservationService.updateReservation(reservation);
+//                    return new ResponseEntity<>("Reservation ID " + reservationId + " has been approved.", HttpStatus.OK);
+//                } else {
+//                    reservation.setStatus("Declined");
+//                    return new ResponseEntity<>("Reservation ID " + reservationId + " has been declined.", HttpStatus.OK);
+//                }
+//            }
+//        }
+//        return new ResponseEntity<>("Reservation ID " + reservationId + " not found or is not pending.", HttpStatus.NOT_FOUND);
+//    }
 }
 
