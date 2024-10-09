@@ -97,14 +97,9 @@ public class UserController {
 //        List<Book> pendingBooks = reservationService.findPendingReservationsByUserId(id)
 //        return new ResponseEntity<>(pendingBooks, HttpStatus.OK);
 //    }
-
+    @Secured("ROLE_USER")
     @GetMapping("/{id}/pending-reservations")
     public ResponseEntity<List<Reservation>> viewPendingReservations(@PathVariable int id) {
-        User user = userService.getUserById(id).orElse(null);
-        if (user == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    @Secured("ROLE_USER")
-    public ResponseEntity<List<Book>> viewPendingReservations(@PathVariable int id) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentUsername = auth.getName();
         User currentUser = userService.getUserByUsername(currentUsername);
@@ -112,6 +107,11 @@ public class UserController {
         if (currentUser == null || currentUser.getId() != id) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
+        User user = userService.getUserById(id).orElse(null);
+        if (user == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
 //        List<Book> pendingBooks = bookService.getPendingBooks(id);
         List<Reservation> pendingBooks = reservationService.findPendingReservationsByUserId(id);
         return new ResponseEntity<>(pendingBooks, HttpStatus.OK);
@@ -156,11 +156,9 @@ public class UserController {
 
     // Get all users, accessible to admins only
     @GetMapping
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
-    @Secured("ROLE_ADMIN")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
     }
 
 
