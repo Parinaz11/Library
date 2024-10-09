@@ -9,6 +9,7 @@ import com.api.Library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,13 +18,11 @@ import java.util.List;
 @RequestMapping("/admins")
 public class AdminController {
 
-//    private final UserService userService = new UserService(LibraryApplication.db);
-
     @Autowired
     private UserService userService;
     private BookService bookService;
-//    private final BookService bookService = new BookService(LibraryApplication.db);
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}/books")
     public ResponseEntity<List<Book>> getAllBooks(@PathVariable int id) {
         Admin admin = (Admin) userService.getUserById(id).orElse(null);
@@ -33,6 +32,7 @@ public class AdminController {
         return new ResponseEntity<>(bookService.getBooks(), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{id}/add-book")
     public ResponseEntity<String> addBook(@PathVariable int id, @RequestBody Book book) {
         Admin admin = (Admin) userService.getUserById(id).orElse(null);
@@ -43,6 +43,7 @@ public class AdminController {
         return new ResponseEntity<>("Book added successfully.", HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}/remove-book/{bookId}")
     public ResponseEntity<String> removeBook(@PathVariable int id, @PathVariable int bookId) {
         Admin admin = (Admin) userService.getUserById(id).orElse(null);
@@ -57,6 +58,7 @@ public class AdminController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}/users")
     public ResponseEntity<List<User>> getAllUsers(@PathVariable int id) {
         Admin admin = (Admin) userService.getUserById(id).orElse(null);

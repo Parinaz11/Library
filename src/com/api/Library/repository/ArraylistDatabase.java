@@ -2,6 +2,7 @@ package com.api.Library.repository;
 
 import com.api.Library.model.*;
 import com.api.Library.model.Book;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.Optional;
 
 
 //@Repository
+@Repository
 public class ArraylistDatabase<T> implements DatabaseRepository {
 
     private static List<Book> books = new ArrayList<>();
@@ -159,6 +161,9 @@ public class ArraylistDatabase<T> implements DatabaseRepository {
     public void addUser(User u) {
         users.add(u);
     }
+    public void removeUser(User user) {
+        users.remove(user);
+    }
 
     public void removeBook(Book b) {
         books.remove(b);
@@ -200,6 +205,8 @@ public class ArraylistDatabase<T> implements DatabaseRepository {
         }
         return null;
     }
+
+
 
 
 }

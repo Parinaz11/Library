@@ -5,44 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdd57e83-7763-4d27-b745-27923abf5542" name="Changes" comment="fixed the architecture packages">
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/api/Library/repository/UserManagementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_30_2024_10_12_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_30_2024_10_12_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_9_30_2024_11_40_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_9_30_2024_11_40_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/api/Library/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/repository/ReservationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/repository/ArraylistDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/repository/ArraylistDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/BookService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/ReservationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Business/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/BookRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/ReservationRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Data/schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/LoadDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/LoadDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/BookController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/ReservationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/Presentation/controller/UserController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/ReservationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/Reservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/service/ReservationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/Library/repository/ArraylistDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/api/Library/repository/ArraylistDatabase.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +35,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.APIapp.executor": "Run",
-    "git-widget-placeholder": "main"
+    "git-widget-placeholder": "22-spring-security",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RunManager">
