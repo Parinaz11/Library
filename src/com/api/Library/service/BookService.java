@@ -1,5 +1,6 @@
 package com.api.Library.service;
 
+import com.api.Library.exception.UserNotFoundException;
 import com.api.Library.model.Book;
 import com.api.Library.repository.DatabaseRepository;
 import com.api.Library.model.Book;
@@ -28,6 +29,9 @@ public class BookService {
         return bookRepository.findByAvailable(true);
     }
     public int findBookIdByName(String bookName) {
+        if (bookRepository.findByTitle(bookName).getId() == -1)
+            throw new UserNotFoundException("Book not found");
+//        return userRepository.findById(id);
         return bookRepository.findByTitle(bookName).getId();
     }
 
