@@ -1,6 +1,7 @@
 package com.api.Library.model;
 
 import jakarta.persistence.*;
+import lombok.Setter;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

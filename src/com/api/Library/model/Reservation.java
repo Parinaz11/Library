@@ -2,6 +2,7 @@ package com.api.Library.model;
 
 
 import jakarta.persistence.*;
+import lombok.Setter;
 
 @Entity
 @Table(name = "RESERVATIONS")
