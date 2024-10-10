@@ -1,6 +1,5 @@
 package com.api.Library.controller;
 
-import com.api.Library.LibraryApplication;
 import com.api.Library.model.Reservation;
 import jakarta.validation.Valid; // Correct import
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +33,7 @@ public class UserController {
         this.reservationService = rs;
     }
 
-
-    // Updated path for getting user by username
+    // Get user by username, accessible to the authenticated user
     @GetMapping("/username/{username}")
     @Secured("ROLE_USER")
     public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
@@ -47,8 +45,6 @@ public class UserController {
         }
     }
 
-
-    // New endpoint to show available books
     // Show available books, accessible to authenticated users
     @GetMapping("/{id}/available-books")
     @Secured("ROLE_USER")
@@ -86,17 +82,7 @@ public class UserController {
         }
     }
 
-    // New endpoint to view pending reservation books
-//    @GetMapping("/{id}/pending-reservations")
-//    public ResponseEntity<List<Book>> viewPendingReservations(@PathVariable int id) {
-//        User user = userService.getUserById(id).orElse(null);
-//        if (user == null) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-////        List<Book> pendingBooks = bookService.getPendingBooks(id);
-//        List<Book> pendingBooks = reservationService.findPendingReservationsByUserId(id)
-//        return new ResponseEntity<>(pendingBooks, HttpStatus.OK);
-//    }
+    // View pending reservations, accessible only to the user themselves
     @Secured("ROLE_USER")
     @GetMapping("/{id}/pending-reservations")
     public ResponseEntity<List<Reservation>> viewPendingReservations(@PathVariable int id) {
@@ -107,12 +93,12 @@ public class UserController {
         if (currentUser == null || currentUser.getId() != id) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
+
         User user = userService.getUserById(id).orElse(null);
         if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-//        List<Book> pendingBooks = bookService.getPendingBooks(id);
         List<Reservation> pendingBooks = reservationService.findPendingReservationsByUserId(id);
         return new ResponseEntity<>(pendingBooks, HttpStatus.OK);
     }
@@ -152,8 +138,6 @@ public class UserController {
         return new ResponseEntity<>(bookService.getUserReservedBooks(id), HttpStatus.OK);
     }
 
-
-
     // Get all users, accessible to admins only
     @GetMapping
     @Secured("ROLE_ADMIN")
@@ -161,24 +145,19 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
-
-
     // Get user by ID, accessible to admins only
     @GetMapping("/{id}")
     @Secured("ROLE_ADMIN")
     public ResponseEntity<User> getUserById(@PathVariable int id) {
         Optional<User> user = userService.getUserById(id);
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-//        ResponseEntity.notFound().build());
     }
-
 
     // Create new user, accessible to admins only
     @PostMapping
     @Secured("ROLE_ADMIN")
     public ResponseEntity<User> createUser(@RequestBody @Valid User user) {
         User newUser = userService.saveUser(user);
-//        System.out.println("User " + user.getName() + " added.");
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 

@@ -3,6 +3,8 @@ package com.api.Library.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
@@ -26,9 +28,16 @@ public class SecurityConfig {
                                         redirection.baseUri("/oauth2/callback/*") // Base URI for OAuth2 redirection
                                 )
                 )
-                .logout(logout -> logout.permitAll()); // Allow everyone to access logout
+                .logout(logout -> logout.permitAll()) // Allow everyone to access logout
+                .formLogin(formLogin -> formLogin.permitAll()) // Allow form-based login for testing
+                .csrf(csrf -> csrf.disable()); // Disable CSRF protection for testing; enable in production
 
         return http.build();
     }
 
+    // Define a PasswordEncoder bean
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }
