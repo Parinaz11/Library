@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements UserServiceInterface{
 
     private final UserRepository userRepository;
 
@@ -55,13 +55,13 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    private String generateSaltString() {
+    public String generateSaltString() {
         byte[] salt = new byte[16];
         new java.security.SecureRandom().nextBytes(salt);
         return Base64.getEncoder().encodeToString(salt);
     }
 
-    private String hashPassword(String password, byte[] salt) {
+    public String hashPassword(String password, byte[] salt) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             md.update(salt);
