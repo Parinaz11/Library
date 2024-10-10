@@ -12,27 +12,22 @@ import java.util.List;
 @Service
 public class BookService {
 
-//    private final DatabaseRepository database;
-
-//    @Autowired
-//    public BookService(DatabaseRepository database) {
-//        this.database = database;
-//    }
+    private final BookRepository bookRepository;
 
     @Autowired
-    private BookRepository bookRepository;
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     public List<Book> getBooks() {
-//        return database.getBooks();
+
         return bookRepository.findAll();
     }
 
     public List<Book> getAvailableBooks() {
-//        return database.getAvailableBooks();
         return bookRepository.findByAvailable(true);
     }
     public int findBookIdByName(String bookName) {
-//        return database.findBookIdByName(bookName);
         return bookRepository.findByTitle(bookName).getId();
     }
 
@@ -50,25 +45,16 @@ public class BookService {
     }
 
     public Book findBookById(int id){
-//        return database.findBookById(id);
         return bookRepository.findById(id).orElse(null);
     }
 
-
-
     public List<Book> getAllBooks() {
+
         return bookRepository.findAll();
     }
 
-//    public Book saveBook(Book book) {
-//        return bookRepository.save(book);
-//    }
-
-//    public Book getBookById(int id) {
-//        return bookRepository.findById(id).orElse(null);
-//    }
-
     public void deleteBook(int id) {
+
         bookRepository.deleteById(id);
     }
 }

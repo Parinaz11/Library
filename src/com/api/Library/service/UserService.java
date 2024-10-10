@@ -1,8 +1,10 @@
 package com.api.Library.service;
 
+import com.api.Library.repository.ReservationRepository;
 import com.api.Library.repository.UserRepository;
 import com.api.Library.model.User;
 import com.api.Library.repository.DatabaseRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,43 +17,34 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-//    private final DatabaseRepository database;
+    private final UserRepository userRepository;
 
-//    @Autowired
-//    public UserService(DatabaseRepository database) {
-//        this.database = database;
-//    }
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
 
     public Optional<User> getUserById(int id) {
 
-//        return database.getUserById(id);
         return userRepository.findById(id);
     }
 
     public User getUserByUsername(String user_name) {
 
-//        return database.findUserByUsername(user_name);
         return userRepository.findByUsername(user_name);
     }
 
-    public List<User> getUsers() {
-
-//        return database.getUsers();
-        return userRepository.findAll();
-    }
-
-    public void addUser(User u) {
-
-//        database.addUser(u);
+    public void updateUser(User u) {
         userRepository.save(u);
     }
 
-    @Autowired
-    private UserRepository userRepository;
-
     public List<User> getAllUsers() {
+
         return userRepository.findAll();
     }
+
+    @Transactional
     public User saveUser(User user) {
         user.setSalt(generateSaltString());
         user.setHashedPassword(hashPassword(user.getHashedPassword(), Base64.getDecoder().decode(user.getSalt())));

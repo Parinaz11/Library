@@ -20,6 +20,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query("SELECT b FROM Book b WHERE b.user.id = :userId AND b.available = false")
     List<Book> findReservedBooksByUserId(int userId);
 
+    @Query("SELECT b FROM Book b WHERE b.available = true")
     List<Book> findByAvailable(boolean available);
 
 }
