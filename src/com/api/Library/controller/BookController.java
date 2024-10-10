@@ -60,19 +60,16 @@ public class BookController {
     }
 
 
-    // Fetch all pending books for a user
     @GetMapping("/pending/{userId}")
     public List<Book> getPendingBooks(@PathVariable int userId) {
         return bookService.getPendingBooks(userId);
     }
 
-    // Fetch all reserved books for a user
     @GetMapping("/reserved/{userId}")
     public List<Book> getReservedBooks(@PathVariable int userId) {
         return bookService.getUserReservedBooks(userId);
     }
 
-    // Add a new book to the system
     @PostMapping
     public ResponseEntity<Book> addBook(@RequestBody Book book) {
 
