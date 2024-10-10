@@ -72,18 +72,6 @@ public class UserController {
         }
     }
 
-    // New endpoint to view pending reservation books
-//    @GetMapping("/{id}/pending-reservations")
-//    public ResponseEntity<List<Book>> viewPendingReservations(@PathVariable int id) {
-//        User user = userService.getUserById(id).orElse(null);
-//        if (user == null) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-////        List<Book> pendingBooks = bookService.getPendingBooks(id);
-//        List<Book> pendingBooks = reservationService.findPendingReservationsByUserId(id)
-//        return new ResponseEntity<>(pendingBooks, HttpStatus.OK);
-//    }
-
     @GetMapping("/{id}/pending-reservations")
     public ResponseEntity<List<Reservation>> viewPendingReservations(@PathVariable int id) {
         User user = userService.getUserById(id).orElse(null);
