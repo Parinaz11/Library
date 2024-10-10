@@ -1,6 +1,7 @@
 package com.api.Library.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.io.BufferedReader;
@@ -14,32 +15,35 @@ import java.util.Base64;
 import java.util.Scanner;
 @Entity
 @Table(name = "USERS")
-public class User extends Person {
+public class User{
 //    protected String role; // "user", "admin", "manager"
 //    protected String hashedPassword;
 //    protected String salt;
 
+
+    protected static int id_counter = 0;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    protected int id;
 
     @Column(nullable = false, unique = true)
-    private String username;
+    protected String username;
 
     @Column(name = "first_name")
-    private String firstName;
+    protected String firstName;
 
     @Column(name = "last_name")
-    private String lastName;
+    protected String lastName;
 
     @Column(nullable = false, unique = true)
-    private String email;
+    protected String email;
 
     @Column(name = "hashed_password", nullable = false)
-    private String hashedPassword;
+    protected String hashedPassword;
 
     @Column(nullable = false)
-    private String salt;
+    protected String salt;
 
     @Column(nullable = false)
     protected String role;
@@ -67,7 +71,13 @@ public class User extends Person {
         this.lastName = lastName;
     }
 
+    public String getName() { return this.firstName.concat(" ").concat(this.lastName); }
+    public void setName(String first_name, String last_name) {
+        this.firstName = first_name;
+        this.lastName = last_name;
+    }
 
+    public String getEmail() { return email; }
 
     public void setEmail(String email) {
         this.email = email;
@@ -80,17 +90,12 @@ public class User extends Person {
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
     }
-
     public String getSalt() {
         return salt;
     }
-
     public void setSalt(String salt) {
         this.salt = salt;
     }
-
-
-
     public void setRole(String role) {
         this.role = role;
     }
@@ -98,22 +103,35 @@ public class User extends Person {
 
 
     public User(String username, String firstName, String lastName, String email, String password) {
-        super(username, firstName, lastName, email);
-        System.out.println();
+//        this.id = ++id_counter;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.username = username;
+
         this.salt = generateSaltString();
         this.hashedPassword = hashPassword(password, Base64.getDecoder().decode(this.salt));
         this.role = "user";
     }
 
-    public User(String username, String first_name, String last_name, String email, String hashedPassword, String salt) {
-        super(username, first_name, last_name, email);
+    public User(String username, String firstName, String lastName, String email, String hashedPassword, String salt) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.username = username;
+
         this.salt = salt;
         this.hashedPassword = hashedPassword;
         this.role = "user";
     }
 
     public User() {
-        super();
+        this.id = ++id_counter;
+        this.firstName = "Unknown";
+        this.lastName = "Unknown";
+        this.email = "Unknown";
+        this.username = "Unknown";
+
         this.role = "user";
     }
 
@@ -121,10 +139,8 @@ public class User extends Person {
         return role;
     }
 
-    @Override
     public void displayInfo() {
-        super.displayInfo();
-        System.out.println("Role: " + getRole());
+        System.out.println("ID: " + id + ", Name: " + getName() + "Role: " + getRole());
     }
 
     protected boolean showMenu(Scanner in) {
@@ -334,190 +350,3 @@ public class User extends Person {
     }
 }
 
-
-
-
-
-//package com.api.Library.model;
-//
-//import java.security.MessageDigest;
-//import java.security.NoSuchAlgorithmException;
-//import java.security.SecureRandom;
-//import java.util.Base64;
-//
-//import java.util.Scanner;
-//
-//public class User extends Person {
-//    protected String role; // "user", "admin", "manager"
-//    protected String hashedPassword;
-//    protected String salt;
-//
-//    public User(String username, String firstName, String lastName, String email, String password) {
-//        super(username, firstName, lastName, email);
-//        this.salt = generateSaltString();
-//        this.hashedPassword = hashPassword(password, Base64.getDecoder().decode(this.salt));
-//        this.role = "user";
-//    }
-//    public User(String username, String first_name, String last_name, String email, String hashedPassword, String salt) {
-//        super(username, first_name, last_name, email);
-//        this.salt = salt;
-//        this.hashedPassword = hashedPassword;
-//        this.role = "user";
-//    }
-//    public User() {
-//        super();
-//        setRole("user");
-//    }
-//
-//    public String getRole() { return role; }
-//    public void setRole(String role) { this.role = role; }
-//
-//    @Override
-//    public void displayInfo() {
-//        super.displayInfo();
-//        System.out.println("Role: " + getRole());
-//    }
-//
-//    protected boolean showMenu(Scanner in) {
-//        System.out.println("--- Menu ---\nEnter command number:" +
-//                "\n1) Available Books to Reserve" +
-//                "\n2) Reserve a Book" +
-//                "\n3) My Pending Reservations" +
-//                "\n4) Delete Reservation Request" +
-//                "\n5) My Reserved Books");
-//
-//        int answer = in.nextInt();
-//        in.nextLine();
-//        runFuncForCommand(answer, in);
-//        System.out.println("Do you wish to continue? (y/n)");
-//        String answer2 = in.next();
-//        return answer2.equalsIgnoreCase("y");
-//    }
-//
-//    protected void runFuncForCommand(int choice, Scanner in) {
-//        switch (choice) {
-//            case 1:
-//                showAvailableBooks();
-//                break;
-//            case 2:
-//                reservationRequest(in);
-//                break;
-//            case 3:
-//                pendingReserveBooks();
-//                break;
-//            case 4:
-//                deleteReserveRequest(in);
-//                break;
-//            case 5:
-//                showReservedBooks();
-//                break;
-//            default:
-//                System.out.println("Not a valid command.");
-//        }
-//    }
-//
-//    public void showAvailableBooks() {
-//        System.out.println("--- Available Books ---");
-//        for (Book book : Library.getBooks()) {
-//            if (book.getAvailable()) {
-//                System.out.println("📘 ID: " + book.getId() + ", Title: " + book.getTitle() +
-//                        ", Author: " + book.getAuthor() + ", Pages: " + book.getPages());
-//            }
-//        }
-//    }
-//
-//    // Authentication and security
-//    private byte[] generateSalt() {
-//        SecureRandom random = new SecureRandom();
-//        byte[] salt = new byte[16];
-//        random.nextBytes(salt);
-//        return salt;
-//    }
-//
-//    private String generateSaltString() {
-//        return Base64.getEncoder().encodeToString(generateSalt());
-//    }
-//
-//    private String hashPassword(String password, byte[] salt) {
-//        try {
-//            MessageDigest md = MessageDigest.getInstance("SHA-256");
-//            md.update(salt);
-//            byte[] hashedPassword = md.digest(password.getBytes());
-//            return Base64.getEncoder().encodeToString(hashedPassword);
-//        } catch (NoSuchAlgorithmException e) {
-//            throw new RuntimeException("❗ Error hashing password.", e);
-//        }
-//    }
-//
-//    public boolean verifyPassword(String password) {
-//        String hashedAttempt = hashPassword(password, Base64.getDecoder().decode(this.salt));
-//        return hashedAttempt.equals(this.hashedPassword);
-//    }
-//
-//    public void reservationRequest(Scanner in) {
-//        System.out.println("--- com.api.Library.model.Reservation Request ---");
-//        String bookName = getBookNameFromUser(in);
-//        int bookId = Library.findBookIdByName(bookName);
-//        if (bookId == -1) {
-//            System.out.println("❌ com.api.Library.model.Book not found.");
-//            return;
-//        }
-//        boolean reserve_status = Reservation.reserve(bookId, getId());
-//        if (reserve_status) {
-//            System.out.println("✅ com.api.Library.model.Reservation request successful.");
-//            return;
-//        }
-//        System.out.println("com.api.Library.model.Reservation request failed. The book is reserved.");
-//    }
-//
-//    public void pendingReserveBooks() {
-//        System.out.println("--- Pending com.api.Library.model.Reservation Books ---");
-//        showFilteredBooks("pending");
-//    }
-//
-//    public void deleteReserveRequest(Scanner in) {
-//        System.out.println("--- Delete com.api.Library.model.Reservation Request ---");
-//        String bookName = getBookNameFromUser(in);
-//        Reservation reservationToDelete = Library.findReservationByName(bookName);
-//        if (reservationToDelete != null && reservationToDelete.getUserId() == this.getId()) {
-//            Library.removeReservation(reservationToDelete); // Remove the reservation from the list
-//            System.out.println("com.api.Library.model.Reservation deleted successfully.");
-//            return;
-//        }
-//        System.out.println("com.api.Library.model.Reservation not found or you don't have permission to delete it.");
-//    }
-//
-//    public void showReservedBooks() {
-//        System.out.println("--- Reserved Books ---");
-//        showFilteredBooks("approved");
-//    }
-//
-//    // --- My additional functions ---
-//
-//    // to make the code less
-//    private void showFilteredBooks(String stat) {
-//        boolean exists = false;
-//        for (Reservation reservation : Library.getReservations()) {
-//            if (reservation.getUserId() == this.getId() && reservation.getStatus().equals(stat)) {
-//                Book reservedBook = Library.findBookById(reservation.getBookId());
-//                if (reservedBook != null) {
-//                    exists = true;
-//                    System.out.println("🤝 com.api.Library.model.Reservation ID: " + reservation.getReservationId() +
-//                            ", com.api.Library.model.Book ID: " + reservedBook.getId() +
-//                            ", Title: " + reservedBook.getTitle());
-//                }
-//            }
-//        }
-//        if (!exists) {
-//            System.out.println("* empty *");
-//        }
-//    }
-//
-//    // to get book name
-//    public String getBookNameFromUser(Scanner in) {
-//        System.out.println("Enter book name: ");
-//        return in.nextLine();
-//    }
-//
-//}
-//

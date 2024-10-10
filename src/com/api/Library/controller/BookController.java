@@ -39,7 +39,6 @@ public class BookController {
     }
 
 
-
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
         Book existingBook = bookService.findBookById(id);
