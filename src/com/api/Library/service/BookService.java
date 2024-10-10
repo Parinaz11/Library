@@ -71,4 +71,8 @@ public class BookService {
     public void deleteBook(int id) {
         bookRepository.deleteById(id);
     }
+
+    public void clearBooks() {
+        bookRepository.deleteAll();
+    }
 }

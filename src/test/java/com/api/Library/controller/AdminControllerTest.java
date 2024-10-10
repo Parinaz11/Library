@@ -4,13 +4,10 @@ import com.api.Library.model.Admin;
 import com.api.Library.model.Book;
 import com.api.Library.service.BookService;
 import com.api.Library.service.UserService;
-
-//import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -19,37 +16,42 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
 
+@SpringBootTest
 public class AdminControllerTest {
 
-    @InjectMocks
+    @Autowired
     private AdminController adminController;
 
-    @Mock
+    @Autowired
     private UserService userService;
 
-    @Mock
+    @Autowired
     private BookService bookService;
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
+        // Optional: Clear any existing data in services to ensure a fresh state for each test
+        userService.clearUsers(); // Implement a method to clear user data
+        bookService.clearBooks(); // Implement a method to clear book data
     }
 
     @Test
     public void testGetAllBooks_AdminExists() {
         // Arrange
         Admin admin = new Admin();
-        admin.setId(1); // Assuming there's a method to set ID in the Admin class
+        admin.setId(1);
         admin.setRole("admin");
 
+        userService.saveUser(admin); // Ensure your UserService has a saveUser method
+
         List<Book> books = new ArrayList<>();
-        books.add(new Book("Book Title 1", "Author 1", true, 150)); // Create a Book instance
+        books.add(new Book("Book Title 1", "Author 1", true, 150));
         books.add(new Book("Book Title 2", "Author 2", true, 200));
 
-        when(userService.getUserById(1)).thenReturn(Optional.of(admin));
-        when(bookService.getBooks()).thenReturn(books);
+        for (Book book : books) {
+            bookService.addBook(book); // Ensure your BookService has an addBook method
+        }
 
         // Act
         ResponseEntity<List<Book>> response = adminController.getAllBooks(1);
@@ -61,9 +63,6 @@ public class AdminControllerTest {
 
     @Test
     public void testGetAllBooks_AdminDoesNotExist() {
-        // Arrange
-        when(userService.getUserById(1)).thenReturn(Optional.empty());
-
         // Act
         ResponseEntity<List<Book>> response = adminController.getAllBooks(1);
 
@@ -77,9 +76,9 @@ public class AdminControllerTest {
         Admin admin = new Admin();
         admin.setId(1);
         admin.setRole("admin");
-        Book book = new Book("New Book", "New Author", true, 300);
 
-        when(userService.getUserById(1)).thenReturn(Optional.of(admin));
+        userService.saveUser(admin); // Ensure your UserService has a saveUser method
+        Book book = new Book("New Book", "New Author", true, 300);
 
         // Act
         ResponseEntity<String> response = adminController.addBook(1, book);
@@ -93,7 +92,6 @@ public class AdminControllerTest {
     public void testAddBook_AdminDoesNotExist() {
         // Arrange
         Book book = new Book("New Book", "New Author", true, 300);
-        when(userService.getUserById(1)).thenReturn(Optional.empty());
 
         // Act
         ResponseEntity<String> response = adminController.addBook(1, book);

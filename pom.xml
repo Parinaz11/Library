@@ -53,33 +53,38 @@
 		</dependency>
 
 		<!-- Spring Boot Testing Starter -->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--&lt;!&ndash;			<exclusions>&ndash;&gt;-->
+<!--&lt;!&ndash;				<exclusion>&ndash;&gt;-->
+<!--&lt;!&ndash;					<groupId>org.junit.vintage</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;					<artifactId>junit-vintage-engine</artifactId> &lt;!&ndash; Exclude JUnit 4 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;				</exclusion>&ndash;&gt;-->
+<!--&lt;!&ndash;			</exclusions>&ndash;&gt;-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>org.junit.jupiter</groupId>-->
+<!--			<artifactId>junit-jupiter-api</artifactId>-->
+<!--			<version>5.9.3</version> &lt;!&ndash; Update this version &ndash;&gt;-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
+		<!-- JUnit 5 Engine (required for running tests) -->
+<!--		<dependency>-->
+<!--			<groupId>org.junit.jupiter</groupId>-->
+<!--			<artifactId>junit-jupiter-engine</artifactId>-->
+<!--			<version>5.9.3</version> &lt;!&ndash; Update this version &ndash;&gt;-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<groupId>org.junit.vintage</groupId>-->
-<!--					<artifactId>junit-vintage-engine</artifactId> &lt;!&ndash; Exclude JUnit 4 &ndash;&gt;-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
 		</dependency>
-
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.9.3</version> <!-- Update this version -->
-			<scope>test</scope>
-		</dependency>
-
-		<!-- JUnit 5 Engine (required for running tests) -->
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.9.3</version> <!-- Update this version -->
-			<scope>test</scope>
-		</dependency>
-
 
 		<!-- OpenAPI (Springdoc) Dependencies -->
 		<dependency>

@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd57e83-7763-4d27-b745-27923abf5542" name="Changes" comment="add test for UserController">
+    <list default="true" id="fdd57e83-7763-4d27-b745-27923abf5542" name="Changes" comment="edit dependencies in pom.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/api/Library/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/api/Library/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/api/Library/controller/AdminControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/api/Library/controller/AdminControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,13 +171,30 @@
       <option name="project" value="LOCAL" />
       <updated>1728162114286</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="edit dependencies in pom.xml">
+      <option name="closed" value="true" />
+      <created>1728550508449</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728550508449</updated>
+    </task>
+    <task id="LOCAL-00003" summary="edit dependencies in pom.xml">
+      <option name="closed" value="true" />
+      <created>1728550554879</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728550554879</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed the architecture packages" />
     <MESSAGE value="add test for AdminController" />
     <MESSAGE value="add test for UserController" />
-    <option name="LAST_COMMIT_MESSAGE" value="add test for UserController" />
+    <MESSAGE value="edit dependencies in pom.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit dependencies in pom.xml" />
   </component>
 </project>
