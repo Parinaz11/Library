@@ -43,7 +43,7 @@ public class BookController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
-        Book existingBook = bookService.findBookById(id);
+//        Book existingBook = bookService.findBookById(id);
 //        if (existingBook != null) {
 //            existingBook.setTitle(updatedBook.getTitle());
 //            existingBook.setAuthor(updatedBook.getAuthor());
@@ -54,11 +54,13 @@ public class BookController {
 //            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //        }
 
-        existingBook.setTitle(updatedBook.getTitle());
-        existingBook.setAuthor(updatedBook.getAuthor());
-        existingBook.setPages(updatedBook.getPages());
-        existingBook.setAvailable(updatedBook.getAvailable());
-        return new ResponseEntity<>(existingBook, HttpStatus.OK);
+//        existingBook.setTitle(updatedBook.getTitle());
+//        existingBook.setAuthor(updatedBook.getAuthor());
+//        existingBook.setPages(updatedBook.getPages());
+//        existingBook.setAvailable(updatedBook.getAvailable());
+//        return new ResponseEntity<>(existingBook, HttpStatus.OK);
+        return new ResponseEntity<>(bookService.updateBook(id, updatedBook), HttpStatus.OK);
+
 
     }
 
@@ -72,12 +74,14 @@ public class BookController {
     // Fetch all pending books for a user
     @GetMapping("/pending/{userId}")
     public List<Book> getPendingBooks(@PathVariable int userId) {
+
         return bookService.getPendingBooks(userId);
     }
 
     // Fetch all reserved books for a user
     @GetMapping("/reserved/{userId}")
     public List<Book> getReservedBooks(@PathVariable int userId) {
+
         return bookService.getUserReservedBooks(userId);
     }
 
