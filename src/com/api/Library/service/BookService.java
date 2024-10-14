@@ -1,11 +1,8 @@
 package com.api.Library.service;
 
-import com.api.Library.exception.UserNotFoundException;
-import com.api.Library.model.Book;
-import com.api.Library.repository.DatabaseRepository;
+import com.api.Library.exception.ResourceNotFoundException;
 import com.api.Library.model.Book;
 import com.api.Library.repository.BookRepository;
-import com.api.Library.repository.DatabaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +27,7 @@ public class BookService {
     }
     public int findBookIdByName(String bookName) {
         if (bookRepository.findByTitle(bookName).getId() == -1)
-            throw new UserNotFoundException("Book not found");
+            throw new ResourceNotFoundException("Book not found");
 //        return userRepository.findById(id);
         return bookRepository.findByTitle(bookName).getId();
     }
@@ -49,6 +46,8 @@ public class BookService {
     }
 
     public Book findBookById(int id){
+        if (bookRepository.findById(id).isEmpty())
+            throw new ResourceNotFoundException("Book not found");
         return bookRepository.findById(id).orElse(null);
     }
 
@@ -58,6 +57,9 @@ public class BookService {
     }
 
     public void deleteBook(int id) {
+        if (bookRepository.findById(id).isEmpty()) {
+            throw new ResourceNotFoundException("Book not found");
+        }
 
         bookRepository.deleteById(id);
     }
