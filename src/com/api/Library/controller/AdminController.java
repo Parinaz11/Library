@@ -34,7 +34,7 @@ public class AdminController {
 //        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
 //            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 //        }
-        userService.checkRoleOfUser(id, "Admin", "Only admins can get all books.");
+        userService.checkRoleOfUser(id, "admin", "Only admins can get all books.");
         return new ResponseEntity<>(bookService.getBooks(), HttpStatus.OK);
     }
 
@@ -46,7 +46,7 @@ public class AdminController {
 //        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
 //            return new ResponseEntity<>("Only admins can add books.", HttpStatus.FORBIDDEN);
 //        }
-        userService.checkRoleOfUser(id, "Admin", "Only admins can add a book.");
+        userService.checkRoleOfUser(id, "admin", "Only admins can add a book.");
         bookService.addBook(book);
         return new ResponseEntity<>("Book added successfully.", HttpStatus.CREATED);
     }
@@ -65,7 +65,7 @@ public class AdminController {
 //        } else {
 //            return new ResponseEntity<>("Book not found.", HttpStatus.NOT_FOUND);
 //        }
-        userService.checkRoleOfUser(id, "Admin", "Only admins can remove a book.");
+        userService.checkRoleOfUser(id, "admin", "Only admins can remove a book.");
         bookService.deleteBook(bookId);
         return new ResponseEntity<>("Book removed successfully.",HttpStatus.OK);
     }
@@ -78,7 +78,7 @@ public class AdminController {
 //        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
 //            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 //        }
-        userService.checkRoleOfUser(id, "Admin", "Only admins see list of users.");
+        userService.checkRoleOfUser(id, "admin", "Only admins see list of users.");
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 }
