@@ -34,9 +34,10 @@ public class ManagerController {
 //        if (manager == null || !manager.getRole().equalsIgnoreCase("manager")) {
 //            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 //        }
-        if (user == null || !user.getRole().equalsIgnoreCase("manager")) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
+//        if (user == null || !user.getRole().equalsIgnoreCase("manager")) {
+//            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+//        }
+        userService.checkRoleOfUser(id, "manager", "Only manager can see pending requests");
 
         List<Reservation> pendingRequests = reservationService.getReservations().stream()
                 .filter(reservation -> "pending".equalsIgnoreCase(reservation.getStatus()))
@@ -52,9 +53,10 @@ public class ManagerController {
 //        if (manager == null || !manager.getRole().equalsIgnoreCase("manager")) {
 //            return new ResponseEntity<>("Only managers can handle reservation requests", HttpStatus.FORBIDDEN);
 //        }
-        if (user == null || !user.getRole().equalsIgnoreCase("manager")) {
-            return new ResponseEntity<>("Only managers can handle reservation requests", HttpStatus.FORBIDDEN);
-        }
+//        if (user == null || !user.getRole().equalsIgnoreCase("manager")) {
+//            return new ResponseEntity<>("Only managers can handle reservation requests", HttpStatus.FORBIDDEN);
+//        }
+        userService.checkRoleOfUser(id, "manager", "Only manager can handle pending requests");
         for (Reservation reservation : reservationService.getReservations()) {
             if (reservation.getReservationId() == reservationId && "pending".equalsIgnoreCase(reservation.getStatus())) {
                 if (approve) {
