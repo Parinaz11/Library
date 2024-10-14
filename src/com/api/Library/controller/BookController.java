@@ -31,11 +31,12 @@ public class BookController {
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable int id) {
         Book book = bookService.findBookById(id);
-        if (book != null) {
-            return new ResponseEntity<>(book, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        if (book != null) {
+//            return new ResponseEntity<>(book, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+        return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
 
@@ -43,15 +44,22 @@ public class BookController {
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
         Book existingBook = bookService.findBookById(id);
-        if (existingBook != null) {
-            existingBook.setTitle(updatedBook.getTitle());
-            existingBook.setAuthor(updatedBook.getAuthor());
-            existingBook.setPages(updatedBook.getPages());
-            existingBook.setAvailable(updatedBook.getAvailable());
-            return new ResponseEntity<>(existingBook, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        if (existingBook != null) {
+//            existingBook.setTitle(updatedBook.getTitle());
+//            existingBook.setAuthor(updatedBook.getAuthor());
+//            existingBook.setPages(updatedBook.getPages());
+//            existingBook.setAvailable(updatedBook.getAvailable());
+//            return new ResponseEntity<>(existingBook, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+
+        existingBook.setTitle(updatedBook.getTitle());
+        existingBook.setAuthor(updatedBook.getAuthor());
+        existingBook.setPages(updatedBook.getPages());
+        existingBook.setAvailable(updatedBook.getAvailable());
+        return new ResponseEntity<>(existingBook, HttpStatus.OK);
+
     }
 
     @DeleteMapping("/{id}")
