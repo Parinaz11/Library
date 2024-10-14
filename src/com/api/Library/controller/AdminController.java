@@ -30,10 +30,11 @@ public class AdminController {
     public ResponseEntity<List<Book>> getAllBooks(@PathVariable int id) {
 //        Admin admin = (Admin) userService.getUserById(id).orElse(null);
 //        User admin = userService.getUserById(id).orElse(null);
-        User admin = userService.getUserById(id);
-        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
+//        User admin = userService.getUserById(id);
+//        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
+//            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+//        }
+        userService.checkRoleOfUser(id, "Admin", "Only admins can get all books.");
         return new ResponseEntity<>(bookService.getBooks(), HttpStatus.OK);
     }
 
@@ -41,11 +42,12 @@ public class AdminController {
     public ResponseEntity<String> addBook(@PathVariable int id, @RequestBody Book book) {
 //        Admin admin = (Admin) userService.getUserById(id).orElse(null);
 //        User admin = userService.getUserById(id).orElse(null);
-        User admin = userService.getUserById(id);
-        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
-            return new ResponseEntity<>("Only admins can add books.", HttpStatus.FORBIDDEN);
-        }
-        Library.addBook(book);
+//        User admin = userService.getUserById(id);
+//        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
+//            return new ResponseEntity<>("Only admins can add books.", HttpStatus.FORBIDDEN);
+//        }
+        userService.checkRoleOfUser(id, "Admin", "Only admins can add a book.");
+        bookService.addBook(book);
         return new ResponseEntity<>("Book added successfully.", HttpStatus.CREATED);
     }
 
@@ -53,26 +55,30 @@ public class AdminController {
     public ResponseEntity<String> removeBook(@PathVariable int id, @PathVariable int bookId) {
 //        Admin admin = (Admin) userService.getUserById(id).orElse(null);
 //        User admin = userService.getUserById(id).orElse(null);
-        User admin = userService.getUserById(id);
-        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
-            return new ResponseEntity<>("Only admins can remove books.", HttpStatus.FORBIDDEN);
-        }
-        boolean removed = Library.removeBook(bookId);
-        if (removed) {
-            return new ResponseEntity<>("Book removed successfully.", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Book not found.", HttpStatus.NOT_FOUND);
-        }
+//        User admin = userService.getUserById(id);
+//        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
+//            return new ResponseEntity<>("Only admins can remove books.", HttpStatus.FORBIDDEN);
+//        }
+//        boolean removed = bookService.deleteBook(bookId);
+//        if (removed) {
+//            return new ResponseEntity<>("Book removed successfully.", HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>("Book not found.", HttpStatus.NOT_FOUND);
+//        }
+        userService.checkRoleOfUser(id, "Admin", "Only admins can remove a book.");
+        bookService.deleteBook(bookId);
+        return new ResponseEntity<>("Book removed successfully.",HttpStatus.OK);
     }
 
     @GetMapping("/{id}/users")
     public ResponseEntity<List<User>> getAllUsers(@PathVariable int id) {
 //        Admin admin = (Admin) userService.getUserById(id).orElse(null);
 //        User admin = userService.getUserById(id).orElse(null);
-        User admin = userService.getUserById(id);
-        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
+//        User admin = userService.getUserById(id);
+//        if (admin == null || !admin.getRole().equalsIgnoreCase("admin")) {
+//            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+//        }
+        userService.checkRoleOfUser(id, "Admin", "Only admins see list of users.");
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 }
