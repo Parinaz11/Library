@@ -2,10 +2,7 @@ package com.api.Library.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -35,4 +32,17 @@ public class LoggingAspect {
         logger.info("After execution of {}", joinPoint);
         return result;
     }
+
+
+    @AfterThrowing("execution(* com.api.Library.service.UserService.getUserById())")
+    public void userNotFoundLog(JoinPoint joinPoint) {
+        logger.info("userNotFound");
+    }
+
+    @AfterReturning(
+            pointcut="execution(* com.api.Library.service.*.*(..))",
+            returning="retVal")
+    public void doAccessCheck(Object retVal) {
+    }
+
 }
