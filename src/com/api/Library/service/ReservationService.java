@@ -1,9 +1,12 @@
 package com.api.Library.service;
 
+import com.api.Library.exception.ResourceNotFoundException;
 import com.api.Library.repository.ReservationRepository;
 import com.api.Library.model.Book;
 import com.api.Library.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -72,5 +75,22 @@ public class ReservationService {
 
     public List<Reservation> findPendingReservationsByUserId(int user_id) {
         return reservationRepository.findPendingReservationByUserId(user_id);
+    }
+
+    public String handleReservationRequest(int res_id, boolean approve) {
+        for (Reservation reservation : getReservations()) {
+            if (reservation.getReservationId() == res_id && "pending".equalsIgnoreCase(reservation.getStatus())) {
+                if (approve) {
+                    reservation.setStatus("approved");
+                    updateReservation(reservation);
+                    return " has been approved.";
+                } else {
+                    reservation.setStatus("Declined");
+                    updateReservation(reservation);
+                    return " has been declined.";
+                }
+            }
+        }
+        throw new ResourceNotFoundException("Reservation ID " + res_id + " reservation not found or is not pending.");
     }
 }

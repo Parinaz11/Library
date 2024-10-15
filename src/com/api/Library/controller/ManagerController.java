@@ -56,20 +56,23 @@ public class ManagerController {
 //        if (user == null || !user.getRole().equalsIgnoreCase("manager")) {
 //            return new ResponseEntity<>("Only managers can handle reservation requests", HttpStatus.FORBIDDEN);
 //        }
-        userService.checkRoleOfUser(id, "manager", "Only manager can handle pending requests");
-        for (Reservation reservation : reservationService.getReservations()) {
-            if (reservation.getReservationId() == reservationId && "pending".equalsIgnoreCase(reservation.getStatus())) {
-                if (approve) {
-                    reservation.setStatus("approved");
-                    reservationService.updateReservation(reservation);
-                    return new ResponseEntity<>("Reservation ID " + reservationId + " has been approved.", HttpStatus.OK);
-                } else {
-                    reservation.setStatus("Declined");
-                    return new ResponseEntity<>("Reservation ID " + reservationId + " has been declined.", HttpStatus.OK);
-                }
-            }
-        }
-        return new ResponseEntity<>("Reservation ID " + reservationId + " not found or is not pending.", HttpStatus.NOT_FOUND);
+        userService.checkRoleOfUser(id, "manager", "Only manager can  pending requests");
+//        for (Reservation reservation : reservationService.getReservations()) {
+//            if (reservation.getReservationId() == reservationId && "pending".equalsIgnoreCase(reservation.getStatus())) {
+//                if (approve) {
+//                    reservation.setStatus("approved");
+//                    reservationService.updateReservation(reservation);
+//                    return new ResponseEntity<>("Reservation ID " + reservationId + " has been approved.", HttpStatus.OK);
+//                } else {
+//                    reservation.setStatus("Declined");
+//                    return new ResponseEntity<>("Reservation ID " + reservationId + " has been declined.", HttpStatus.OK);
+//                }
+//            }
+//        }
+//        return new ResponseEntity<>("Reservation ID " + reservationId + " not found or is not pending.", HttpStatus.NOT_FOUND);
+
+        return new ResponseEntity<>("Reservation ID " + reservationId + reservationService.handleReservationRequest(reservationId, approve), HttpStatus.OK);
+
     }
 }
 
