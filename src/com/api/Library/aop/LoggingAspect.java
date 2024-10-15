@@ -39,10 +39,20 @@ public class LoggingAspect {
         logger.error("An Exception has been throws: " + ex.getMessage(), ex);
     }
 
-    @AfterReturning(
-            pointcut="execution(* com.api.Library.service.*.*(..))",
-            returning="retVal")
-    public void doAccessCheck(Object retVal) {
+    @AfterReturning(pointcut = "execution(* com.api.Library.service.*.*(..))", returning = "result")
+    public void logAfterSuccessfulExecution(Object result) {
+        logger.info("Method executed successfully, result: {}", result);
     }
+
+//    // Example of logging a custom message using method parameters
+//    @AfterReturning(pointcut = "execution(* com.api.Library.service.BookService.addBook(..)) && args(bookName, ..)")
+//    public void logBookAdded(String bookName) {
+//        logger.info("Book '{}' added successfully!", bookName);
+//    }
+
+//    @AfterReturning(pointcut = "execution(* com.api.Library.service.UserService.(..)) && args(userName, ..)")
+//    public void logUserAdded(String userName) {
+//        logger.info("User '{}' added successfully!", userName);
+//    }
 
 }
