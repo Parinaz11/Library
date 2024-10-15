@@ -34,9 +34,9 @@ public class LoggingAspect {
     }
 
 
-    @AfterThrowing("execution(* com.api.Library.service.UserService.getUserById())")
-    public void userNotFoundLog(JoinPoint joinPoint) {
-        logger.info("userNotFound");
+    @AfterThrowing(pointcut = "execution(* com.api.Library.service.*.*(..))", throwing = "ex")
+    public void logAfterThrowing(Exception ex) {
+        logger.error("An Exception has been throws: " + ex.getMessage(), ex);
     }
 
     @AfterReturning(
