@@ -44,17 +44,17 @@ public class ReservationController {
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteReservation(@PathVariable int id) {
-//        reservationService.removeReservation(reservation);
-        reservationService.removeReservation(id);
-        return ResponseEntity.noContent().build();
-
-//        if (reservation != null) {
-//            reservationService.removeReservation(reservation);
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-    }
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> deleteReservation(@PathVariable int id) {
+////        reservationService.removeReservation(reservation);
+//        reservationService.removeReservation(id);
+//        return ResponseEntity.noContent().build();
+//
+////        if (reservation != null) {
+////            reservationService.removeReservation(reservation);
+////            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+////        } else {
+////            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+////        }
+//    }
 }
