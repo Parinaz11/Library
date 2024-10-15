@@ -2,13 +2,13 @@ package com.api.Library.exception;
 
 import org.springframework.http.HttpStatus;
 
-public class UserException {
+public class LibraryException {
     private final String message;
     private final Throwable throwable;
     private final HttpStatus httpStatus;
 
 
-    public UserException(String message, Throwable throwable, HttpStatus httpStatus) {
+    public LibraryException(String message, Throwable throwable, HttpStatus httpStatus) {
         this.message = message;
         this.throwable = throwable;
         this.httpStatus = httpStatus;
