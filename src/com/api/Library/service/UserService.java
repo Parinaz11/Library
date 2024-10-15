@@ -14,7 +14,7 @@ import java.util.Base64;
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserService implements UserServiceInterface{
 
     private final UserRepository userRepository;
 
@@ -61,13 +61,13 @@ public class UserService {
         User user = userRepository.findById(id).get();
     }
 
-    private String generateSaltString() {
+    public String generateSaltString() {
         byte[] salt = new byte[16];
         new java.security.SecureRandom().nextBytes(salt);
         return Base64.getEncoder().encodeToString(salt);
     }
 
-    private String hashPassword(String password, byte[] salt) {
+    public String hashPassword(String password, byte[] salt) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             md.update(salt);

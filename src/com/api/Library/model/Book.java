@@ -17,7 +17,7 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_counter;
+    private int id;
 
     @Column(nullable = false)
     private String title;
@@ -92,7 +92,7 @@ public class Book {
 
     // Getters and Setters
     public int getId() {
-        return id_counter;
+        return id;
     }
 
     public String getTitle() {

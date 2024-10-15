@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ReservationService {
+public class ReservationService implements ReservationServiceInterface{
 
     private final ReservationRepository reservationRepository;
     private final BookService bookService;
@@ -50,10 +50,6 @@ public class ReservationService {
     public void addReservation(Reservation res) {
 
         reservationRepository.save(res);
-    }
-    public void removeReservations(Reservation res) {
-
-        reservationRepository.delete(res);
     }
     public void updateReservation(Reservation res) {
         reservationRepository.save(res);
