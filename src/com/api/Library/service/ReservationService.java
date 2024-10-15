@@ -49,8 +49,11 @@ public class ReservationService {
         reservationRepository.save(res);
     }
 
-    public Optional<Reservation> findReservationById(int res_id) {
-        return reservationRepository.findById(res_id);
+    public Reservation findReservationById(int res_id) {
+        if (reservationRepository.findById(res_id).isEmpty()) {
+            throw new ResourceNotFoundException("reservation not found");
+        }
+        return reservationRepository.findById(res_id).get();
     }
 
     public boolean reserve(int bookId, int user_id){
