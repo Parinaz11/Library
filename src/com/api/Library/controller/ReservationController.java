@@ -28,13 +28,14 @@ public class ReservationController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Reservation> getReservationById(@PathVariable int id) {
-        Optional<Reservation> reservation = reservationService.findReservationById(id);
-        return reservation.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+        Reservation reservation = reservationService.findReservationById(id);
+//        return reservation.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 //        if (reservation != null) {
 //            return new ResponseEntity<>(reservation, HttpStatus.OK);
 //        } else {
 //            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //        }
+        return new ResponseEntity<>(reservation, HttpStatus.OK);
     }
 
     @PostMapping
@@ -43,17 +44,17 @@ public class ReservationController {
         return new ResponseEntity<>(reservation, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteReservation(@PathVariable int id) {
-//        reservationService.removeReservation(reservation);
-        reservationService.removeReservation(id);
-        return ResponseEntity.noContent().build();
-
-//        if (reservation != null) {
-//            reservationService.removeReservation(reservation);
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-    }
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> deleteReservation(@PathVariable int id) {
+////        reservationService.removeReservation(reservation);
+//        reservationService.removeReservation(id);
+//        return ResponseEntity.noContent().build();
+//
+////        if (reservation != null) {
+////            reservationService.removeReservation(reservation);
+////            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+////        } else {
+////            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+////        }
+//    }
 }

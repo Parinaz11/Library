@@ -31,26 +31,36 @@ public class BookController {
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable int id) {
         Book book = bookService.findBookById(id);
-        if (book != null) {
-            return new ResponseEntity<>(book, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        if (book != null) {
+//            return new ResponseEntity<>(book, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+        return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
-        Book existingBook = bookService.findBookById(id);
-        if (existingBook != null) {
-            existingBook.setTitle(updatedBook.getTitle());
-            existingBook.setAuthor(updatedBook.getAuthor());
-            existingBook.setPages(updatedBook.getPages());
-            existingBook.setAvailable(updatedBook.getAvailable());
-            return new ResponseEntity<>(existingBook, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        Book existingBook = bookService.findBookById(id);
+//        if (existingBook != null) {
+//            existingBook.setTitle(updatedBook.getTitle());
+//            existingBook.setAuthor(updatedBook.getAuthor());
+//            existingBook.setPages(updatedBook.getPages());
+//            existingBook.setAvailable(updatedBook.getAvailable());
+//            return new ResponseEntity<>(existingBook, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+
+//        existingBook.setTitle(updatedBook.getTitle());
+//        existingBook.setAuthor(updatedBook.getAuthor());
+//        existingBook.setPages(updatedBook.getPages());
+//        existingBook.setAvailable(updatedBook.getAvailable());
+//        return new ResponseEntity<>(existingBook, HttpStatus.OK);
+        return new ResponseEntity<>(bookService.updateBook(id, updatedBook), HttpStatus.OK);
+
+
     }
 
     @DeleteMapping("/{id}")
@@ -62,11 +72,13 @@ public class BookController {
 
     @GetMapping("/pending/{userId}")
     public List<Book> getPendingBooks(@PathVariable int userId) {
+
         return bookService.getPendingBooks(userId);
     }
 
     @GetMapping("/reserved/{userId}")
     public List<Book> getReservedBooks(@PathVariable int userId) {
+
         return bookService.getUserReservedBooks(userId);
     }
 
