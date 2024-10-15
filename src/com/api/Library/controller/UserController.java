@@ -138,7 +138,6 @@ public class UserController {
         return new ResponseEntity<>(bookService.getUserReservedBooks(id), HttpStatus.OK);
     }
 
-    // Get all users, accessible to admins only
     @GetMapping
     @Secured("ROLE_ADMIN")
     public ResponseEntity<List<User>> getAllUsers() {
