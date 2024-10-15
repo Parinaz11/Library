@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +34,8 @@ public class ReservationService implements ReservationServiceInterface{
         }
         return reservationRepository.findReservationByBookId(book_id);
     }
+
+    @Transactional
     public void removeReservation(int res_id, int user_id) {
 //        reservationRepository.delete(res);
         Reservation reservationToDelete = findReservationById(res_id);
@@ -43,14 +46,17 @@ public class ReservationService implements ReservationServiceInterface{
         }
 //        reservationRepository.deleteById(res_id);
     }
-    public List<Reservation> getReservations() {
 
+    public List<Reservation> getReservations() {
         return reservationRepository.findAll();
     }
-    public void addReservation(Reservation res) {
 
+    @Transactional
+    public void addReservation(Reservation res) {
         reservationRepository.save(res);
     }
+
+    @Transactional
     public void updateReservation(Reservation res) {
         reservationRepository.save(res);
     }
@@ -66,7 +72,6 @@ public class ReservationService implements ReservationServiceInterface{
         // checks bookID in order to see if the book is reserved or not
         // If it was reserved, returns false
         // else, changes the status of book to reserved and updates the reserve array
-
         Book bookToReserve = bookService.findBookById(bookId);
 //        Book bookToReserve = bookRepository.findBookById(bookId);
         if (bookToReserve != null && bookToReserve.getAvailable()) {

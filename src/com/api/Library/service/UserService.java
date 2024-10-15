@@ -4,7 +4,6 @@ import com.api.Library.exception.ResourceNotFoundException;
 import com.api.Library.exception.UserForbiddenException;
 import com.api.Library.repository.UserRepository;
 import com.api.Library.model.User;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +11,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService implements UserServiceInterface{
@@ -22,7 +23,6 @@ public class UserService implements UserServiceInterface{
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
 
     public User getUserById(int id) {
         if (userRepository.findById(id).isEmpty())
@@ -37,12 +37,12 @@ public class UserService implements UserServiceInterface{
         return userRepository.findByUsername(user_name);
     }
 
+    @Transactional
     public void updateUser(User u) {
         userRepository.save(u);
     }
 
     public List<User> getAllUsers() {
-
         return userRepository.findAll();
     }
 
@@ -82,8 +82,6 @@ public class UserService implements UserServiceInterface{
         if (userRepository.findById(id).isEmpty() || !user.getRole().equalsIgnoreCase(role))
             throw new UserForbiddenException(errorMessage);
     }
-
-
 
 
 }
