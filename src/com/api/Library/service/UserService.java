@@ -32,9 +32,8 @@ public class UserService {
     }
 
     public User getUserByUsername(String user_name) {
-        if (userRepository.findByUsername(user_name) == null) {
+        if (userRepository.findByUsername(user_name) == null)
             throw new ResourceNotFoundException("Requested User does not exist");
-        }
         return userRepository.findByUsername(user_name);
     }
 

@@ -26,7 +26,7 @@ public class BookService {
         return bookRepository.findByAvailable(true);
     }
     public int findBookIdByName(String bookName) {
-        if (bookRepository.findByTitle(bookName).getId() == -1)
+        if (bookRepository.findByTitle(bookName) == null)
             throw new ResourceNotFoundException("Book not found");
 //        return userRepository.findById(id);
         return bookRepository.findByTitle(bookName).getId();
