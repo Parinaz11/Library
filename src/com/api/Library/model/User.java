@@ -2,6 +2,8 @@ package com.api.Library.model;
 
 import jakarta.persistence.*;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -18,6 +20,8 @@ public class User extends Person {
 //    protected String role; // "user", "admin", "manager"
 //    protected String hashedPassword;
 //    protected String salt;
+
+    private static final Logger logInfo = LoggerFactory.getLogger(User.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
