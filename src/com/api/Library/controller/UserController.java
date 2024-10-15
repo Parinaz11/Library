@@ -33,13 +33,14 @@ public class UserController {
 
     // Updated path for getting user by username
     @GetMapping("/username/{username}")
-    public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
-        User user = userService.getUserByUsername(username);
-        if (user != null) {
-            return new ResponseEntity<>(user, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public User getUserByUsername(@PathVariable String username) {
+//        User user = userService.getUserByUsername(username);
+//        if (user != null) {
+//            return new ResponseEntity<>(user, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+        return userService.getUserByUsername(username);
     }
 
 
@@ -66,12 +67,14 @@ public class UserController {
 //        if (bookId == -1) {
 //            return new ResponseEntity<>("Book not found", HttpStatus.NOT_FOUND);
 //        }
-        boolean reserveStatus = reservationService.reserve(bookId, id);
-        if (reserveStatus) {
-            return new ResponseEntity<>("Reservation request successful", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Reservation request failed. The book is already reserved.", HttpStatus.BAD_REQUEST);
-        }
+//        boolean reserveStatus = reservationService.reserve(bookId, id);
+//        if (reserveStatus) {
+//            return new ResponseEntity<>("Reservation request successful", HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>("Reservation request failed. The book is already reserved.", HttpStatus.BAD_REQUEST);
+//        }
+
+        return new ResponseEntity<>(reservationService.reserve(bookId, id), HttpStatus.OK);
     }
 
     // New endpoint to view pending reservation books
@@ -107,11 +110,13 @@ public class UserController {
 //            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
 //        }
         Reservation reservationToDelete = reservationService.findReservationByName(bookService.findBookIdByName(bookName));
-        if (reservationToDelete != null && reservationToDelete.getUserId() == id) {
-            reservationService.removeReservation(reservationToDelete.getReservationId());
-            return new ResponseEntity<>("Reservation deleted successfully", HttpStatus.OK);
-        }
-        return new ResponseEntity<>("Reservation not found or you don't have permission to delete it.", HttpStatus.NOT_FOUND);
+//        if (reservationToDelete != null && reservationToDelete.getUserId() == id) {
+//            reservationService.removeReservation(reservationToDelete.getReservationId());
+//            return new ResponseEntity<>("Reservation deleted successfully", HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>("Reservation not found or you don't have permission to delete it.", HttpStatus.NOT_FOUND);
+        reservationService.removeReservation(reservationToDelete.getReservationId(), id);
+        return new ResponseEntity<>("Reservation deleted successfully",HttpStatus.OK);
     }
 
     // New endpoint to show reserved books

@@ -1,5 +1,6 @@
 package com.api.Library.service;
 
+import com.api.Library.exception.ReservationBadRequestException;
 import com.api.Library.exception.ResourceNotFoundException;
 import com.api.Library.repository.ReservationRepository;
 import com.api.Library.model.Book;
@@ -27,11 +28,20 @@ public class ReservationService {
 
     public Reservation findReservationByName(int book_id) {
 //        return database.findReservationByName(res_name);
+        if (reservationRepository.findReservationByBookId(book_id) == null) {
+            throw new ResourceNotFoundException("Reservation not found");
+        }
         return reservationRepository.findReservationByBookId(book_id);
     }
-    public void removeReservation(int res_id) {
+    public void removeReservation(int res_id, int user_id) {
 //        reservationRepository.delete(res);
-        reservationRepository.deleteById(res_id);
+        Reservation reservationToDelete = findReservationById(res_id);
+        if (reservationToDelete != null && reservationToDelete.getUserId() == user_id) {
+            reservationRepository.deleteById(res_id);
+        }else {
+            throw new ResourceNotFoundException("Reservation not found or you don't have permission to delete it.");
+        }
+//        reservationRepository.deleteById(res_id);
     }
     public List<Reservation> getReservations() {
 
@@ -56,7 +66,7 @@ public class ReservationService {
         return reservationRepository.findById(res_id).get();
     }
 
-    public boolean reserve(int bookId, int user_id){
+    public String reserve(int bookId, int user_id){
         // checks bookID in order to see if the book is reserved or not
         // If it was reserved, returns false
         // else, changes the status of book to reserved and updates the reserve array
@@ -68,12 +78,14 @@ public class ReservationService {
             // Mark the book as reserved
 //            reservationService.addReservation(new Reservation(bookId, user_id, "pending")); // Add reservation to the library's list
             reservationRepository.save(new Reservation(bookId, user_id, "pending"));
-            return true;
+            return "Reservation request successful";
         } else if (bookToReserve != null && !bookToReserve.getAvailable()) {
-            return false;
+            throw new ReservationBadRequestException("Reservation request failed. The book is already reserved.");
         }
-        System.out.println("Book does not exist.");
-        return false;
+        else {
+            System.out.println("Book does not exist.");
+            throw new ResourceNotFoundException("book not found");
+        }
     }
 
     public List<Reservation> findPendingReservationsByUserId(int user_id) {
