@@ -56,6 +56,12 @@ public class LoggingAspect {
         logger.info("Book '{}' removed successfully!", bookName);
     }
 
+    // Example of logging a custom message using method parameters
+    @AfterReturning(pointcut = "execution(* com.api.Library.service.BookService.deleteBook(..)) && args(bookName, ..)")
+    public void logBookUpdated(String bookName) {
+        logger.info("Book '{}' updated successfully!", bookName);
+    }
+
 
 //    @AfterReturning(pointcut = "execution(* com.api.Library.service.UserService.(..)) && args(userName, ..)")
 //    public void logUserAdded(String userName) {
