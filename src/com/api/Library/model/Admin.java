@@ -14,10 +14,10 @@ public class Admin extends User {
         this.role = "admin";
     }
 
-    public Admin(String username, String firstName, String lastName, String email, String password) {
-        super(username, firstName, lastName, email, password);
-        this.role = "admin";
-    }
+//    public Admin(String username, String firstName, String lastName, String email, String password) {
+//        super(username, firstName, lastName, email, password);
+//        this.role = "admin";
+//    }
 
     public Admin() {
         super();
