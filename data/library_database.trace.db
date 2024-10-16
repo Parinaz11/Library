@@ -1,0 +1,3 @@
+2024-10-16 18:06:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERSBOOKS" not found; SQL statement:
+SELECT * FROM USERSBOOKS [42102-220]
