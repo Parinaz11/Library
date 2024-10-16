@@ -4,6 +4,8 @@ import com.api.Library.exception.ResourceNotFoundException;
 import com.api.Library.exception.UserForbiddenException;
 import com.api.Library.repository.UserRepository;
 import com.api.Library.model.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +20,13 @@ public class UserService implements UserServiceInterface{
 
     private final UserRepository userRepository;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
 
     public User getUserById(int id) {
         if (userRepository.findById(id).isEmpty())
@@ -37,12 +41,14 @@ public class UserService implements UserServiceInterface{
         return userRepository.findByUsername(user_name);
     }
 
+    @Transactional
     public void updateUser(User u) {
-        userRepository.save(u);
+        entityManager.merge(u);
+        entityManager.flush();
+//        userRepository.save(u);
     }
 
     public List<User> getAllUsers() {
-
         return userRepository.findAll();
     }
 
@@ -50,11 +56,28 @@ public class UserService implements UserServiceInterface{
     public User saveUser(User user) {
         user.setSalt(generateSaltString());
         user.setHashedPassword(hashPassword(user.getHashedPassword(), Base64.getDecoder().decode(user.getSalt())));
-        return userRepository.save(user);
+
+        if (user.getId() == 0) { // Check if it's a new user (id == 0 or null)
+            entityManager.persist(user); // For new users, use persist
+        } else {
+            user = entityManager.merge(user); // For existing users, use merge
+        }
+        entityManager.flush();
+//        entityManager.persist(user);
+////        entityManager.merge(user);
+//        entityManager.flush();
+        return user;
+//        return userRepository.save(user);
     }
 
+    @Transactional
     public void deleteUserById(int id) {
-        userRepository.deleteById(id);
+        User user =  entityManager.find(User.class, id);
+        if (user != null) {
+            entityManager.remove(user);
+            entityManager.flush();
+        }
+//        userRepository.deleteById(id);
     }
 
     public void getUserRole(int id) {
@@ -82,8 +105,6 @@ public class UserService implements UserServiceInterface{
         if (userRepository.findById(id).isEmpty() || !user.getRole().equalsIgnoreCase(role))
             throw new UserForbiddenException(errorMessage);
     }
-
-
 
 
 }

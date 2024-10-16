@@ -5,19 +5,21 @@ import com.api.Library.exception.ResourceNotFoundException;
 import com.api.Library.repository.ReservationRepository;
 import com.api.Library.model.Book;
 import com.api.Library.model.Reservation;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ReservationService implements ReservationServiceInterface{
 
     private final ReservationRepository reservationRepository;
     private final BookService bookService;
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
     public ReservationService(ReservationRepository reservationRepository, BookService bookService) {
@@ -33,26 +35,45 @@ public class ReservationService implements ReservationServiceInterface{
         }
         return reservationRepository.findReservationByBookId(book_id);
     }
+
+    @Transactional
     public void removeReservation(int res_id, int user_id) {
-//        reservationRepository.delete(res);
-        Reservation reservationToDelete = findReservationById(res_id);
-        if (reservationToDelete != null && reservationToDelete.getUserId() == user_id) {
-            reservationRepository.deleteById(res_id);
-        }else {
-            throw new ResourceNotFoundException("Reservation not found or you don't have permission to delete it.");
+        Reservation res = entityManager.find(Reservation.class, res_id);
+        if (res != null) {
+            entityManager.remove(res);
+            entityManager.flush();
         }
+        else {
+            throw new ResourceNotFoundException("Reservation not found or you  don't have permission to delete it.");
+        }
+
+//        Reservation reservationToDelete = findReservationById(res_id);
+//        if (reservationToDelete != null && reservationToDelete.getUserId() == user_id) {
+//            reservationRepository.deleteById(res_id);
+//        }else {
+//            throw new ResourceNotFoundException("Reservation not found or you don't have permission to delete it.");
+//        }
+
+        //        reservationRepository.delete(res);
 //        reservationRepository.deleteById(res_id);
     }
-    public List<Reservation> getReservations() {
 
+    public List<Reservation> getReservations() {
         return reservationRepository.findAll();
     }
-    public void addReservation(Reservation res) {
 
-        reservationRepository.save(res);
+    @Transactional
+    public void addReservation(Reservation res) {
+//        reservationRepository.save(res);
+        entityManager.persist(res);
+        entityManager.flush();
     }
+
+    @Transactional
     public void updateReservation(Reservation res) {
-        reservationRepository.save(res);
+//        reservationRepository.save(res);
+        entityManager.merge(res);
+        entityManager.flush();
     }
 
     public Reservation findReservationById(int res_id) {
@@ -66,7 +87,6 @@ public class ReservationService implements ReservationServiceInterface{
         // checks bookID in order to see if the book is reserved or not
         // If it was reserved, returns false
         // else, changes the status of book to reserved and updates the reserve array
-
         Book bookToReserve = bookService.findBookById(bookId);
 //        Book bookToReserve = bookRepository.findBookById(bookId);
         if (bookToReserve != null && bookToReserve.getAvailable()) {
