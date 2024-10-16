@@ -1,10 +1,6 @@
 package com.api.Library.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,17 +11,11 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.Scanner;
+
+
 @Entity
 @Table(name = "USERS")
 public class User{
-//    protected String role; // "user", "admin", "manager"
-//    protected String hashedPassword;
-//    protected String salt;
-
-    private static final Logger logInfo = LoggerFactory.getLogger(User.class);
-
-
-    protected static int id_counter = 0;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,47 +40,36 @@ public class User{
     protected String salt;
 
     @Column(nullable = false)
-    protected String role;
+    protected String role; // "user", "admin", "manager"
 
     // Getters and Setters
-
-
     public void setUsername(String username) {
         this.username = username;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public String getName() { return this.firstName.concat(" ").concat(this.lastName); }
     public void setName(String first_name, String last_name) {
         this.firstName = first_name;
         this.lastName = last_name;
     }
-
     public String getEmail() { return email; }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getHashedPassword() {
         return hashedPassword;
     }
-
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
     }
@@ -103,11 +82,15 @@ public class User{
     public void setRole(String role) {
         this.role = role;
     }
-
-
+    public String getRole() {
+        return role;
+    }
+    public int getId() {
+        return id;
+    }
+    public String getUsername() { return username; }
 
     public User(String username, String firstName, String lastName, String email, String password) {
-//        this.id = ++id_counter;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -130,17 +113,12 @@ public class User{
     }
 
     public User() {
-        this.id = ++id_counter;
         this.firstName = "Unknown";
         this.lastName = "Unknown";
         this.email = "Unknown";
         this.username = "Unknown";
 
         this.role = "user";
-    }
-
-    public String getRole() {
-        return role;
     }
 
     public void displayInfo() {
@@ -185,13 +163,7 @@ public class User{
         }
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getUsername() { return username; }
-
-    // Method to show available books by making a GET request to the API
+    // Methods to view results by making post, get and ... requests to the API
     public void showAvailableBooks() {
         System.out.println("--- Available Books ---");
         try {
@@ -219,7 +191,6 @@ public class User{
         }
     }
 
-    // Method to send a book reservation request by making a POST request to the API
     public void reservationRequest(Scanner in) {
         System.out.println("--- Reservation Request ---");
         String bookName = getBookNameFromUser(in);
@@ -241,7 +212,6 @@ public class User{
         }
     }
 
-    // Method to view pending reservations by making a GET request to the API
     public void pendingReserveBooks() {
         System.out.println("--- Pending Reservation Books ---");
         try {
@@ -269,7 +239,6 @@ public class User{
         }
     }
 
-    // Method to delete a reservation request by making a DELETE request to the API
     public void deleteReserveRequest(Scanner in) {
         System.out.println("--- Delete Reservation Request ---");
         String bookName = getBookNameFromUser(in);
@@ -291,7 +260,6 @@ public class User{
         }
     }
 
-    // Method to view reserved books by making a GET request to the API
     public void showReservedBooks() {
         System.out.println("--- Reserved Books ---");
         try {
@@ -319,24 +287,21 @@ public class User{
         }
     }
 
-    // Helper method to get the book name from the user
     public String getBookNameFromUser(Scanner in) {
         System.out.println("Enter book name: ");
         return in.nextLine();
     }
 
-    // Authentication and security
+    // Authentication and security methods
     private byte[] generateSalt() {
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
         random.nextBytes(salt);
         return salt;
     }
-
     private String generateSaltString() {
         return Base64.getEncoder().encodeToString(generateSalt());
     }
-
     private String hashPassword(String password, byte[] salt) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -347,7 +312,6 @@ public class User{
             throw new RuntimeException("❗ Error hashing password.", e);
         }
     }
-
     public boolean verifyPassword(String password) {
         String hashedAttempt = hashPassword(password, Base64.getDecoder().decode(this.salt));
         return hashedAttempt.equals(this.hashedPassword);
