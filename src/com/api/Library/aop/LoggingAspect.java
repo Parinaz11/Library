@@ -44,11 +44,11 @@ public class LoggingAspect {
         logger.info("Method executed successfully, result: {}", result);
     }
 
-//    // Example of logging a custom message using method parameters
-//    @AfterReturning(pointcut = "execution(* com.api.Library.service.BookService.addBook(..)) && args(bookName, ..)")
-//    public void logBookAdded(String bookName) {
-//        logger.info("Book '{}' added successfully!", bookName);
-//    }
+    // Example of logging a custom message using method parameters
+    @AfterReturning(pointcut = "execution(* com.api.Library.service.BookService.addBook(..)) && args(bookName, ..)")
+    public void logBookAdded(String bookName) {
+        logger.info("Book '{}' added successfully!", bookName);
+    }
 
 //    @AfterReturning(pointcut = "execution(* com.api.Library.service.UserService.(..)) && args(userName, ..)")
 //    public void logUserAdded(String userName) {
