@@ -9,15 +9,15 @@ import java.util.Scanner;
 
 public class Admin extends User {
 
-    public Admin(String username, String firstName, String lastName, String email, String hashedPassword, String salt) {
-        super(username, firstName, lastName, email, hashedPassword, salt);
-        this.role = "admin";
-    }
-
-//    public Admin(String username, String firstName, String lastName, String email, String password) {
-//        super(username, firstName, lastName, email, password);
+//    public Admin(String username, String firstName, String lastName, String email, String hashedPassword, String salt) {
+//        super(username, firstName, lastName, email, hashedPassword, salt);
 //        this.role = "admin";
 //    }
+
+    public Admin(String username, String firstName, String lastName, String email, String password) {
+        super(username, firstName, lastName, email, password);
+        this.role = "admin";
+    }
 
     public Admin() {
         super();
