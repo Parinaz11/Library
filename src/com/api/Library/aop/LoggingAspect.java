@@ -63,9 +63,40 @@ public class LoggingAspect {
     }
 
 
-//    @AfterReturning(pointcut = "execution(* com.api.Library.service.UserService.(..)) && args(userName, ..)")
-//    public void logUserAdded(String userName) {
-//        logger.info("User '{}' added successfully!", userName);
+    @AfterReturning(pointcut = "execution(* com.api.Library.service.UserService.saveUser(..)) && args(userName, ..)")
+    public void logUserAdded(String userName) {
+        logger.info("User '{}' added successfully!", userName);
+    }
+
+    @AfterReturning(pointcut = "execution(* com.api.Library.service.UserService.saveUser(..)) && args(userName, ..)")
+    public void logUserUpdated(String userName) {
+        logger.info("User '{}' updated successfully!", userName);
+    }
+
+    @AfterReturning(pointcut = "execution(* com.api.Library.service.UserService.saveUser(..)) && args(userName, ..)")
+    public void logUserRemoved(String userName) {
+        logger.info("User '{}' removed successfully!", userName);
+    }
+
+//    @AfterReturning(pointcut = "execution(* com.api.Library.service.ReservationService.addReservation(..)) && args(reservationName, ..)")
+//    public void logReservationAdded(String reservationName) {
+//        logger.info("Reservation '{}' added successfully!", reservationName);
 //    }
+//
+//    @AfterReturning(pointcut = "execution(* com.api.Library.service.ReservationService.updateReservation(..)) && args(reservationName, ..)")
+//    public void logReservationUpdated(String reservationName) {
+//        logger.info("Reservation '{}' updated successfully!", reservationName);
+//    }
+//
+//    @AfterReturning(pointcut = "execution(* com.api.Library.service.ReservationService.removeReservation(..)) && args(reservationName, ..)")
+//    public void logReservationRemoved(String reservationName) {
+//        logger.info("Reservation '{}' removed successfully!", reservationName);
+//    }
+//
+//    @AfterReturning(pointcut = "execution(* com.api.Library.service.ReservationService.reserve(..))")
+//    public void logReserve() {
+//        logger.info("Reservation request successful");
+//    }
+
 
 }
