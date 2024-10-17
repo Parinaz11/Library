@@ -1,7 +1,7 @@
 package com.api.Library.controller;
 
-import com.api.Library.LibraryApplication;
 import com.api.Library.model.Reservation;
+import com.api.Library.service.GoogleCalendarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.api.Library.model.Book;
 import com.api.Library.model.User;
@@ -12,8 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -22,12 +22,14 @@ public class UserController {
     private final UserService userService;
     private final BookService bookService;
     private final ReservationService reservationService;
+    private final GoogleCalendarService googleCalendarService;
 
     @Autowired
-    public UserController(UserService us, BookService bs, ReservationService rs) {
+    public UserController(UserService us, BookService bs, ReservationService rs, GoogleCalendarService gcs) {
         this.userService = us;
         this.bookService = bs;
         this.reservationService = rs;
+        this.googleCalendarService = gcs;
     }
 
 
@@ -55,27 +57,26 @@ public class UserController {
         return new ResponseEntity<>(bookService.getAvailableBooks(), HttpStatus.OK);
     }
 
-    // New endpoint to request a book reservation
     @PostMapping("/{id}/reserve-book")
     public ResponseEntity<String> reserveBook(@PathVariable int id, @RequestParam String bookName) {
-//        User user = userService.getUserById(id).orElse(null);
         User user = userService.getUserById(id);
-//        if (user == null) {
-//            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
-//        }
         int bookId = bookService.findBookIdByName(bookName);
-//        if (bookId == -1) {
-//            return new ResponseEntity<>("Book not found", HttpStatus.NOT_FOUND);
-//        }
-//        boolean reserveStatus = reservationService.reserve(bookId, id);
-//        if (reserveStatus) {
-//            return new ResponseEntity<>("Reservation request successful", HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>("Reservation request failed. The book is already reserved.", HttpStatus.BAD_REQUEST);
-//        }
 
-        return new ResponseEntity<>(reservationService.reserve(bookId, id), HttpStatus.OK);
+        // Make the reservation through your service (existing logic)
+        String reservationResult = reservationService.reserve(bookId, id);
+
+        // Google Calendar Integration: Create an event
+        try {
+            LocalDateTime startTime = LocalDateTime.now();
+            LocalDateTime endTime = startTime.plusDays(7); // Let's assume a 7-day reservation period
+            googleCalendarService.createReservationEvent(bookName, user.getUsername(), startTime, endTime);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Reservation created, but failed to add event to Google Calendar: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(reservationResult, HttpStatus.OK);
     }
+
 
     @GetMapping("/{id}/pending-reservations")
     public ResponseEntity<List<Reservation>> viewPendingReservations(@PathVariable int id) {
