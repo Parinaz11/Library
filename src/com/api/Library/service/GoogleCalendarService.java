@@ -84,11 +84,9 @@ public class GoogleCalendarService {
 
     public void createReservationEvent(String bookName, String userName, LocalDateTime startTime, LocalDateTime endTime) throws GeneralSecurityException, IOException {
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        System.out.println("BEFORE CREATING CALENDAR");
         Calendar service = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
                 .build();
-        System.out.println("AFTER CREATING CALENDAR");
 
         Event event = new Event()
                 .setSummary("Book Reservation: " + bookName)
