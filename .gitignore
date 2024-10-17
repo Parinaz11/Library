@@ -30,5 +30,3 @@ bin/
 
 # Ignore IntelliJ IDEA project-specific files
 .idea/workspace.xml
-
-src/com/api/Library/service/client_secret_848394141846-8eab5krvapsjhvad8a98ugpabaahb28t.apps.googleusercontent.com.json
