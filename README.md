@@ -1,8 +1,52 @@
-# Library Application
+# Book Library Application (run LibraryApplication.java)
+
+For REST API endpoints and program documentation, run the program and open http://localhost:8080/swagger-ui/index.html
+
+Checkout the h2 database at http://localhost:8080/h2-console with JDBC URL set to "jdbc:h2:file:./data/library_database"
+
+Commands in postman:
+
+GET localhost:8080/users
+
+GET localhost:8080/books
+
+GET localhost:8080/reservations
+
+Checkout custom exceptions with command GET GET localhost:8080/users/20 (since we don't have any user with id set to 20)
+
+For UI:
+
+POST localhost:8080/books
+
+body:
+{
+    "title": "DotinProject",
+    "author": "Maryam",
+    "available": true,
+    "pages": 635,
+    "user": null
+}
+
+POST localhost8080/users/13/reserve-book
+
+params -> bookName = DotinProject
+
+Then, the reservations will be shown at google calendar
+
+![Screenshot (613)](https://github.com/user-attachments/assets/d690004f-5068-4214-ba96-be4bdee5a81a)
+
+### Google Calendar UI
+download and add JAR file:
+https://mvnrepository.com/artifact/com.google.apis/google-api-services-calendar/v3-rev20220715-1.32.1
+
+What this project has:
+
+Interactive Terminal, Arraylist Database, *H2 Database and JPA Repository*, MondoDB Database, Swagger, 3-tier Architecture, Dependency Injection, slf4j Log, *Log with AOP*, *Custom Exceptions*, Entity Manager, Security and Validation, Unit Test, UI Using Google Calendar API
+---
+
+# Library Application with terminal (httpClient.java)
 
 After logging in and authorization, users are presented with a menu based on their role (User, Admin, or Manager). Each role has access to specific options in their menu, allowing them to perform actions appropriate to their role. Once their tasks are completed, they can exit the program by selecting the exit option
-
----
 
 ## User Authentication and Password Hashing
 
@@ -71,8 +115,4 @@ The `Admin` class extends the `User` class, providing additional capabilities fo
 - `removeBook()`: Enables the admin to remove books from the library by specifying the book's ID.
 - `showMenu(Scanner in)`: Displays a menu for the admin to choose actions like viewing all books, adding a book, removing a book, or viewing all users.
 - `runFuncForCommand(int choice, Scanner in)`: Executes the command selected from the menu, such as adding or removing a book.
-
-### Google Calendar UI
-download and add JAR file:
-https://mvnrepository.com/artifact/com.google.apis/google-api-services-calendar/v3-rev20220715-1.32.1
 
