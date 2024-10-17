@@ -27,7 +27,6 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
-/* class to demonstrate use of Calendar events list API */
 @Service
 public class GoogleCalendarService {
     /**
