@@ -6,12 +6,9 @@ import com.api.Library.repository.ReservationRepository;
 import com.api.Library.model.Book;
 import com.api.Library.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ReservationService implements ReservationServiceInterface{

@@ -1,6 +1,5 @@
 package com.api.Library.controller;
 
-import com.api.Library.LibraryApplication;
 import com.api.Library.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.api.Library.model.Book;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")

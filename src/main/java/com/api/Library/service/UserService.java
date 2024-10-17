@@ -27,7 +27,6 @@ public class UserService implements UserServiceInterface{
     public User getUserById(int id) {
         if (userRepository.findById(id).isEmpty())
             throw new ResourceNotFoundException("Requested User does not exist");
-//        return userRepository.findById(id);
         return userRepository.findById(id).get();
     }
 

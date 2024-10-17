@@ -1,9 +1,7 @@
 package com.api.Library.controller;
 
-import com.api.Library.model.Manager;
 import com.api.Library.model.Reservation;
 import com.api.Library.model.User;
-import com.api.Library.service.BookService;
 import com.api.Library.service.ReservationService;
 import com.api.Library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
