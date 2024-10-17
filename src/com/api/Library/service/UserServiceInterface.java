@@ -2,7 +2,6 @@ package com.api.Library.service;
 
 import com.api.Library.model.User;
 import java.util.List;
-import java.util.Optional;
 
 public interface UserServiceInterface {
     User getUserById(int id);

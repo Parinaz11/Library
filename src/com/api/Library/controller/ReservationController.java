@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/reservations")
@@ -29,12 +27,6 @@ public class ReservationController {
     @GetMapping("/{id}")
     public ResponseEntity<Reservation> getReservationById(@PathVariable int id) {
         Reservation reservation = reservationService.findReservationById(id);
-//        return reservation.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-//        if (reservation != null) {
-//            return new ResponseEntity<>(reservation, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
         return new ResponseEntity<>(reservation, HttpStatus.OK);
     }
 

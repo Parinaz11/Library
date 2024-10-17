@@ -2,13 +2,10 @@ package com.api.Library.repository;
 
 import com.api.Library.model.*;
 import com.api.Library.model.Book;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
-//@Repository
 public class ArraylistDatabase<T> implements DatabaseRepository {
 
     private static List<Book> books = new ArrayList<>();
@@ -38,7 +35,6 @@ public class ArraylistDatabase<T> implements DatabaseRepository {
         populateReservations();
     }
 
-    // Method to populate the ArrayList with 10 sample books
     private static void populateBooks() {
         books.add(new Book("To Kill a Mockingbird", "Harper Lee", true, 281));
         books.add(new Book("1984", "George Orwell", true, 328));
@@ -52,12 +48,9 @@ public class ArraylistDatabase<T> implements DatabaseRepository {
         books.add(new Book("The Hobbit", "J.R.R. Tolkien", true, 310));
     }
 
-    // populate the ArrayList with 10 sample users
     private static void populateUsers() {
-        // Create an com.api.Library.model.Admin instance
         Admin admin = new Admin("admin", "Jack", "Smith", "admin@gmail.com", "dotin123");
         users.add(admin);
-        // Create a com.api.Library.model.Manager instance
         Manager manager = new Manager("manager", "Jane", "Smith", "manager@gmail.com", "dotin123");
         users.add(manager);
         users.add(new User("johnny", "John", "Doe", "john.doe@example.com", "password123"));
@@ -74,44 +67,24 @@ public class ArraylistDatabase<T> implements DatabaseRepository {
 
     private void populateReservations() {
         Reservation reservation;
-
-        // Sample reservation 1
         reservation = new Reservation(1, 1001, "pending");
         addReservation(reservation);
-
-        // Sample reservation 2
         reservation = new Reservation(2, 1002, "approved");
         addReservation(reservation);
-
-        // Sample reservation 3
         reservation = new Reservation(3, 1003, "declined");
         addReservation(reservation);
-
-        // Sample reservation 4
         reservation = new Reservation(4, 1004, "pending");
         addReservation(reservation);
-
-        // Sample reservation 5
         reservation = new Reservation(5, 1005, "approved");
         addReservation(reservation);
-
-        // Sample reservation 6
         reservation = new Reservation(6, 1006, "declined");
         addReservation(reservation);
-
-        // Sample reservation 7
         reservation = new Reservation(7, 1007, "pending");
         addReservation(reservation);
-
-        // Sample reservation 8
         reservation = new Reservation(8, 1008, "approved");
         addReservation(reservation);
-
-        // Sample reservation 9
         reservation = new Reservation(9, 1009, "declined");
         addReservation(reservation);
-
-        // Sample reservation 10
         reservation = new Reservation(10, 1010, "pending");
         addReservation(reservation);
     }

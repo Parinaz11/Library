@@ -1,13 +1,11 @@
 package com.api.Library.controller;
 
 import com.api.Library.model.Book;
-import com.api.Library.model.Library;
 import com.api.Library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -27,40 +25,16 @@ public class BookController {
         return new ResponseEntity<>(bookService.getBooks(), HttpStatus.OK);
     }
 
-
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable int id) {
         Book book = bookService.findBookById(id);
-//        if (book != null) {
-//            return new ResponseEntity<>(book, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
-//        Book existingBook = bookService.findBookById(id);
-//        if (existingBook != null) {
-//            existingBook.setTitle(updatedBook.getTitle());
-//            existingBook.setAuthor(updatedBook.getAuthor());
-//            existingBook.setPages(updatedBook.getPages());
-//            existingBook.setAvailable(updatedBook.getAvailable());
-//            return new ResponseEntity<>(existingBook, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-
-//        existingBook.setTitle(updatedBook.getTitle());
-//        existingBook.setAuthor(updatedBook.getAuthor());
-//        existingBook.setPages(updatedBook.getPages());
-//        existingBook.setAvailable(updatedBook.getAvailable());
-//        return new ResponseEntity<>(existingBook, HttpStatus.OK);
         return new ResponseEntity<>(bookService.updateBook(id, updatedBook), HttpStatus.OK);
-
-
     }
 
     @DeleteMapping("/{id}")
@@ -68,7 +42,6 @@ public class BookController {
         bookService.deleteBook(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 
     @GetMapping("/pending/{userId}")
     public List<Book> getPendingBooks(@PathVariable int userId) {

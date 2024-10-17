@@ -9,7 +9,6 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
@@ -31,7 +30,6 @@ public class UserService implements UserServiceInterface{
     public User getUserById(int id) {
         if (userRepository.findById(id).isEmpty())
             throw new ResourceNotFoundException("Requested User does not exist");
-//        return userRepository.findById(id);
         return userRepository.findById(id).get();
     }
 
@@ -45,7 +43,6 @@ public class UserService implements UserServiceInterface{
     public void updateUser(User u) {
         entityManager.merge(u);
         entityManager.flush();
-//        userRepository.save(u);
     }
 
     public List<User> getAllUsers() {
@@ -63,11 +60,7 @@ public class UserService implements UserServiceInterface{
             user = entityManager.merge(user); // For existing users, use merge
         }
         entityManager.flush();
-//        entityManager.persist(user);
-////        entityManager.merge(user);
-//        entityManager.flush();
         return user;
-//        return userRepository.save(user);
     }
 
     @Transactional
@@ -77,7 +70,6 @@ public class UserService implements UserServiceInterface{
             entityManager.remove(user);
             entityManager.flush();
         }
-//        userRepository.deleteById(id);
     }
 
     public void getUserRole(int id) {

@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
@@ -22,9 +21,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
     // Find all reservations with a specific status
     @Query("SELECT r from Reservation r where r.status = :status")
     List<Reservation> findByStatus(String status);
-
-//    @Query("SELECT r from Reservation r where r.bookId = :bookId")
-//    Reservation findReservationByBookId(int book_id);
 
     @Query("SELECT r FROM Reservation r WHERE r.bookId = :bookId")
     Reservation findReservationByBookId(@Param("bookId") int bookId);

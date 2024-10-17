@@ -27,9 +27,7 @@ public class ReservationService implements ReservationServiceInterface{
         this.bookService = bookService;
     }
 
-
     public Reservation findReservationByName(int book_id) {
-//        return database.findReservationByName(res_name);
         if (reservationRepository.findReservationByBookId(book_id) == null) {
             throw new ResourceNotFoundException("Reservation not found");
         }
@@ -46,16 +44,6 @@ public class ReservationService implements ReservationServiceInterface{
         else {
             throw new ResourceNotFoundException("Reservation not found or you  don't have permission to delete it.");
         }
-
-//        Reservation reservationToDelete = findReservationById(res_id);
-//        if (reservationToDelete != null && reservationToDelete.getUserId() == user_id) {
-//            reservationRepository.deleteById(res_id);
-//        }else {
-//            throw new ResourceNotFoundException("Reservation not found or you don't have permission to delete it.");
-//        }
-
-        //        reservationRepository.delete(res);
-//        reservationRepository.deleteById(res_id);
     }
 
     public List<Reservation> getReservations() {
@@ -64,14 +52,12 @@ public class ReservationService implements ReservationServiceInterface{
 
     @Transactional
     public void addReservation(Reservation res) {
-//        reservationRepository.save(res);
         entityManager.persist(res);
         entityManager.flush();
     }
 
     @Transactional
     public void updateReservation(Reservation res) {
-//        reservationRepository.save(res);
         entityManager.merge(res);
         entityManager.flush();
     }
@@ -88,11 +74,9 @@ public class ReservationService implements ReservationServiceInterface{
         // If it was reserved, returns false
         // else, changes the status of book to reserved and updates the reserve array
         Book bookToReserve = bookService.findBookById(bookId);
-//        Book bookToReserve = bookRepository.findBookById(bookId);
         if (bookToReserve != null && bookToReserve.getAvailable()) {
             bookToReserve.setAvailable(false);
             // Mark the book as reserved
-//            reservationService.addReservation(new Reservation(bookId, user_id, "pending")); // Add reservation to the library's list
             reservationRepository.save(new Reservation(bookId, user_id, "pending"));
             return "Reservation request successful";
         } else if (bookToReserve != null && !bookToReserve.getAvailable()) {

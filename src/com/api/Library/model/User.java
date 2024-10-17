@@ -1,7 +1,6 @@
 package com.api.Library.model;
 
 import jakarta.persistence.*;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -11,7 +10,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.Scanner;
-
 
 @Entity
 @Table(name = "USERS")
