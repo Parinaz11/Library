@@ -4,6 +4,8 @@ import com.api.Library.model.User;
 import com.api.Library.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder; // Spring Security password encoder
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,11 @@ public class UserService {
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder; // Initialize password encoder
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(); // Return the BCryptPasswordEncoder bean
     }
 
     public Optional<User> getUserById(int id) {
