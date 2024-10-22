@@ -1,36 +1,26 @@
 package com.api.Library.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.api.Library.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/auth")
 public class AuthController {
 
-    // Custom login page
-    @GetMapping("/login")
-    public String login() {
-        return "login";  // This will map to a login.html view in the templates folder
+    @Autowired
+    private AuthService authService;
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestParam String username, @RequestParam String password) {
+        String token = authService.login(username, password);
+        return ResponseEntity.ok(token);
     }
 
-    // Custom logout handler (optional if you want to handle logout in your controller)
-    @RequestMapping("/logout-success")
-    public String logoutPage(Authentication authentication) {
-        if (authentication != null) {
-            // Perform any additional logout logic here if needed
-        }
-        return "redirect:/login?logout";  // Redirects to login page with a "logged out" message
-    }
-
-    // OAuth2 login handler (optional for custom views)
-    @GetMapping("/oauth2/authorization/github")
-    public String oauth2LoginGithub() {
-        return "redirect:/oauth2/authorization/github";  // Redirect to GitHub OAuth2 login
-    }
-
-    @GetMapping("/oauth2/authorization/google")
-    public String oauth2LoginGoogle() {
-        return "redirect:/oauth2/authorization/google";  // Redirect to Google OAuth2 login
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout() {
+        // In a stateless JWT-based system, you can invalidate tokens client-side.
+        return ResponseEntity.ok("Logged out successfully");
     }
 }
