@@ -41,7 +41,7 @@ https://mvnrepository.com/artifact/com.google.apis/google-api-services-calendar/
 
 What this project has:
 
-Interactive Terminal, Arraylist Database, *H2 Database and JPA Repository*, MondoDB Database, Swagger, 3-tier Architecture, Dependency Injection, slf4j Log, *Log with AOP*, *Custom Exceptions*, Entity Manager, Security and Validation, Unit Test, UI Using Google Calendar API
+Interactive Terminal, Arraylist Database, *H2 Database and JPA Repository*, MongoDB Database, Swagger, 3-tier Architecture, Dependency Injection, slf4j Log, *Log with AOP*, *Custom Exceptions*, Entity Manager, Security and Validation, Unit Test, UI Using Google Calendar API
 ---
 
 # Library Application with terminal (httpClient.java)
