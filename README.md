@@ -1,118 +1,191 @@
-# Book Library Application (run LibraryApplication.java)
+# Book Library Application (Spring Boot)
 
-For REST API endpoints and program documentation, run the program and open http://localhost:8080/swagger-ui/index.html
+Run the application from:  
+`LibraryApplication.java`
 
-Checkout the h2 database at http://localhost:8080/h2-console with JDBC URL set to "jdbc:h2:file:./data/library_database"
+## API Documentation (Swagger)
 
-Commands in postman:
+After starting the project, access the API documentation here:
 
-GET localhost:8080/users
+http://localhost:8080/swagger-ui/index.html
 
-GET localhost:8080/books
+## Database Access
 
-GET localhost:8080/reservations
+### H2 Console
 
-Checkout custom exceptions with command GET GET localhost:8080/users/20 (since we don't have any user with id set to 20)
+Access the embedded database at:
 
-For UI:
+http://localhost:8080/h2-console
 
-POST localhost:8080/books
+**JDBC URL:**
+```
+jdbc:h2:file:./data/library_database
+```
 
-body:
-{
-    "title": "DotinProject",
-    "author": "Maryam",
-    "available": true,
-    "pages": 635,
-    "user": null
-}
-
-POST localhost8080/users/13/reserve-book
-
-params -> bookName = DotinProject
-
-Then, the reservations will be shown at google calendar
-
-![Screenshot (613)](https://github.com/user-attachments/assets/d690004f-5068-4214-ba96-be4bdee5a81a)
-
-### Google Calendar UI
-download and add JAR file:
-https://mvnrepository.com/artifact/com.google.apis/google-api-services-calendar/v3-rev20220715-1.32.1
-
-What this project has:
-
-Interactive Terminal, Arraylist Database, *H2 Database and JPA Repository*, MongoDB Database, Swagger, 3-tier Architecture, Dependency Injection, slf4j Log, *Log with AOP*, *Custom Exceptions*, Entity Manager, Security and Validation, Unit Test, UI Using Google Calendar API
 ---
 
-# Library Application with terminal (httpClient.java)
+## REST API Endpoints (Postman)
 
-After logging in and authorization, users are presented with a menu based on their role (User, Admin, or Manager). Each role has access to specific options in their menu, allowing them to perform actions appropriate to their role. Once their tasks are completed, they can exit the program by selecting the exit option
+### Users
+```
+GET http://localhost:8080/users
+```
 
-## User Authentication and Password Hashing
+### Books
+```
+GET http://localhost:8080/books
+```
 
-### Password Hashing in the `User` Class
+### Reservations
+```
+GET http://localhost:8080/reservations
+```
 
-In this library system, user authentication is handled securely by hashing passwords with the SHA-256 algorithm before storing them. This ensures that raw (plain-text) passwords are never stored in the database, reducing the risk of password exposure.
+### Example (Custom Exception Test)
+```
+GET http://localhost:8080/users/20
+```
+> (Triggers exception since user ID 20 does not exist)
 
-### How Password Hashing Works
+---
 
-1. **Salt Generation**:
-    - Before hashing the password, a unique salt is generated for each user. The salt is a random sequence of bytes that adds an additional layer of security to the hashing process. This prevents attackers from using precomputed tables (like rainbow tables) to crack the hash.
-    - The salt is generated using the `SecureRandom` class, which produces a cryptographically strong random value. The generated salt is then encoded into a string format using Base64 for easy storage.
+## Example Requests
 
-2. **Password Hashing**:
-    - Once the salt is generated, the password is hashed using the SHA-256 algorithm. The salt is combined with the password, and the resulting value is passed through the hashing algorithm.
-    - The `MessageDigest` class is used to perform the hashing. The hashed password is then encoded into a Base64 string, which is stored alongside the salt.
+### Create Book
+```
+POST http://localhost:8080/books
+```
 
-3. **Storing and Verifying Passwords**:
-    - During user registration, the system generates a salt and hashes the user's password. The hashed password and salt are stored in the `User` object (and by extension, in the database).
-    - When a user attempts to log in, the system hashes the provided password using the same salt stored for that user. It then compares the resulting hash with the stored hash to verify the password.
+```json
+{
+  "title": "DotinProject",
+  "author": "Maryam",
+  "available": true,
+  "pages": 635,
+  "user": null
+}
+```
 
-### Login Process
+---
 
-Upon login, the system prompts the user to enter their username and password. The system retrieves the stored salt and hashed password associated with the username, hashes the entered password with the same salt, and compares the two hashes:
+### Reserve Book (Google Calendar Integration)
 
-- If the hashes match, the login is successful, and the user is granted access to the system.
-- If the hashes do not match, the login fails, and the user is prompted to try again.
+```
+POST http://localhost:8080/users/13/reserve-book?bookName=DotinProject
+```
 
-This method of password storage and verification ensures that even if the database is compromised, the attackers would not have access to the user's plain-text passwords.
-___
+---
 
-## User Class Methods
+## Google Calendar Integration
 
-The `User` class in the library system allows users to interact with the library's book reservation system. Below is a description of the key methods:
+Reservations are automatically synced with Google Calendar.
 
-### `showAvailableBooks()`
-This method displays a list of all books that are currently available for reservation. It checks the availability status of each book in the library and prints out the book's ID, title, author, and number of pages.
+### UI Screenshot
 
-### `reservationRequest(Scanner in)`
-This method allows the user to request a reservation for a book. It prompts the user to enter the book's name, checks if the book is available, and if so, attempts to reserve it. If the reservation is successful, a confirmation message is displayed; otherwise, it informs the user that the reservation request failed because the book is already reserved.
+![Screenshot](https://github.com/user-attachments/assets/d690004f-5068-4214-ba96-be4bdee5a81a)
 
-### `pendingReserveBooks()`
-This method displays a list of all books that the user has requested to reserve but are still pending approval. It filters the user's reservations to show only those with a "pending" status, listing the reservation ID, book ID, and title of each pending book.
+### Setup Requirement
 
-### `deleteReserveRequest(Scanner in)`
-This method allows the user to delete a pending reservation request. The user is prompted to enter the name of the book for which they want to cancel the reservation. If a matching reservation is found, and it belongs to the user, the reservation is deleted. A confirmation message is displayed upon successful deletion.
+Download and add the Google Calendar API JAR:
 
-### `showReservedBooks()`
-This method shows all books that the user has successfully reserved. It filters the user's reservations to show only those with an "approved" status, listing the reservation ID, book ID, and title of each reserved book.
+https://mvnrepository.com/artifact/com.google.apis/google-api-services-calendar/v3-rev20220715-1.32.1
 
-### `getBookNameFromUser(Scanner in)`
-This is a helper method that prompts the user to enter a book name. The entered name is then returned for further processing by other methods.
+---
 
-### `Additional Utility Method:`
-- `showFilteredBooks(String stat)`: This helper method filters and displays books based on the reservation status provided (`"pending"` or `"approved"`). It is used by both `pendingReserveBooks()` and `showReservedBooks()` to avoid code duplication.
+## Project Features
 
-### Menu Navigation:
-- `showMenu(Scanner in)`: This method displays the main menu to the user, allowing them to choose from the available actions (e.g., viewing available books, making a reservation). After the user selects an option, the corresponding method is called. The user is then asked if they wish to continue using the system.
+- 3-Tier Architecture
+- RESTful API with Spring Boot
+- Dependency Injection
+- JPA + Entity Manager
+- H2 Database
+- MongoDB Integration
+- Swagger UI Documentation
+- Logging with SLF4J
+- AOP-based Logging
+- Custom Exceptions
+- Validation
+- Unit Testing
+- Security (Authentication & Authorization)
+- Google Calendar API Integration
+- Interactive Terminal UI
+- In-memory ArrayList database (legacy layer)
 
-___
-### Admin Class
+---
 
-The `Admin` class extends the `User` class, providing additional capabilities for managing the library system:
+# Terminal-Based Version (httpClient.java)
 
-- `addBook()`: Allows the admin to add new books to the library by entering the book's title and author.
-- `removeBook()`: Enables the admin to remove books from the library by specifying the book's ID.
-- `showMenu(Scanner in)`: Displays a menu for the admin to choose actions like viewing all books, adding a book, removing a book, or viewing all users.
-- `runFuncForCommand(int choice, Scanner in)`: Executes the command selected from the menu, such as adding or removing a book.
+This version provides a CLI-based interface after login and authorization.
 
+Users are shown role-based menus:
+- User
+- Admin
+- Manager
+
+Each role has specific permissions and actions. The system exits after task completion or user selection.
+
+---
+
+## Authentication & Security
+
+### Password Hashing (SHA-256 + Salt)
+
+Passwords are never stored in plain text. Instead:
+
+- Each user gets a unique cryptographic salt
+- Passwords are hashed using SHA-256 + salt
+- Only hashed values are stored in the database
+
+---
+
+### Login Flow
+
+1. User enters username and password
+2. System retrieves stored salt + hash
+3. Input password is hashed with stored salt
+4. Hashes are compared
+   - Match → Login successful
+   - No match → Access denied
+
+---
+
+## User Module
+
+### Available Methods
+
+- `showAvailableBooks()`  
+  Displays all books available for reservation.
+
+- `reservationRequest(Scanner in)`  
+  Requests a book reservation.
+
+- `pendingReserveBooks()`  
+  Shows pending reservation requests.
+
+- `deleteReserveRequest(Scanner in)`  
+  Cancels a pending reservation.
+
+- `showReservedBooks()`  
+  Displays approved reservations.
+
+- `getBookNameFromUser(Scanner in)`  
+  Helper method for input handling.
+
+- `showFilteredBooks(String stat)`  
+  Internal helper for filtering reservations.
+
+- `showMenu(Scanner in)`  
+  Main user menu navigation.
+
+---
+
+## Admin Module
+
+The `Admin` class extends `User` and provides system management features:
+
+- `addBook()` → Add new books
+- `removeBook()` → Delete books by ID
+- `showMenu(Scanner in)` → Admin dashboard menu
+- `runFuncForCommand(int choice, Scanner in)` → Executes admin actions
+
+---
